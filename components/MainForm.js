@@ -5,26 +5,18 @@ import { addLocation } from '../store/StoreDispatchers';
 export default function MainForm() {
 
   const [location, setLocation] = useState('');
-  const { dispatch } = useStore()
-
-
+  const { dispatch } = useStore();
 
   const changeLocationHandler = (e) => {
     setLocation(e.target.value)
   }
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
 
-    dispatch(addLocation(location))
+    dispatch(addLocation(location));
 
-    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=London&aqi=yes`
-    );
-    const data = await response.json()
-    console.log(data);
-
-    setLocation('')
-
+    setLocation('');
   }
 
   return (

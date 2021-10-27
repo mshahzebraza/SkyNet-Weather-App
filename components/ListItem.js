@@ -3,8 +3,10 @@
 export default function ListItem(props) {
 
   return (
-    <li onClick={props.click} >
+    <li >
       {props.children}
+      <button onClick={props.click}>Remove</button>
+      <button onClick={props.click}>Search</button>
     </li>
   )
 }

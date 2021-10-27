@@ -15,16 +15,17 @@
 // DispatchFn Variables
 export const actionCreators = {
   ADD_LOCATION: `APP/LOCATION/ADD`,
-  REMOVE_LOCATION: `APP/LOCATION/REMOVE`
+  REMOVE_LOCATION: `APP/LOCATION/REMOVE`,
+  // RESEARCH_LOCATION: `APP/LOCATION/SEARCH`
 }
 
 
 // DispatchFn - to create a suitable object parameter for the dispatchFn
-export const addLocation = (location) => ({
+export const addLocation = (locationName) => ({
   type: actionCreators.ADD_LOCATION,
   payload: {
-    locationName: location,
-    locationId: `loc-${location}`
+    locationName: locationName,
+    locationId: `loc-${locationName}`
   },
 })
 
@@ -32,3 +33,8 @@ export const removeLocation = (locationId) => ({
   type: actionCreators.REMOVE_LOCATION,
   payload: locationId,
 })
+
+// export const searchLocation = (locationName) => ({
+//   type: actionCreators.RESEARCH_LOCATION,
+//   payload: locationName,
+// })

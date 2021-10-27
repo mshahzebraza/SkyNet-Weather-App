@@ -8,18 +8,29 @@ export default function HistoryList() {
 
   const { recentLocations } = state;
 
-  const clickHandler = (removeItemId) => {
+  const removeHandler = (removeItemId) => {
     console.log(`clicked ${removeItemId}`);
     dispatch(removeLocation(removeItemId))
+  }
+
+  const searchHandler = (searchItem) => {
+    // dispatch()
+    console.log(`searching ${searchItem}`);
   }
 
   return (
     <ul>
       {recentLocations.map(locItem => {
         return (
-          <ListItem key={locItem.locationId} click={() => {
-            clickHandler(locItem.locationId)
-          }}  >
+          <ListItem
+            key={locItem.locationId}
+            remove={() => {
+              removeHandler(locItem.locationId)
+            }}
+            search={() => {
+              searchHandler(locItem.locationName)
+            }}
+          >
             {locItem.locationName}
           </ListItem>
         )

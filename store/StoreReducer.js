@@ -1,10 +1,9 @@
 // use of the reducer is just to make fetching data from the context easier. Otherwise, the context is the real store.
 import { actionCreators } from './StoreDispatchers';
-import { addLocation } from './StoreDispatchers';
-import { removeLocation } from './StoreDispatchers';
 
 // Initial State
 export const initialState = {
+  currentLocation: ' ',
   recentLocations: []
 }
 
@@ -15,8 +14,10 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
   switch (action.type) {
 
     case actionCreators.ADD_LOCATION:
+
       return {
         ...state,
+        currentLocation: action.payload.locationName,
         recentLocations: [
           ...state.recentLocations,
           action.payload
@@ -26,10 +27,6 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
 
 
     case actionCreators.REMOVE_LOCATION:
-      const x = state.recentLocations.filter((location) => {
-        return location.id !== action.payload
-      })
-      console.log(x);
 
       return {
         ...state,
