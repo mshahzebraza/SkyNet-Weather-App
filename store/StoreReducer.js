@@ -3,7 +3,18 @@ import { actionCreators } from './StoreDispatchers';
 
 // Initial State
 export const initialState = {
-  currentLocation: ' ',
+  current: {
+    location: ``,
+    country: ``,
+    condition: ``,
+    tempAct: ``,
+    tempFl: ``,
+    windDir: ``,
+    windSpeed: ``,
+    humidity: ``,
+    lastUpdated: ``,
+    isDay: ``,
+  },
   recentLocations: []
 }
 
@@ -17,7 +28,9 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
 
       return {
         ...state,
-        currentLocation: action.payload.locationName,
+        // current: {
+        //   location: action.payload.locationName
+        // },
         recentLocations: [
           ...state.recentLocations,
           action.payload
@@ -36,14 +49,27 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
       }
       break;
 
+    case actionCreators.SEARCH_CURRENT:
+
+      return {
+        ...state,
+        current: {
+          ...state.current,
+          location: action.payload.location.name,
+          country: action.payload.location.country,
+          condition: action.payload.current.condition.text,
+          tempAct: action.payload.current.temp_c,
+          tempFl: action.payload.current.temp_feelslike_c,
+          windDir: action.payload.current.wind_dir,
+          windSpeed: action.payload.current.wind_kph,
+          humidity: action.payload.current.humidity,
+          lastUpdated: action.payload.current.last_updated,
+          isDay: action.payload.current.is_day,
+        }
+      }
+      break;
+
     default:
       break;
   }
 }
-
-// recentLocations: [
-//   {
-//     locationName,
-//     locationId
-//   }
-// ]

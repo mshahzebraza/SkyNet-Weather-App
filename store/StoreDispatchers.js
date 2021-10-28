@@ -16,7 +16,7 @@
 export const actionCreators = {
   ADD_LOCATION: `APP/LOCATION/ADD`,
   REMOVE_LOCATION: `APP/LOCATION/REMOVE`,
-  // RESEARCH_LOCATION: `APP/LOCATION/SEARCH`
+  SEARCH_CURRENT: `APP/SEARCH/CURRENT`
 }
 
 
@@ -34,7 +34,7 @@ export const removeLocation = (locationId) => ({
   payload: locationId,
 })
 
-// export const searchLocation = (locationName) => ({
-//   type: actionCreators.RESEARCH_LOCATION,
-//   payload: locationName,
-// })
+export const searchCurrent = (weatherData) => ({
+  type: actionCreators.SEARCH_CURRENT,
+  payload: weatherData,
+})
