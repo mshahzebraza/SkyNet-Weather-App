@@ -19,22 +19,25 @@ export default function HistoryList() {
   }
 
   return (
-    <ul>
-      {recentLocations.map(locItem => {
-        return (
-          <ListItem
-            key={locItem.locationId}
-            remove={() => {
-              removeHandler(locItem.locationId)
-            }}
-            search={() => {
-              searchHandler(locItem.locationName)
-            }}
-          >
-            {locItem.locationName}
-          </ListItem>
-        )
-      })}
-    </ul>
+    <>
+      <h2>Recent Inputs</h2>
+      <ul>
+        {recentLocations.map(locItem => {
+          return (
+            <ListItem
+              key={locItem.locationId}
+              remove={() => {
+                removeHandler(locItem.locationId)
+              }}
+              search={() => {
+                searchHandler(locItem.locationName)
+              }}
+            >
+              {locItem.locationName}
+            </ListItem>
+          )
+        })}
+      </ul>
+    </>
   )
 }

@@ -21,7 +21,7 @@ export default function MainForm() {
 
   return (
     <>
-      <h1>HomePage</h1>
+      <h1>Form</h1>
 
       <form action="#" onSubmit={submitHandler} >
 
