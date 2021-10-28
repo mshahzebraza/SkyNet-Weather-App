@@ -2,7 +2,8 @@ export default function WeatherDetail(props) {
 
   return (
     <>
-      <h3>Weather Conditions in {props.weather.location} ({props.weather.country}) is as follow.</h3>
+      <h1>Current Weather Details</h1>
+      <h5>Weather Conditions in {props.weather.location} ({props.weather.country}) is as follow.</h5>
       <ul>
         <li>
           Weather Conditions: {props.weather.condition}

@@ -1,32 +1,29 @@
 import { useState } from 'react';
-import useStore from '../store/StoreContext';
-import { addLocation } from '../store/StoreDispatchers';
 
-export default function MainForm() {
+export default function MainForm(props) {
 
   const [location, setLocation] = useState('');
-  const { dispatch } = useStore();
 
-  const changeLocationHandler = (e) => {
+  const changeHandler = (e) => {
     setLocation(e.target.value)
   }
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    dispatch(addLocation(location));
+    props.submit(location)
 
     setLocation('');
   }
 
   return (
     <>
-      <h1>Form</h1>
+      <h1>Location Search Form</h1>
 
       <form action="#" onSubmit={submitHandler} >
 
         <input
-          onChange={changeLocationHandler}
+          onChange={changeHandler}
           value={location}
           type="text"
           placeholder="Search for the location"

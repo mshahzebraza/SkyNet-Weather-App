@@ -1,7 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
-import useStore from "../store/StoreContext"
-import { updateCurrent } from "../store/StoreDispatchers";
+// COMPONENTS
 import WeatherDetail from "./WeatherDetail";
+import MainForm from '../components/MainForm';
+
+// DEPENDENCIES
+import { useEffect, useCallback } from "react";
+import useStore from "../store/StoreContext"
+import { addLocation, updateCurrent } from "../store/StoreDispatchers";
+
 
 export default function CurrentWeather(props) {
   let lastLocation;
@@ -29,7 +34,6 @@ export default function CurrentWeather(props) {
   const fetchHandler = useCallback(async (location = 'Washington') => {
 
     try {
-      console.log(location);
       // API Call
       const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=${location}&aqi=yes`)
 
@@ -37,6 +41,7 @@ export default function CurrentWeather(props) {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
+        dispatch(addLocation(location))
         dispatch(updateCurrent(data))
       }
       // Bad Response - fetch error message and log to console IF invalid entry
@@ -73,8 +78,9 @@ export default function CurrentWeather(props) {
   return (
 
     <div className='card'>
-      <h1>Current Weather Details</h1>
+
       {weatherIsValid && <WeatherDetail weather={weatherData} />}
+      <MainForm submit={fetchHandler} />
       <button onClick={clickHandler} >Click me to reload Data</button>
     </div>
 

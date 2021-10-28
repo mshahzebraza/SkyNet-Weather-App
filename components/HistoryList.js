@@ -20,7 +20,7 @@ export default function HistoryList() {
 
   return (
     <>
-      <h2>Recent Inputs</h2>
+      <h2>Recent Searches</h2>
       <ul>
         {recentLocations.map(locItem => {
           return (
