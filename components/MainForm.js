@@ -27,7 +27,9 @@ export default function MainForm(props) {
           value={location}
           type="text"
           placeholder="Search for the location"
+          required
         />
+        {props.errText && <pre>{props.errText}</pre>}
 
         <button type="submit">Submit</button>
 

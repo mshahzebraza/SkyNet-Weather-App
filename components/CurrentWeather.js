@@ -2,14 +2,19 @@
 import WeatherDetail from "./WeatherDetail";
 import MainForm from '../components/MainForm';
 
-// DEPENDENCIES
-import { useEffect, useCallback } from "react";
-import useStore from "../store/StoreContext"
+// OBJECTS & STYLES
 import { addLocation, updateCurrent } from "../store/StoreDispatchers";
+import styles from '../styles/CurrentWeather.module.scss';
+
+// DEPENDENCIES
+import { useState, useEffect, useCallback } from "react";
+import useStore from "../store/StoreContext"
 
 
 export default function CurrentWeather(props) {
-  let lastLocation;
+
+  const [formError, setFormError] = useState('');
+  const [responseIsValid, setResponseIsValid] = useState(true);
 
   // Get current weather & recent inputs
   const {
@@ -20,12 +25,7 @@ export default function CurrentWeather(props) {
     dispatch
   } = useStore();
 
-  const { isValid: weatherIsValid } = weatherData
-
-  // get the last input IF there is a recent input
-  weatherIsValid > 0
-    ? lastLocation = weatherData.location
-    : null;
+  const lastLocation = weatherData.location
 
 
   // Called if 
@@ -37,21 +37,28 @@ export default function CurrentWeather(props) {
       // API Call
       const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=${location}&aqi=yes`)
 
-      // Good Response - fetch data and update the current weather IF valid entry
+      // Good Response - fetch data and update the current weather & search history IF valid entry
       if (response.ok) {
+        setFormError(null)
+        setResponseIsValid(true)
+        console.log(`good response`);
         const data = await response.json();
         console.log(data);
         dispatch(addLocation(data.location.name))
         dispatch(updateCurrent(data))
       }
+
       // Bad Response - fetch error message and log to console IF invalid entry
       if (!response.ok) {
+        setResponseIsValid(false)
+        console.log(`bad response`);
         const { error:
           {
             message: errMsg
           }
         } = await response.json()
 
+        setFormError(errMsg)
         throw new Error(errMsg);
       }
 
@@ -69,7 +76,7 @@ export default function CurrentWeather(props) {
     if (lastLocation) {
       fetchHandler(lastLocation)
     }
-  }, [fetchHandler, lastLocation])
+  }, [fetchHandler])
 
   const clickHandler = (e) => {
     fetchHandler()
@@ -77,11 +84,15 @@ export default function CurrentWeather(props) {
 
   return (
 
-    <div className='card'>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <MainForm submit={fetchHandler} errText={formError} />
+        <button onClick={clickHandler} >Reload / Default Search</button>
+      </div>
 
-      {weatherIsValid && <WeatherDetail weather={weatherData} />}
-      <MainForm submit={fetchHandler} />
-      <button onClick={clickHandler} >Click me to reload Data</button>
+      <div className={styles.card}>
+        {<WeatherDetail weather={weatherData} resIsValid={responseIsValid} />}
+      </div>
     </div>
 
   )

@@ -1,6 +1,8 @@
-// Page imports
+// Page
 import HistoryList from '../components/HistoryList';
+
 // Dependency imports 
+import styles from '../styles/HomePage.module.scss';
 import Head from 'next/head'
 import CurrentWeather from '../components/CurrentWeather';
 
@@ -9,9 +11,12 @@ export default function HomePage(props) {
 
   return (
     <>
-      <CurrentWeather info='s' />
+      <div className='container' >
+        <CurrentWeather info='s' />
 
-      <HistoryList />
+        <HistoryList />
+
+      </div>
     </>
   );
 }
