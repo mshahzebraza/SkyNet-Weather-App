@@ -49,7 +49,7 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
       }
       break;
 
-    case actionCreators.SEARCH_CURRENT:
+    case actionCreators.UPDATE_CURRENT:
 
       return {
         ...state,
