@@ -4,6 +4,7 @@ import { actionCreators } from './StoreDispatchers';
 // Initial State
 export const initialState = {
   current: {
+    isValid: false,
     location: ``,
     country: ``,
     condition: ``,
@@ -55,6 +56,7 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
         ...state,
         current: {
           ...state.current,
+          isValid: !!action.payload.location,
           location: action.payload.location.name,
           country: action.payload.location.country,
           condition: action.payload.current.condition.text,

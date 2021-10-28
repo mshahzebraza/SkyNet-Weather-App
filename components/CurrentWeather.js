@@ -15,6 +15,7 @@ export default function CurrentWeather(props) {
     dispatch
   } = useStore();
 
+  const { isValid: weatherIsValid } = weatherData
 
   // get the last input IF there is a recent input
   recentLocations.length > 0
@@ -26,19 +27,19 @@ export default function CurrentWeather(props) {
   // 1. Inputs change, parameter: input, 
   // 2. ClickMe btn clicked, parameter: null
   const fetchHandler = useCallback(async (location = 'Washington') => {
-    // !FIXME: The Default parameter doesn't work
 
     try {
       console.log(location);
       // API Call
       const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=${location}&aqi=yes`)
 
-      // Good Response - fetch data and update the current weather
+      // Good Response - fetch data and update the current weather IF valid entry
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         dispatch(updateCurrent(data))
       }
-      // Bad Response - fetch error message and log to console
+      // Bad Response - fetch error message and log to console IF invalid entry
       if (!response.ok) {
         const { error:
           {
@@ -66,8 +67,6 @@ export default function CurrentWeather(props) {
   }, [fetchHandler, lastLocation])
 
   const clickHandler = (e) => {
-    console.log(`in clickHandler`);
-    console.log(e);
     fetchHandler()
   }
 
@@ -75,7 +74,7 @@ export default function CurrentWeather(props) {
 
     <div className='card'>
       <h1>Current Weather Details</h1>
-      {lastLocation && <WeatherDetail weather={weatherData} />}
+      {weatherIsValid && <WeatherDetail weather={weatherData} />}
       <button onClick={clickHandler} >Click me to reload Data</button>
     </div>
 
