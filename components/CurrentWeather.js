@@ -23,8 +23,8 @@ export default function CurrentWeather(props) {
   const { isValid: weatherIsValid } = weatherData
 
   // get the last input IF there is a recent input
-  recentLocations.length > 0
-    ? lastLocation = recentLocations[recentLocations.length - 1].locationName
+  weatherIsValid > 0
+    ? lastLocation = weatherData.location
     : null;
 
 
@@ -41,7 +41,7 @@ export default function CurrentWeather(props) {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        dispatch(addLocation(location))
+        dispatch(addLocation(data.location.name))
         dispatch(updateCurrent(data))
       }
       // Bad Response - fetch error message and log to console IF invalid entry
