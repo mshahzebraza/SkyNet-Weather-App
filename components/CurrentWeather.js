@@ -16,24 +16,28 @@ export default function CurrentWeather(props) {
 
   console.log(weatherData);
 
-  const fetchHandler = useCallback(async (location = `Washington`) => {
+  const fetchHandler = useCallback(async (location = lastLocationName) => {
 
+    console.log(`default location is : ${location}`);
+    console.log(`default location is : ${lastLocationName}`);
     try {
 
-      console.log(`fetch Running ...`);
-      console.log(`fetch Location: ${location}`);
       const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=${location}&aqi=yes`)
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         dispatch(searchCurrent(data))
-      } else
-        if (!response.ok) {
-          const errorData = await response.json()
-          const { code: errCode, message: errMsg } = errorData.error
-          throw new Error(errMsg);
-        }
+
+      } else if (!response.ok) {
+        const { error:
+          {
+            // code: errCode,
+            message: errMsg
+          }
+        } = await response.json()
+
+        throw new Error(errMsg);
+      }
 
     } catch (error) {
       console.error(error);
