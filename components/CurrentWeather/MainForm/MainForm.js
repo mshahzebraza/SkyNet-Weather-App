@@ -30,8 +30,8 @@ export default function MainForm(props) {
           placeholder="Search for the location"
           required
         />
+        {props.errText && <pre className={styles.controlResponse} >{props.errText}</pre>}
       </div>
-      {props.errText && <pre className={styles.controlResponse} >{props.errText}</pre>}
 
       <div className={styles.controlGroup}>
         <button className={styles.btn} type="submit">Submit</button>

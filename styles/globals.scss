@@ -4,7 +4,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(0, 1, 15);
+  background-color: rgb(94, 221, 126);
   font-size: 1.6rem;
   letter-spacing: 0.035em;
   font-family: Poppins, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
@@ -31,9 +31,9 @@ ul {
 }
 
 input {
-  padding: 0.5rem;
   margin-top: 0.2em;
-  color: rgb(13, 61, 156);
+  color: #385ca4;
+  padding: 0.6rem 1rem;
   font-size: 1.4rem;
   font-family: raleway;
   font-weight: 500;
@@ -44,11 +44,12 @@ input {
   // letter-spacing: 0.5px;
 
   &:focus {
-    border-color: rgb(13, 61, 156);
+    border-color: #385ca4;
+    box-shadow: 0 0.5rem 1rem rgba($color: #385ca4, $alpha: 0.05);
   }
   &::placeholder {
     font-weight: 400;
-    color: rgb(13, 61, 156);
+    color: #385ca4;
   }
 }
 
@@ -57,6 +58,12 @@ button {
   letter-spacing: inherit;
   padding: 0.8rem 1.6rem;
   font-weight: 600;
-  background-color: #fbfbfb;
-  border: 1px solid #222222;
+  border: 1px solid transparent;
+  outline: none;
+  transition: all 0.2s ease;
+  &:hover,
+  &:focus {
+    // border-color: black;
+    box-shadow: 0 0.5rem 1.25rem rgba($color: #000, $alpha: 0.15);
+  }
 }

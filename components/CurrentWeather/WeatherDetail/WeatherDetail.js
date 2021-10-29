@@ -6,9 +6,10 @@ export default function WeatherDetail(props) {
       {/* <h1 className={styles.title} >Current Weather Details</h1> */}
       {props.weather.isValid && props.resIsValid
         ? <div className={styles.data} >
+
           <div className={styles.highlight}>
             <h2 className={styles.location} >{props.weather.location} </h2>
-            <h4 className={styles.country} > - {props.weather.country}</h4>
+            <p className={styles.country} > {props.weather.country}</p>
           </div>
 
           <div className={styles.details}>
@@ -74,15 +75,14 @@ export default function WeatherDetail(props) {
             </ul>
           </div>
 
-
-
         </div>
         : null}
       {props.weather.isValid && props.resIsValid &&
-        <>
-          <pre>Last Updated on {props.weather.lastUpdated}</pre>
-          <pre>{props.weather.isDay ? `day` : `night`}</pre>
-        </>
+        <div className={styles.requestTime} >
+
+          <span>{props.weather.isDay ? `Day` : `Night`}</span>
+          <span>{props.weather.lastUpdated}</span>
+        </div>
       }
 
     </div>

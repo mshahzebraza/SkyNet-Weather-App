@@ -21,8 +21,8 @@ export default function HistoryList(props) {
 
   return (
     <div className={styles.main} >
-      <h2>Recent Searches</h2>
-      <ul>
+      <h3 className={styles.title} >Recent Searches</h3>
+      <ul className={styles.locList} >
         {recentLocations.map(locItem => {
           return (
             <ListItem

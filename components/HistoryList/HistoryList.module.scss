@@ -1,13 +1,23 @@
 .main {
+  padding: 4rem;
   flex: 1 1 30%;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   // height: 30vh;
 
   border-radius: 1rem;
-  background: rgb(215, 116, 116);
+  background: #fff;
   box-shadow: 0 2.5rem 5rem rgba(0, 0, 70, 0.1);
 
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+}
+
+.locList {
+  display: flex;
+  gap: 2rem;
 }

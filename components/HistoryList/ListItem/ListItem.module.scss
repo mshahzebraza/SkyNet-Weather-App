@@ -1,0 +1,39 @@
+.locItem {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  background-color: rgb(234, 234, 234);
+  padding: 0.75rem 2rem;
+  border-radius: 50rem;
+  font-size: 1.4rem;
+}
+.locName {
+}
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //   display: flex;
+  //   // margin: 1rem;
+  // padding: 1rem;
+  background: #ccc;
+  border-radius: 5rem;
+  //   // padding: 0.5rem 0.75rem;
+  //   // position: relative;
+  //   font-family: calibri;
+  //   // font-size: 1rem;
+  // display: none;
+}
+.remove {
+}
+.search {
+}
