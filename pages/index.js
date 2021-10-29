@@ -1,23 +1,20 @@
 // Page
-import HistoryList from '../components/HistoryList';
+import HistoryList from '../components/HistoryList/HistoryList';
 
 // Dependency imports 
-import styles from '../styles/HomePage.module.scss';
 import Head from 'next/head'
-import CurrentWeather from '../components/CurrentWeather';
-
+import CurrentWeather from '../components/CurrentWeather/CurrentWeather';
+import styles from '../styles/Home.module.scss';
 // Page function
-export default function HomePage(props) {
+export default function Home(props) {
 
   return (
-    <>
-      <div className='container' >
-        <CurrentWeather info='s' />
+    <div className={styles.container} >
+      <CurrentWeather info='s' />
 
-        <HistoryList />
+      <HistoryList styles={styles.footer} />
 
-      </div>
-    </>
+    </div>
   );
 }
-HomePage.displayName = `Homepage`
+Home.displayName = `Home`

@@ -1,6 +1,6 @@
 import { StoreProvider } from '../store/StoreContext'
 import { initialState, StoreReducer } from '../store/StoreReducer'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }) {
   return (

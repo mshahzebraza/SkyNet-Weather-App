@@ -1,14 +1,14 @@
 // COMPONENTS
-import WeatherDetail from "./WeatherDetail";
-import MainForm from '../components/MainForm';
+import WeatherDetail from "./WeatherDetail/WeatherDetail";
+import MainForm from './MainForm/MainForm';
 
 // OBJECTS & STYLES
-import { addLocation, updateCurrent } from "../store/StoreDispatchers";
-import styles from '../styles/CurrentWeather.module.scss';
+import { addLocation, updateCurrent } from "../../store/StoreDispatchers";
+import styles from './CurrentWeather.module.scss';
 
 // DEPENDENCIES
 import { useState, useEffect, useCallback } from "react";
-import useStore from "../store/StoreContext"
+import useStore from "../../store/StoreContext"
 
 
 export default function CurrentWeather(props) {
@@ -78,21 +78,16 @@ export default function CurrentWeather(props) {
     }
   }, [fetchHandler])
 
-  const clickHandler = (e) => {
+  const reloadHandler = (e) => {
     fetchHandler()
   }
 
   return (
 
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <MainForm submit={fetchHandler} errText={formError} />
-        <button onClick={clickHandler} >Reload / Default Search</button>
-      </div>
+    <div className={`${styles.main}`}>
+      <MainForm submit={fetchHandler} errText={formError} reload={reloadHandler} />
 
-      <div className={styles.card}>
-        {<WeatherDetail weather={weatherData} resIsValid={responseIsValid} />}
-      </div>
+      {<WeatherDetail weather={weatherData} resIsValid={responseIsValid} />}
     </div>
 
   )
