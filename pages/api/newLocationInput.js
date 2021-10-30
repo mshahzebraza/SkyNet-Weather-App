@@ -26,42 +26,4 @@ export default function handler(req, res) {
   } catch (error) {
     console.error(error);
   }
-
-  // }, [dispatch, searchCurrent])
-
-
-  // useEffect(() => {
-  //   console.log(`UseEffect Running ...`);
-  //   if (lastLocationName) {
-  //     fetchHandler(lastLocationName)
-  //   }
-  // }, [fetchHandler, lastLocationName])
-
-// }
-
-/*
-import { useState, useEffect, useCallback } from "react";
-import useStore from "../store/StoreContext"
-import { searchCurrent } from "../store/StoreDispatchers";
-import WeatherDetail from "./WeatherDetail";
-
-
-
-
-  return (
-
-    <div className='card'>
-      {lastLocationName && <WeatherDetail weather={weatherData} />}
-      <button onClick={fetchHandler} >Click me to reload Data</button>
-    </div>
-
-  )
 }
-
-CurrentWeather.displayName = `CurrentWeather`;
-
-
-
-
-
- */

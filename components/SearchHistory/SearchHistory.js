@@ -2,8 +2,9 @@ import useStore from "../../store/StoreContext"
 import ListItem from "./ListItem/ListItem";
 import { removeLocation } from '../../store/StoreDispatchers';
 
-import styles from './HistoryList.module.scss';
-export default function HistoryList(props) {
+import styles from './SearchHistory.module.scss';
+
+export default function SearchHistory(props) {
 
   const { state, dispatch } = useStore();
 
@@ -22,6 +23,7 @@ export default function HistoryList(props) {
   return (
     <div className={styles.main} >
       <h3 className={styles.title} >Recent Searches</h3>
+
       <ul className={styles.locList} >
         {recentLocations.map(locItem => {
           return (

@@ -1,18 +1,25 @@
-// Page
-import HistoryList from '../components/HistoryList/HistoryList';
-
 // Dependency imports 
 import Head from 'next/head'
-import CurrentWeather from '../components/CurrentWeather/CurrentWeather';
 import styles from '../styles/Home.module.scss';
-// Page function
+
+// Objects & Styles
+
+
+// Components
+import SearchForm from '../components/SearchForm/SearchForm';
+import InfoPanel from '../components/InfoPanel/InfoPanel';
+import SearchHistory from '../components/SearchHistory/SearchHistory';
+
+
+
+// Function
 export default function Home(props) {
 
   return (
     <div className={styles.container} >
-      <CurrentWeather info='s' />
-
-      <HistoryList styles={styles.footer} />
+      <SearchForm />
+      <InfoPanel info='s' />
+      <SearchHistory styles={styles.footer} />
 
     </div>
   );

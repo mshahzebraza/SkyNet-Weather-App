@@ -16,7 +16,9 @@
 export const actionCreators = {
   ADD_LOCATION: `APP/LOCATION/ADD`,
   REMOVE_LOCATION: `APP/LOCATION/REMOVE`,
-  UPDATE_CURRENT: `APP/CURRENT/UPDATE`
+  UPDATE_CURRENT: `APP/CURRENT/UPDATE`,
+  SET_IS_LOADING: `APP/LOADING/SET`,
+  // UPDATE_RESPONSE: `APP/RESPONSE/UPDATE`
 }
 
 
@@ -34,7 +36,12 @@ export const removeLocation = (locationId) => ({
   payload: locationId,
 })
 
-export const updateCurrent = (weatherData) => ({
+export const updateCurrent = (apiResponse) => ({
   type: actionCreators.UPDATE_CURRENT,
-  payload: weatherData,
+  payload: apiResponse,
+})
+
+export const setIsLoading = (isLoading) => ({
+  type: actionCreators.SET_IS_LOADING,
+  payload: isLoading,
 })
