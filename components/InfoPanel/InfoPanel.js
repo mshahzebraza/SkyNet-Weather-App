@@ -21,24 +21,6 @@ export default function InfoPanel(props) {
     dispatch
   } = useStore();
 
-  // const lastLocation = weatherData.location
-
-
-
-
-
-  // works only if the inputs change
-  // useEffect(() => {
-  // console.log(`UseEffect Running ...`);
-  // only if the recent input changes
-  // if (lastLocation) {
-  // fetchHandler(lastLocation)
-  // }
-  // }, [fetchHandler])
-
-  // const reloadHandler = (e) => {
-  //   fetchHandler()
-  // }
 
   return (
 

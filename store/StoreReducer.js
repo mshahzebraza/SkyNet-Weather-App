@@ -36,16 +36,26 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
       break;
 
 
-    case actionCreators.ADD_LOCATION:
+    case actionCreators.UPDATE_HISTORY:
 
       return {
         ...state,
-        // current: {
-        //   location: action.payload.locationName
-        // },
+        recentLocations: action.payload
+      }
+      break;
+
+
+    case actionCreators.PUSH_HISTORY:
+
+      return {
+        ...state,
+
         recentLocations: [
           ...state.recentLocations,
-          action.payload
+          {
+            locationName: action.payload,
+            locationId: `loc-${action.payload}`
+          }
         ]
       }
       break;

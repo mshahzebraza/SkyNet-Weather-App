@@ -1,7 +1,9 @@
+/* IMPORTS */
+
 // DEPENDENCIES
 import { useCallback, useEffect, useState } from 'react';
 import useStore from '../../store/StoreContext';
-import { setIsLoading, updateCurrent, addLocation } from '../../store/StoreDispatchers';
+import { setIsLoading, updateCurrent, pushHistory, updateHistory } from '../../store/StoreDispatchers';
 
 // LIBRARY FUNCTIONS & STYLES
 import styles from './MainForm.module.scss';
@@ -9,13 +11,25 @@ import styles from './MainForm.module.scss';
 // COMPONENTS
 import FormInput from './FormInput/FormInput';
 
-// BODY
+/* BODY */
+
 export default function SearchForm(props) {
 
   const [locationInput, setLocationInput] = useState('');
   const { state, dispatch } = useStore();
+  const {
+    currentSearch: {
+      location: currentLocation
+    },
+    recentLocations
+    // !NOTE : Try the following to get the last element in an array
+    // recentLocations: [...rest, lastLocation]
+  } = state;
+  // console.log(state);
+  console.log('body');
 
   const fetchHandler = useCallback(async (location = 'Washington') => {
+    console.log('fetch Handler');
 
     try {
       // API Call
@@ -27,7 +41,47 @@ export default function SearchForm(props) {
 
         const apiJson = await apiResponse.json();
 
-        dispatch(addLocation(apiJson.location.name))
+        // Searched Location IS NOT Last location - Don't do anything
+        if (apiJson.location.name !== currentLocation) {
+
+          // Searched Location IS ONE OF Last location - reorder history
+          const matchingLocation = recentLocations.find((oneOfRecentLocation) => {
+
+            return oneOfRecentLocation.locationName === apiJson.location.name
+          });
+          console.log(recentLocations);
+          console.log(matchingLocation);
+
+          // WAS SEARCHED EARLIER
+          if (!!matchingLocation) {
+            console.log('Old Search');
+
+            console.log(`currentLocation: ${currentLocation}`);
+            console.log(`apiJson.location.name: ${apiJson.location.name}`);
+
+            const reorderedLocations =
+              recentLocations.reduce((acc, locItem) => {
+
+                if (locItem.locationName === matchingLocation)
+                  return [locItem, ...acc]
+                else {
+                  return [...acc, locItem]
+                }
+              }, []);
+            dispatch(updateHistory(reorderedLocations))
+          }
+
+          // Searched for FIRST TIME - add it to history
+          else {
+            console.log('New Search');
+            console.log(apiJson.location.name);
+            dispatch(pushHistory(apiJson.location.name))
+          }
+
+        }
+
+        // Check if the searchTerm is present anywhere in the list 
+
         // will be a valid Location Name as it is inside a response.ok block
         // !NOTE: Location name should be checked for repetition
         dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: apiJson }))
@@ -55,6 +109,7 @@ export default function SearchForm(props) {
 
 
   useEffect(() => {
+    console.log('useEffect');
     fetchHandler() // On Startup, Call without specifying location
   }, [fetchHandler])
 

@@ -14,7 +14,8 @@
 
 // DispatchFn Variables
 export const actionCreators = {
-  ADD_LOCATION: `APP/LOCATION/ADD`,
+  PUSH_HISTORY: `APP/HISTORY/PUSH`,
+  UPDATE_HISTORY: `APP/HISTORY/UPDATE`,
   REMOVE_LOCATION: `APP/LOCATION/REMOVE`,
   UPDATE_CURRENT: `APP/CURRENT/UPDATE`,
   SET_IS_LOADING: `APP/LOADING/SET`,
@@ -23,12 +24,14 @@ export const actionCreators = {
 
 
 // DispatchFn - to create a suitable object parameter for the dispatchFn
-export const addLocation = (locationName) => ({
-  type: actionCreators.ADD_LOCATION,
-  payload: {
-    locationName: locationName,
-    locationId: `loc-${locationName}`
-  },
+export const updateHistory = (updatedLocations) => ({
+  type: actionCreators.UPDATE_HISTORY,
+  payload: updatedLocations,
+})
+
+export const pushHistory = (newLocationName) => ({
+  type: actionCreators.PUSH_HISTORY,
+  payload: newLocationName,
 })
 
 export const removeLocation = (locationId) => ({
