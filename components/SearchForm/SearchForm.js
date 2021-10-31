@@ -16,9 +16,8 @@ import { scanLocationHistory } from '../../lib/helpers';
 
 export default function SearchForm(props) {
 
-  console.log('');
-  console.log('body');
 
+  // State
   const [locationInput, setLocationInput] = useState('');
   const { state, dispatch } = useStore();
   const {
@@ -29,10 +28,11 @@ export default function SearchForm(props) {
     // !NOTE : Try the following to get the last element in an array
     // recentLocations: [...rest, lastLocation]
   } = state;
-  // console.log(state);
+  console.log(recentLocations);
 
+
+  // Fetch Handler
   const fetchHandler = useCallback(async (location = 'Washington') => {
-    console.log('fetch Handler');
 
     try {
       // API Call
@@ -40,9 +40,11 @@ export default function SearchForm(props) {
 
       // Good Response - fetch data and update the current weather & search history IF valid entry
       if (apiResponse.ok) {
-        console.log(`good response`);
 
         const apiJson = await apiResponse.json();
+        console.log(locationInput);
+        console.log(state);
+        console.log(recentLocations);
         const scanResult = scanLocationHistory(apiJson.location.name, recentLocations)
 
         // WAS SEARCHED EARLIER - Reorder array
@@ -55,17 +57,11 @@ export default function SearchForm(props) {
         }
 
         // !NOTE: Location name should be checked for repetition
-
-        console.log(`Update Current running ...`);
         dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: apiJson }))
-        console.log(`Update Current Ran ...`);
       }
 
       // Bad Response - fetch error message and log to console IF invalid entry
       if (!apiResponse.ok) {
-        console.log(`bad response`);
-        // setErrorText
-        // setResponseIsValid(false)
 
         const apiJson = await apiResponse.json()
         const { error: { message: errorMessage } } = apiJson;
@@ -82,21 +78,21 @@ export default function SearchForm(props) {
   }, [dispatch, updateCurrent])
 
 
+  // UseEffect
   useEffect(() => {
-    console.log('useEffect');
     fetchHandler() // On Startup, Call without specifying location
   }, [fetchHandler])
 
-  const submitHandler = (e) => {
-    console.log(`Start of Submit Handler`);
+  // Submit Handler
+  function submitHandler(e) {
     e.preventDefault();
 
-    dispatch(setIsLoading(true))
-    fetchHandler(locationInput) // location entered in text input
-    dispatch(setIsLoading(false))
+    // dispatch(setIsLoading(true));
+    console.log(recentLocations);
+    fetchHandler(locationInput); // location entered in text input
+    // dispatch(setIsLoading(false));
 
-    setLocationInput('');
-    console.log(`End of Submit Handler`);
+    // setLocationInput('');
   }
 
   return (
