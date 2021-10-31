@@ -10,10 +10,14 @@ import styles from './MainForm.module.scss';
 
 // COMPONENTS
 import FormInput from './FormInput/FormInput';
+import { scanLocationHistory } from '../../lib/helpers';
 
 /* BODY */
 
 export default function SearchForm(props) {
+
+  console.log('');
+  console.log('body');
 
   const [locationInput, setLocationInput] = useState('');
   const { state, dispatch } = useStore();
@@ -26,7 +30,6 @@ export default function SearchForm(props) {
     // recentLocations: [...rest, lastLocation]
   } = state;
   // console.log(state);
-  console.log('body');
 
   const fetchHandler = useCallback(async (location = 'Washington') => {
     console.log('fetch Handler');
@@ -40,51 +43,22 @@ export default function SearchForm(props) {
         console.log(`good response`);
 
         const apiJson = await apiResponse.json();
+        const scanResult = scanLocationHistory(apiJson.location.name, recentLocations)
 
-        // Searched Location IS NOT Last location - Don't do anything
-        if (apiJson.location.name !== currentLocation) {
-
-          // Searched Location IS ONE OF Last location - reorder history
-          const matchingLocation = recentLocations.find((oneOfRecentLocation) => {
-
-            return oneOfRecentLocation.locationName === apiJson.location.name
-          });
-          console.log(recentLocations);
-          console.log(matchingLocation);
-
-          // WAS SEARCHED EARLIER
-          if (!!matchingLocation) {
-            console.log('Old Search');
-
-            console.log(`currentLocation: ${currentLocation}`);
-            console.log(`apiJson.location.name: ${apiJson.location.name}`);
-
-            const reorderedLocations =
-              recentLocations.reduce((acc, locItem) => {
-
-                if (locItem.locationName === matchingLocation)
-                  return [locItem, ...acc]
-                else {
-                  return [...acc, locItem]
-                }
-              }, []);
-            dispatch(updateHistory(reorderedLocations))
-          }
-
-          // Searched for FIRST TIME - add it to history
-          else {
-            console.log('New Search');
-            console.log(apiJson.location.name);
-            dispatch(pushHistory(apiJson.location.name))
-          }
-
+        // WAS SEARCHED EARLIER - Reorder array
+        if (scanResult.matchFound) {
+          dispatch(updateHistory(scanResult.data))
+        }
+        // FIRST SEARCH - add it to history
+        else {
+          dispatch(pushHistory(scanResult.data))
         }
 
-        // Check if the searchTerm is present anywhere in the list 
-
-        // will be a valid Location Name as it is inside a response.ok block
         // !NOTE: Location name should be checked for repetition
+
+        console.log(`Update Current running ...`);
         dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: apiJson }))
+        console.log(`Update Current Ran ...`);
       }
 
       // Bad Response - fetch error message and log to console IF invalid entry
