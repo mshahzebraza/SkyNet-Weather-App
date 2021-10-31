@@ -72,33 +72,61 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
       break;
 
 
-    case actionCreators.UPDATE_CURRENT:
+    case actionCreators.UPDATE_CURRENT_VALID:
 
       return {
         ...state,
         currentSearch: {
           ...state.currentSearch,
-          isValid: action.payload.responseIsValid,
-          errorMessage: !action.payload.responseIsValid ? action.payload.responseData : null,
+          isValid: false,
+          errorMessage: null,
           // equals responseData (errorMsg) for Bad Response and equals null for Good Response
-          location: action.payload.responseIsValid ? action.payload.responseData.location.name : null,
-          country: action.payload.responseIsValid ? action.payload.responseData.location.country : null,
-          condition: action.payload.responseIsValid ? action.payload.responseData.current.condition.text : null,
-          tempAct: action.payload.responseIsValid ? action.payload.responseData.current.temp_c : null,
-          tempFl: action.payload.responseIsValid ? action.payload.responseData.current.temp_feelslike_c : null,
-          windDir: action.payload.responseIsValid ? action.payload.responseData.current.wind_dir : null,
-          windSpeed: action.payload.responseIsValid ? action.payload.responseData.current.wind_kph : null,
-          humidity: action.payload.responseIsValid ? action.payload.responseData.current.humidity : null,
-          lastUpdated: action.payload.responseIsValid ? action.payload.responseData.current.last_updated : null,
-          isDay: action.payload.responseIsValid ? action.payload.responseData.current.is_day : null,
+          location: action.payload.location.name,
+          country: action.payload.location.country,
+          condition: action.payload.current.condition.text,
+          tempAct: action.payload.current.temp_c,
+          tempFl: action.payload.current.temp_feelslike_c,
+          windDir: action.payload.current.wind_dir,
+          windSpeed: action.payload.current.wind_kph,
+          humidity: action.payload.current.humidity,
+          lastUpdated: action.payload.current.last_updated,
+          isDay: action.payload.current.is_day,
+          // !NOTE: Try to conditionally update the data. E.g use destructuring and conditional statements based on responseIsValid
+        },
+        recentLocations: [
+          ...state.recentLocations,
+          {
+            locationName: action.payload.location.name,
+            locationId: `${action.payload.location.name}@${action.payload.current.last_updated}`
+          }
+        ]
+      }
+
+      break;
+
+    case actionCreators.UPDATE_CURRENT_INVALID:
+
+      return {
+        ...state,
+        currentSearch: {
+          ...state.currentSearch,
+          isValid: false,
+          errorMessage: action.payload,
+          // equals responseData (errorMsg) for Bad Response and equals null for Good Response
+          location: null,
+          country: null,
+          condition: null,
+          tempAct: null,
+          tempFl: null,
+          windDir: null,
+          windSpeed: null,
+          humidity: null,
+          lastUpdated: null,
+          isDay: null,
           // !NOTE: Try to conditionally update the data. E.g use destructuring and conditional statements based on responseIsValid
         }
       }
-      // Expected object
-      // {
-      //   responseIsValid: response.ok,
-      //   responseData: errorMessage
-      // }
+
       break;
 
 

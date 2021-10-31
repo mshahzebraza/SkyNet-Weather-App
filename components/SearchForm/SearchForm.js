@@ -40,22 +40,11 @@ export default function SearchForm(props) {
 
       // Good Response - fetch data and update the current weather & search history IF valid entry
       if (apiResponse.ok) {
-
         const apiJson = await apiResponse.json();
-        console.log(recentLocations);
-        const scanResult = scanLocationHistory(apiJson.location.name, recentLocations)
-
-        // WAS SEARCHED EARLIER - Reorder array
-        if (scanResult.matchFound) {
-          dispatch(updateHistory(scanResult.data))
-        }
-        // FIRST SEARCH - add it to history
-        else {
-          dispatch(pushHistory(scanResult.data))
-        }
-
-        // !NOTE: Location name should be checked for repetition
-        dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: apiJson }))
+        console.log(apiJson);
+        // dispatch valid response
+        // update history - after checking for existing
+        // update current - with data
       }
 
       // Bad Response - fetch error message and log to console IF invalid entry
@@ -63,9 +52,8 @@ export default function SearchForm(props) {
 
         const apiJson = await apiResponse.json()
         const { error: { message: errorMessage } } = apiJson;
-
-        dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: errorMessage }))
-
+        // dispatch invalid response
+        // update current - with error message
         throw new Error(errorMessage);
       }
 
@@ -73,8 +61,26 @@ export default function SearchForm(props) {
       console.error(error);
     }
 
-  }, [dispatch, updateCurrent])
+  }, [])
 
+  /* 
+  const scanResult = scanLocationHistory(apiJson.location.name, recentLocations)
+
+  // WAS SEARCHED EARLIER - Reorder array
+  if (scanResult.matchFound) {
+    dispatch(updateHistory(scanResult.data))
+  }
+  // FIRST SEARCH - add it to history
+  else {
+    dispatch(pushHistory(scanResult.data))
+  }
+
+  // !NOTE: Location name should be checked for repetition
+  dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: apiJson }))
+ */
+  /* 
+    dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: errorMessage }))
+   */
 
   // UseEffect
   useEffect(() => {

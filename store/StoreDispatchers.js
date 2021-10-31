@@ -17,7 +17,8 @@ export const actionCreators = {
   PUSH_HISTORY: `APP/HISTORY/PUSH`,
   UPDATE_HISTORY: `APP/HISTORY/UPDATE`,
   REMOVE_LOCATION: `APP/LOCATION/REMOVE`,
-  UPDATE_CURRENT: `APP/CURRENT/UPDATE`,
+  UPDATE_CURRENT_VALID: `APP/CURRENT/VALID_UPDATE`,
+  UPDATE_CURRENT_INVALID: `APP/CURRENT/INVALID_UPDATE`,
   SET_IS_LOADING: `APP/LOADING/SET`,
   // UPDATE_RESPONSE: `APP/RESPONSE/UPDATE`
 }
@@ -39,8 +40,12 @@ export const removeLocation = (locationId) => ({
   payload: locationId,
 })
 
-export const updateCurrent = (apiResponse) => ({
-  type: actionCreators.UPDATE_CURRENT,
+export const updateCurrentValid = (apiResponse) => ({
+  type: actionCreators.UPDATE_CURRENT_VALID,
+  payload: apiResponse,
+})
+export const updateCurrentInvalid = (apiResponse) => ({
+  type: actionCreators.UPDATE_CURRENT_INVALID,
   payload: apiResponse,
 })
 
