@@ -42,8 +42,6 @@ export default function SearchForm(props) {
       if (apiResponse.ok) {
 
         const apiJson = await apiResponse.json();
-        console.log(locationInput);
-        console.log(state);
         console.log(recentLocations);
         const scanResult = scanLocationHistory(apiJson.location.name, recentLocations)
 
