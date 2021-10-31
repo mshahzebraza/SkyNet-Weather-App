@@ -73,7 +73,7 @@ export default function SearchForm(props) {
     fetchHandler(locationInput); // location entered in text input
     dispatch(setIsLoading(false));
 
-    // setLocationInput('');
+    setLocationInput('');
   }
 
   return (
