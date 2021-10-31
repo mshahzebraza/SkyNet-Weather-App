@@ -74,25 +74,13 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
 
 
     case actionCreators.UPDATE_CURRENT_VALID:
-      let newRecentLocations = []
+      const newLocation = {
+        locationName: action.payload.location.name,
+        locationId: `${action.payload.location.name}@${action.payload.current.last_updated}`
+      }
       // Check for duplicate value before updating the recent locations
-      const scanResult = scanLocationHistory(action.payload.location.name, state.recentLocations)
-
-      // WAS SEARCHED EARLIER - Reorder array
-      if (scanResult.matchFound) {
-        newRecentLocations = scanResult.data
-      }
-      // FIRST SEARCH - add it to history
-      else {
-        newRecentLocations =
-          [
-            ...state.recentLocations,
-            {
-              locationName: action.payload.location.name,
-              locationId: `${action.payload.location.name}@${action.payload.current.last_updated}`
-            }
-          ]
-      }
+      const scanResult = scanLocationHistory(newLocation, state.recentLocations)
+      // Returns updatedRecentLocations
 
       return {
         ...state,
@@ -114,7 +102,7 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
           // !NOTE: Try to conditionally update the data. E.g use destructuring and conditional statements based on responseIsValid
         },
         // If element already exist then recentLocations must be set to Reordered array otherwise to the same array but with different location
-        recentLocations: newRecentLocations
+        recentLocations: scanResult
       }
 
       break;
