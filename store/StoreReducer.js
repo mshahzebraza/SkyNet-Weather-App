@@ -1,4 +1,5 @@
 // use of the reducer is just to make fetching data from the context easier. Otherwise, the context is the real store.
+import { scanLocationHistory } from '../lib/helpers';
 import { actionCreators } from './StoreDispatchers';
 
 // Initial State
@@ -73,19 +74,38 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
 
 
     case actionCreators.UPDATE_CURRENT_VALID:
+      let newRecentLocations = []
+      // Check for duplicate value before updating the recent locations
+      const scanResult = scanLocationHistory(action.payload.location.name, state.recentLocations)
+
+      // WAS SEARCHED EARLIER - Reorder array
+      if (scanResult.matchFound) {
+        newRecentLocations = scanResult.data
+      }
+      // FIRST SEARCH - add it to history
+      else {
+        newRecentLocations =
+          [
+            ...state.recentLocations,
+            {
+              locationName: action.payload.location.name,
+              locationId: `${action.payload.location.name}@${action.payload.current.last_updated}`
+            }
+          ]
+      }
 
       return {
         ...state,
         currentSearch: {
           ...state.currentSearch,
-          isValid: false,
+          isValid: true,
           errorMessage: null,
           // equals responseData (errorMsg) for Bad Response and equals null for Good Response
           location: action.payload.location.name,
           country: action.payload.location.country,
           condition: action.payload.current.condition.text,
           tempAct: action.payload.current.temp_c,
-          tempFl: action.payload.current.temp_feelslike_c,
+          tempFl: action.payload.current.feelslike_c,
           windDir: action.payload.current.wind_dir,
           windSpeed: action.payload.current.wind_kph,
           humidity: action.payload.current.humidity,
@@ -93,13 +113,8 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
           isDay: action.payload.current.is_day,
           // !NOTE: Try to conditionally update the data. E.g use destructuring and conditional statements based on responseIsValid
         },
-        recentLocations: [
-          ...state.recentLocations,
-          {
-            locationName: action.payload.location.name,
-            locationId: `${action.payload.location.name}@${action.payload.current.last_updated}`
-          }
-        ]
+        // If element already exist then recentLocations must be set to Reordered array otherwise to the same array but with different location
+        recentLocations: newRecentLocations
       }
 
       break;

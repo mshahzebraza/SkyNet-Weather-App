@@ -3,7 +3,7 @@
 // DEPENDENCIES
 import { useCallback, useEffect, useState } from 'react';
 import useStore from '../../store/StoreContext';
-import { setIsLoading, updateCurrent, pushHistory, updateHistory } from '../../store/StoreDispatchers';
+import { setIsLoading, updateCurrent, pushHistory, updateHistory, updateCurrentInvalid, updateCurrentValid } from '../../store/StoreDispatchers';
 
 // LIBRARY FUNCTIONS & STYLES
 import styles from './MainForm.module.scss';
@@ -28,7 +28,6 @@ export default function SearchForm(props) {
     // !NOTE : Try the following to get the last element in an array
     // recentLocations: [...rest, lastLocation]
   } = state;
-  console.log(recentLocations);
 
 
   // Fetch Handler
@@ -41,10 +40,8 @@ export default function SearchForm(props) {
       // Good Response - fetch data and update the current weather & search history IF valid entry
       if (apiResponse.ok) {
         const apiJson = await apiResponse.json();
-        console.log(apiJson);
-        // dispatch valid response
-        // update history - after checking for existing
-        // update current - with data
+        // dispatch valid response - update current weather AND recent location
+        dispatch(updateCurrentValid(apiJson))
       }
 
       // Bad Response - fetch error message and log to console IF invalid entry
@@ -52,8 +49,8 @@ export default function SearchForm(props) {
 
         const apiJson = await apiResponse.json()
         const { error: { message: errorMessage } } = apiJson;
-        // dispatch invalid response
-        // update current - with error message
+        // dispatch invalid response - update the current weather data
+        dispatch(updateCurrentInvalid(errorMessage))
         throw new Error(errorMessage);
       }
 
@@ -62,25 +59,6 @@ export default function SearchForm(props) {
     }
 
   }, [])
-
-  /* 
-  const scanResult = scanLocationHistory(apiJson.location.name, recentLocations)
-
-  // WAS SEARCHED EARLIER - Reorder array
-  if (scanResult.matchFound) {
-    dispatch(updateHistory(scanResult.data))
-  }
-  // FIRST SEARCH - add it to history
-  else {
-    dispatch(pushHistory(scanResult.data))
-  }
-
-  // !NOTE: Location name should be checked for repetition
-  dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: apiJson }))
- */
-  /* 
-    dispatch(updateCurrent({ responseIsValid: apiResponse.ok, responseData: errorMessage }))
-   */
 
   // UseEffect
   useEffect(() => {
@@ -91,10 +69,9 @@ export default function SearchForm(props) {
   function submitHandler(e) {
     e.preventDefault();
 
-    // dispatch(setIsLoading(true));
-    console.log(recentLocations);
+    dispatch(setIsLoading(true));
     fetchHandler(locationInput); // location entered in text input
-    // dispatch(setIsLoading(false));
+    dispatch(setIsLoading(false));
 
     // setLocationInput('');
   }
