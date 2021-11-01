@@ -1,6 +1,6 @@
 import useStore from "../../store/StoreContext"
 import ListItem from "./ListItem/ListItem";
-import { removeLocation } from '../../store/StoreDispatchers';
+import { removeLocation, updateCurrentValid } from '../../store/StoreDispatchers';
 
 import styles from './SearchHistory.module.scss';
 
@@ -11,13 +11,32 @@ export default function SearchHistory(props) {
   const { recentLocations } = state;
 
   const removeHandler = (removeItemId) => {
-    console.log(`clicked ${removeItemId}`);
     dispatch(removeLocation(removeItemId))
   }
 
-  const searchHandler = (searchItem) => {
-    // dispatch()
-    console.log(`searching ${searchItem}`);
+  const searchHandler = async (searchItem) => {
+
+    try {
+      // API Call
+      const apiResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=${searchItem}&aqi=yes`)
+
+      // Good Response - fetch data and update the current weather & search history IF valid entry
+      if (apiResponse.ok) {
+        const apiJson = await apiResponse.json();
+        dispatch(updateCurrentValid(apiJson))
+      }
+      // Bad Response - Cannot be a bad response btw bcz it has already been fetched 
+      if (!apiResponse.ok) {
+
+        const apiJson = await apiResponse.json()
+        const { error: { message: errorMessage } } = apiJson;
+        dispatch(updateCurrentInvalid(errorMessage))
+        throw new Error(errorMessage);
+      }
+
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -25,18 +44,18 @@ export default function SearchHistory(props) {
       <h2 className={styles.title} >Searches History</h2>
 
       <ul className={styles.list} >
-        {recentLocations.map(locItem => {
+        {recentLocations.map(listItem => {
           return (
             <ListItem
-              key={locItem.locationId}
+              key={listItem.locationId}
               remove={() => {
-                removeHandler(locItem.locationId)
+                removeHandler(listItem.locationId)
               }}
               search={() => {
-                searchHandler(locItem.locationName)
+                searchHandler(listItem.locationName)
               }}
             >
-              {locItem.locationName}
+              {listItem.locationName}
             </ListItem>
           )
         })}

@@ -49,20 +49,20 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
       break;
 
 
-    case actionCreators.PUSH_HISTORY:
+    // case actionCreators.PUSH_HISTORY:
 
-      return {
-        ...state,
+    //   return {
+    //     ...state,
 
-        recentLocations: [
-          ...state.recentLocations,
-          {
-            locationName: action.payload,
-            locationId: `loc-${action.payload}`
-          }
-        ]
-      }
-      break;
+    //     recentLocations: [
+    //       ...state.recentLocations,
+    //       {
+    //         locationName: action.payload,
+    //         locationId: `loc-${action.payload}`
+    //       }
+    //     ]
+    //   }
+    //   break;
 
 
     case actionCreators.REMOVE_LOCATION:
@@ -79,7 +79,7 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
     case actionCreators.UPDATE_CURRENT_VALID:
       const newLocation = {
         locationName: action.payload.location.name,
-        locationId: `${action.payload.location.name}@${action.payload.current.last_updated}`
+        locationId: `${action.payload.location.name}@${action.payload.current.last_updated_epoch}`
       }
       // Check for duplicate value before updating the recent locations
       const scanResult = scanLocationHistory(newLocation, state.recentLocations)
