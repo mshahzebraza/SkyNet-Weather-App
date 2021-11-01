@@ -3,17 +3,16 @@
 // DEPENDENCIES
 import { useCallback, useEffect, useState } from 'react';
 import useStore from '../../store/StoreContext';
-import { setIsLoading, updateCurrent, pushHistory, updateHistory, updateCurrentInvalid, updateCurrentValid } from '../../store/StoreDispatchers';
+import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../store/StoreDispatchers';
 
 // LIBRARY FUNCTIONS & STYLES
-import styles from './MainForm.module.scss';
+import styles from './SearchForm.module.scss';
 
 // COMPONENTS
 import FormInput from './FormInput/FormInput';
-import { scanLocationHistory } from '../../lib/helpers';
+import { FormControl } from './FormControl/FormControl';
 
 /* BODY */
-
 export default function SearchForm(props) {
 
 
@@ -24,9 +23,6 @@ export default function SearchForm(props) {
     currentSearch: {
       location: currentLocation
     },
-    recentLocations
-    // !NOTE : Try the following to get the last element in an array
-    // recentLocations: [...rest, lastLocation]
   } = state;
 
 
@@ -40,6 +36,7 @@ export default function SearchForm(props) {
       // Good Response - fetch data and update the current weather & search history IF valid entry
       if (apiResponse.ok) {
         const apiJson = await apiResponse.json();
+
         // dispatch valid response - update current weather AND recent location
         dispatch(updateCurrentValid(apiJson))
       }
@@ -89,14 +86,11 @@ export default function SearchForm(props) {
         isReq={true}
         value={locationInput}
         setValue={setLocationInput}
-
       />
 
-
-      <div className={styles.controlGroup}>
-        <button className={styles.btn} type="submit">Submit</button>
-        {/* <button className={styles.btn} onClick={props.reload}>Search Default</button> */}
-      </div>
+      {/* <div className={styles.controlGroup}> */}
+      <FormControl></FormControl>
+      {/* </div> */}
 
     </form>
   )

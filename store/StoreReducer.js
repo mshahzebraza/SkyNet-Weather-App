@@ -9,6 +9,8 @@ export const initialState = {
     isValid: false, // dependant on response status OK / not OK
     errorMessage: `Search for a Location`, // initial message, will change dynamically by api response
     location: ``,
+    localTimeEpoch: ``,
+    localTime: ``,
     country: ``,
     condition: ``,
     tempAct: ``,
@@ -16,6 +18,7 @@ export const initialState = {
     windDir: ``,
     windSpeed: ``,
     humidity: ``,
+    lastUpdatedEpoch: ``,
     lastUpdated: ``,
     isDay: ``,
   },
@@ -90,6 +93,8 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
           errorMessage: null,
           // equals responseData (errorMsg) for Bad Response and equals null for Good Response
           location: action.payload.location.name,
+          localTimeEpoch: action.payload.location.localtime_epoch * 1000,
+          localTime: action.payload.location.localtime_epoch,
           country: action.payload.location.country,
           condition: action.payload.current.condition.text,
           tempAct: action.payload.current.temp_c,
@@ -97,6 +102,7 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
           windDir: action.payload.current.wind_dir,
           windSpeed: action.payload.current.wind_kph,
           humidity: action.payload.current.humidity,
+          lastUpdatedEpoch: action.payload.current.last_updated_epoch * 1000,
           lastUpdated: action.payload.current.last_updated,
           isDay: action.payload.current.is_day,
           // !NOTE: Try to conditionally update the data. E.g use destructuring and conditional statements based on responseIsValid
@@ -117,6 +123,7 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
           errorMessage: action.payload,
           // equals responseData (errorMsg) for Bad Response and equals null for Good Response
           location: null,
+          localTime: null,
           country: null,
           condition: null,
           tempAct: null,

@@ -1,18 +1,18 @@
+// IMPORTS
 // COMPONENTS
-import WeatherDetail from "./WeatherDetail/WeatherDetail";
+import WeatherBox from "./WeatherBox/WeatherBox";
+import { RequestDetail } from "./RequestDetail/RequestDetail";
 
 // LIBRARY FUNCTIONS & STYLES
 import styles from './InfoPanel.module.scss';
 
 // DEPENDENCIES
-import { useState } from "react";
 import useStore from "../../store/StoreContext"
 
-export default function InfoPanel(props) {
+// BODY
+export default function InfoPanel() {
 
-  // const [responseIsValid, setResponseIsValid] = useState(true);
-
-  // Get current weather & recent inputs
+  // Data Fetching
   const {
     state: {
       isLoading,
@@ -22,15 +22,22 @@ export default function InfoPanel(props) {
   } = useStore();
 
 
+
+  // JSX
   return (
 
     <div className={`${styles.main}`}>
-      {/* <SearchForm submit={fetchHandler} reload={reloadHandler} /> */}
+
       {isLoading && <p>Loading ...</p>}
+      <h1 className={styles.title} >Information Panel</h1>
       {weatherData.isValid
-        ? <WeatherDetail weather={weatherData} />
+        ? <>
+          <WeatherBox weather={weatherData} />
+          <RequestDetail dateString={weatherData.lastUpdated} isDay={weatherData.isDay} />
+        </>
         : weatherData.errorMessage // wrap it in an error style component
       }
+
     </div>
 
   )

@@ -22,9 +22,9 @@ export default function SearchHistory(props) {
 
   return (
     <div className={styles.main} >
-      <h3 className={styles.title} >Recent Searches</h3>
+      <h2 className={styles.title} >Searches History</h2>
 
-      <ul className={styles.locList} >
+      <ul className={styles.list} >
         {recentLocations.map(locItem => {
           return (
             <ListItem
