@@ -23,7 +23,7 @@
   flex: 1;
 }
 .itemControl {
-  flex: 1;
+  // flex: 1;
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
@@ -36,6 +36,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  // ^ to center the image inside it
+
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 5rem;
