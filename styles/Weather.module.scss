@@ -1,0 +1,11 @@
+.container {
+  width: 98vw;
+  max-width: 114rem;
+  min-height: 100vh;
+  margin: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}

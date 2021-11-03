@@ -1,0 +1,26 @@
+.nav {
+  min-height: 10vh;
+  padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 1rem;
+  background: white;
+  &Brand {
+  }
+  &List {
+    display: flex;
+    gap: 1rem 2rem;
+    transition: all 0.2s eas;
+    color: #333;
+  }
+  &Item {
+    font-weight: 500;
+    text-transform: uppercase;
+    &:hover {
+      text-shadow: 0 0.25rem 2rem rgba($color: #1d6688, $alpha: 0.25);
+      color: rgb(21, 68, 112);
+    }
+  }
+}
