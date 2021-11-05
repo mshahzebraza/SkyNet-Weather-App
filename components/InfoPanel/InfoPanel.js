@@ -10,32 +10,21 @@ import styles from './InfoPanel.module.scss';
 import useStore from "../../store/StoreContext"
 
 // BODY
-export default function InfoPanel() {
-
-  // Data Fetching
-  const {
-    state: {
-      isLoading,
-      currentSearch: weatherData,
-    },
-    dispatch
-  } = useStore();
+export default function InfoPanel(props) {
 
 
-
-  // JSX
   return (
 
     <div className={`${styles.main}`}>
 
-      {isLoading && <p>Loading ...</p>}
+      {/* {props.isLoading && <p>Loading ...</p>} */}
       <h1 className={styles.title} >Information Panel</h1>
-      {weatherData.isValid
+      {props.info.isValid
         ? <>
-          <WeatherBox weather={weatherData} />
-          <RequestDetail dateString={weatherData.lastUpdated} isDay={weatherData.isDay} />
+          <WeatherBox weather={props.info} />
+          <RequestDetail dateString={props.info.lastUpdated} isDay={props.info.isDay} />
         </>
-        : weatherData.errorMessage // wrap it in an error style component
+        : props.info.errorMessage // wrap it in an error style component
       }
 
     </div>
