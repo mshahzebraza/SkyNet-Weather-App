@@ -28,6 +28,10 @@ ul {
   max-width: 114rem;
   width: 98%;
   margin: auto;
+  // background: red;
+}
+.pageContainer {
+  padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
 }
 
 input {

@@ -1,11 +1,61 @@
-.container {
-  width: 98vw;
-  max-width: 114rem;
-  min-height: 100vh;
-  margin: auto;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+// .container {
+//   width: 98vw;
+//   max-width: 114rem;
+//   min-height: 100vh;
+//   margin: auto;
+//   padding: 0.5rem;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   gap: 2rem;
+// }
+
+.dashboard {
+  border: 1px dotted black;
+  min-height: 80vh;
+  display: grid;
+  grid-template-rows: 0.5fr 1.5fr 2fr 2fr;
+  grid-template-columns: 3fr 4fr 4fr;
   gap: 2rem;
+  // grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+  // grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+  grid-template-areas:
+    "welcome      search      search"
+    "welcome      weekly      weekly"
+    "highlights   airQuality  sunDuration"
+    "highlights   rainfall    sunDuration";
+
+  // justify-items: center;
+  // align-items: center;
+  & > * {
+    border: 1px dashed red;
+    border-radius: 0.5rem;
+    background: white;
+
+    display: inline-grid;
+    place-content: center;
+    // place-items: center;
+  }
+}
+
+.sec1 {
+  grid-area: welcome;
+}
+.sec2 {
+  grid-area: highlights;
+}
+.sec3 {
+  grid-area: search;
+}
+.sec4 {
+  grid-area: weekly;
+}
+.sec5 {
+  grid-area: airQuality;
+}
+.sec6 {
+  grid-area: rainfall;
+}
+.sec7 {
+  grid-area: sunDuration;
 }
