@@ -1,0 +1,39 @@
+$prime1: #2f3346;
+$prime2: #5c92ff;
+$prime4: #aab5dd;
+$prime5: #f0f5ff;
+$neutral: #ffffff;
+$gradY: linear-gradient(#ffd88b, #ffa900);
+$gradW: linear-gradient(#fff, #d6e0f9);
+$gradB: radial-gradient(#d0d5ff, #419ef4);
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  border: 1px dashed red;
+  // background: #000;
+}
+
+.avatar {
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.currentTime {
+  // color: $prime2;
+  // font-size: 1rem;
+}
+.currentDate {
+  // color: $prime1;
+}
+.currentDay {
+}
+.greetings {
+  // color: $prime2;
+}

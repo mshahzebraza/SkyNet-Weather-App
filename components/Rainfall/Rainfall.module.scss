@@ -1,0 +1,59 @@
+.rainfall {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  // background: #000;
+  padding: 1rem 2rem;
+  // flex: 1;
+}
+.rfHeader {
+  display: flex;
+}
+.rfBody {
+  flex: 1;
+  display: flex;
+}
+.rfStats {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  // background: #000;
+}
+.rfStat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+.rfStatBar {
+  background: #ccc;
+  content: "";
+  width: 0.5rem;
+  border-radius: 1rem;
+  // height: 10rem;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  // gap: 0.25rem;
+  overflow: hidden;
+  align-items: center;
+}
+.rfStatFill {
+  border-radius: 1rem;
+  width: 100%;
+  // background: red;
+  content: "";
+  flex: 1;
+}
+.rfStatVal {
+  border-radius: 1rem;
+  width: 100%;
+  background: #333;
+  content: "";
+  // flex: 0 0 5%;
+}
+.rfStatDate {
+  font-size: 1.2rem;
+}

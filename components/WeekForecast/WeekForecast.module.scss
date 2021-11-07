@@ -1,3 +1,29 @@
 .s {
   font-size: 1rem;
 }
+.weekList {
+  // width: 100%;
+  // background: #555;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  // padding: 1rem 2rem;
+}
+.weekItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px dashed saddlebrown;
+  padding: 1rem;
+  // height: 100%;
+}
+.weekImage {
+}
+
+.weekDay {
+}
+.weekTemp {
+}

@@ -1,0 +1,36 @@
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+}
+.hlLocation {
+  align-self: start;
+  display: flex;
+  margin-bottom: 3rem;
+}
+.locationIcon {
+}
+.locationText {
+}
+.hlDate {
+}
+.hlConditionImage {
+  // align-self: flex-start;
+  // background: #000;
+}
+.hlCondition {
+}
+.hlTemp {
+}
+.hlDetail {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+}
+.hlDetailLabel {
+}
+.hlDetailValue {
+}

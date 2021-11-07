@@ -1,70 +1,53 @@
 /* IMPORTS */
 
 // DEPENDENCIES
-import image from 'next/image'
+import Image from 'next/image'
 
 // LIBRARY FUNCTIONS & STYLES
-// import styles from './Highlights.module.scss';
+import styles from './Highlights.module.scss';
 
 // COMPONENTS
 
 
-const s = ['1', '12'];
-console.log(s);
 /* BODY */
+
+function HighlightDetail(props) {
+  return (<p className={styles.hlDetail}>
+    <span className={styles.hlDetailLabel}>{props.label}</span>
+    <span className={styles.hlDetailValue}>{props.value}</span>
+  </p>);
+}
+
+
 export default function Highlights(params) {
-  // console.log(ss);
   return (
 
-    <>
+    <div className={styles.highlights}>
 
       {/* Highlight Item */}
-      <div className="hlLocation">
-        <Image
-          // loader={myLoader}
-          src="/icons/locationPin.svg"
-          alt="Location Pin"
-          width={25}
-          height={25}
-          className='locationIcon'
-        />
-        <p className="locationText">Pakistan</p>
+      <div className={styles.hlLocation}>
+        <Image src="/icons/locationPin.svg" alt="Location Pin" width={25} height={25} className={styles.locationIcon} />
+        <p className={styles.locationText}>Pakistan</p>
       </div>
 
       {/* Highlight Date */}
-      <p className="hlDate">24,April 2021</p>
+      <p className={styles.hlDate}>24,April 2021</p>
 
       {/* Highlight Condition */}
-      <Image
-        // loader={myLoader}
-        src="/icons/weatherImage.svg"
-        alt="Weather Condition Image"
-        width={25}
-        height={25}
-        className='hlConditionImage'
-      />
+      <Image src="/weather/thunder.png" alt="Weather Condition Image" width={120} height={120} className={styles.hlConditionImage} />
       {/* Highlight Text */}
-      <p className="hlCondition">Sunny</p>
+      <p className={styles.hlCondition}>Sunny</p>
 
       {/* Highlight Temp */}
-      <p className="hlTemp">29 &#176;</p>
+      <p className={styles.hlTemp}>29 &#176;</p>
 
       {/* Highlight Details */}
-      <p className="hlDetail">
-        <span className="hlDetailLabel">Feels Like</span>
-        <span className="hlDetailValue">19 km/hr</span>
-      </p>
-      <p className="hlDetail">
-        <span className="hlDetailLabel">Wind</span>
-        <span className="hlDetailValue">19 km/hr</span>
-      </p>
-      <p className="hlDetail">
-        <span className="hlDetailLabel">Humidity</span>
-        <span className="hlDetailValue">19 km/hr</span>
-      </p>
+      <HighlightDetail label='Feels Like' value='19 km/hr' />
+      <HighlightDetail label='Wind' value='19 km/hr' />
+      <HighlightDetail label='Humidity' value='19 km/hr' />
 
 
-    </>
+    </div>
   )
 }
 Highlights.displayName = 'Highlights'

@@ -2,9 +2,9 @@
 
 // DEPENDENCIES
 
-
+import Image from 'next/image';
 // LIBRARY FUNCTIONS & STYLES
-// import styles from './WeekForecast.module.scss';
+import styles from './WeekForecast.module.scss';
 
 // COMPONENTS
 
@@ -15,37 +15,37 @@ export default function WeekForecast(params) {
 
   const weekFcData = [
     {
-      image: '/',
+      image: '/weather/thunder.png',
       day: 'Mon',
       temp: 28
     },
     {
-      image: '/',
+      image: '/weather/thunder.png',
       day: 'Tue',
       temp: 28
     },
     {
-      image: '/',
+      image: '/weather/thunder.png',
       day: 'Wed',
       temp: 28
     },
     {
-      image: '/',
+      image: '/weather/thunder.png',
       day: 'Thurs',
       temp: 28
     },
     {
-      image: '/',
+      image: '/weather/thunder.png',
       day: 'Fri',
       temp: 28
     },
     {
-      image: '/',
+      image: '/weather/thunder.png',
       day: 'Sat',
       temp: 28
     },
     {
-      image: '/',
+      image: '/weather/thunder.png',
       day: 'Sun',
       temp: 28
     },
@@ -54,17 +54,15 @@ export default function WeekForecast(params) {
 
   return (
     <>
-      WeekForecast
-      {/* <span ></span> */}
-      {/* 
-      <ul className="weekList">
+
+      <ul className={styles.weekList}>
         {weekFcData.map((cur, id) => {
           return (
             <>
-              <li className="weekItem card">
-                <img className="weekIcon" src={cur.image} alt="weather condition" />
-                <span className="weekDay">{cur.day}</span>
-                <span className="weekTemp">
+              <li className={styles.weekItem}>
+                <Image className={styles.weekImage} src={cur.image} alt="weather condition" width={75} height={75} />
+                <span className={styles.weekDay}>{cur.day}</span>
+                <span className={styles.weekTemp}>
                   {cur.temp} &#176;
                 </span>
               </li>
@@ -72,7 +70,7 @@ export default function WeekForecast(params) {
           )
         })}
       </ul>
-       */}
+
     </>
   )
 }

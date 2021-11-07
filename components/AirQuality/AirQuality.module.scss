@@ -1,0 +1,51 @@
+.airQuality {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  // background: #000;
+  justify-content: space-between;
+  // align-items: s;
+}
+.aqHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.aqTitle {
+}
+.aqLocation {
+  display: flex;
+}
+.locationIcon {
+}
+.locationText {
+}
+.aqBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.aqBrief {
+  display: flex;
+  justify-content: space-between;
+}
+.aqImage {
+}
+.aqText {
+}
+.aqStatus {
+}
+.aqComment {
+}
+.aqRefresh {
+}
+.aqDetail {
+  display: flex;
+  justify-content: space-between;
+}
+.aqDetailItem {
+}
+.aqDetailAmount {
+}
+.aqDetailTrace {
+}
