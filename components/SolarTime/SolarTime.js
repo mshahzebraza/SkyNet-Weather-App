@@ -79,7 +79,6 @@ export default function SolarTime(params) {
         {/* Location */}
         <div className={styles.stLocation}>
           <Image src="/icons/add.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
-          <p className={styles.locationText}>Dhaka</p>
         </div>
       </div>
 

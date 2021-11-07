@@ -12,24 +12,30 @@ import styles from './AirQuality.module.scss';
 /* BODY */
 export default function AirQuality(params) {
 
-  const airQuality = [
-    {
-      type: 'NO2',
-      amount: '4%'
-    },
-    {
-      type: 'NO2',
-      amount: '4%'
-    },
-    {
-      type: 'NO2',
-      amount: '4%'
-    },
-    {
-      type: 'NO2',
-      amount: '4%'
-    },
-  ]
+  const data = {
+    location: 'England',
+    status: 'Good',
+    comment: 'A perfect day for a walk',
+    traces: [
+      {
+        type: 'O2',
+        amount: '50%'
+      },
+      {
+        type: 'NO2',
+        amount: '14%'
+      },
+      {
+        type: 'CO2',
+        amount: '4%'
+      },
+      {
+        type: 'CO',
+        amount: '1%'
+      },
+    ]
+  }
+
 
   return (
     <div className={styles.airQuality}>
@@ -39,7 +45,7 @@ export default function AirQuality(params) {
         {/* Location */}
         <div className={styles.aqLocation}>
           <Image src="/icons/locationPin.svg" alt="Location Pin" width={25} height={25} className={styles.locationIcon} />
-          <p className={styles.locationText}>Pakistan</p>
+          <p className={styles.locationText}>{data.location}</p>
         </div>
         {/* Location */}
       </div>
@@ -51,8 +57,8 @@ export default function AirQuality(params) {
           <Image src='/icons/air.svg' alt='Air Icon' width={50} height={50} className={styles.aqImage} />
           {/* Data */}
           <div className={styles.aqText}>
-            <p className={styles.aqStatus}>Good</p>
-            <p className={styles.aqComment}>A perfect day for a walk</p>
+            <p className={styles.aqStatus}>{data.status}</p>
+            <p className={styles.aqComment}>{data.comment}</p>
           </div>
           {/* Button */}
           <button className={styles.aqRefresh} >Refresh</button>
@@ -61,7 +67,7 @@ export default function AirQuality(params) {
         {/* Detail */}
         <div className={styles.aqDetail}>
           {
-            airQuality.map((cur, id) => {
+            data.traces.map((cur, id) => {
               return (
                 <div className={styles.aqDetailItem}>
                   {/* Detail Amount */}

@@ -28,8 +28,6 @@ export default function Search(params) {
 
   /* 
   
-
-
   // Fetch Handler
   const fetchHandler = useCallback(async (location = 'Washington') => {
 

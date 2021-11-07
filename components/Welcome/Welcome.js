@@ -11,20 +11,23 @@ import styles from './Welcome.module.scss';
 
 /* BODY */
 export default function Welcome(params) {
+  const data = {
+    time: '03:00 PM',
+    day: 'Wednesday',
+    date: '04 April 2021',
+    isDay: true,
+  }
   return (
     <>
-      <div className={styles.header}>
-        <Image src='/avatars/girl.png' alt='avatar' width={30} height={30} className={styles.avatar} />
-      </div>
-      <div className={styles.body}>
+      <div className={styles.welcome}>
         <p className={styles.currentTime}>
-          03: 00 PM
+          {data.time}
         </p>
         <p className={styles.currentDate}>
-          <span className={styles.currentDay} >Wednesday</span>, 04, April 2021
+          <span className={styles.currentDay} >{data.day}</span>, {data.date}
         </p>
         <p className={styles.greetings}>
-          <Image src='/Conditional' alt='Time of Day' width={20} height={20} />
+          <Image src={`/icons/${data.isDay ? 'sun' : 'moon'}.svg`} alt='Time of Day' width={20} height={20} />
           Good Morning !
         </p>
       </div>
@@ -32,12 +35,4 @@ export default function Welcome(params) {
   )
 }
 Welcome.displayName = 'Welcome'
-/*
-// html example
-<span>&#176;</span>
 
-// css example
-span {
-  content: "\00B0";
-}
- */

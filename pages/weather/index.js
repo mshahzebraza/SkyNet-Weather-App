@@ -5,6 +5,7 @@ import styles from "../../styles/Weather.module.scss";
 // Objects & Styles
 
 // Components
+import Panel from '../../components/Panel/Panel';
 import Welcome from '../../components/Welcome/Welcome';
 import Highlights from '../../components/Highlights/Highlights';
 import Search from '../../components/Search/Search';
@@ -29,24 +30,27 @@ export default function Home(props) {
       */}
       <main className={styles.dashboard}>
         <section className={styles.sec1}>
-          <Welcome />
+          <Panel />
         </section>
         <section className={styles.sec2}>
-          <Highlights />
+          <Welcome />
         </section>
         <section className={styles.sec3}>
-          <Search />
+          <Highlights />
         </section>
         <section className={styles.sec4}>
-          <WeekForecast />
+          <Search />
         </section>
         <section className={styles.sec5}>
-          <AirQuality />
+          <WeekForecast />
         </section>
         <section className={styles.sec6}>
-          <Rainfall />
+          <AirQuality />
         </section>
         <section className={styles.sec7}>
+          <Rainfall />
+        </section>
+        <section className={styles.sec8}>
           <SolarTime />
         </section>
       </main>

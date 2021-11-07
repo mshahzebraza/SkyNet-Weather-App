@@ -3,12 +3,12 @@
   min-height: 80vh;
 
   display: grid;
-  grid-template-rows: 0.5fr 1.5fr 2fr 2fr;
+  grid-template-rows: 0.4fr 1.5fr 2fr 2fr;
   grid-template-columns: 3fr 4fr 4fr;
   gap: 2rem;
 
   grid-template-areas:
-    "welcome      search      search"
+    "panel        search      search"
     "welcome      weekly      weekly"
     "highlights   airQuality  sunDuration"
     "highlights   rainfall    sunDuration";
@@ -28,24 +28,28 @@
 }
 
 .sec1 {
-  grid-area: welcome;
+  grid-area: panel;
   // justify-content: start;
 }
 .sec2 {
-  grid-area: highlights;
+  grid-area: welcome;
+  // justify-content: start;
 }
 .sec3 {
-  grid-area: search;
+  grid-area: highlights;
 }
 .sec4 {
-  grid-area: weekly;
+  grid-area: search;
 }
 .sec5 {
-  grid-area: airQuality;
+  grid-area: weekly;
 }
 .sec6 {
-  grid-area: rainfall;
+  grid-area: airQuality;
 }
 .sec7 {
+  grid-area: rainfall;
+}
+.sec8 {
   grid-area: sunDuration;
 }

@@ -12,14 +12,33 @@ import styles from './Highlights.module.scss';
 /* BODY */
 
 function HighlightDetail(props) {
+  let suffix;
+  if (props.type === 'temp') {
+    suffix = '\xB0';
+  } else if (props.type === 'speed') {
+    suffix = 'km/hr'
+  } else if (props.type === 'per') {
+    suffix = '%';
+  }
+
   return (<p className={styles.hlDetail}>
     <span className={styles.hlDetailLabel}>{props.label}</span>
-    <span className={styles.hlDetailValue}>{props.value}</span>
+    <span className={styles.hlDetailValue}>{props.value} {suffix}</span>
   </p>);
 }
 
 
 export default function Highlights(params) {
+  const data = {
+    location: 'Pakistan',
+    date: '04 April 2021',
+    condition: 'Sunny',
+    temp: '29',
+    feelslike: '30',
+    wind: '19',
+    humidity: '55',
+  }
+
   return (
 
     <div className={styles.highlights}>
@@ -27,27 +46,38 @@ export default function Highlights(params) {
       {/* Highlight Item */}
       <div className={styles.hlLocation}>
         <Image src="/icons/locationPin.svg" alt="Location Pin" width={25} height={25} className={styles.locationIcon} />
-        <p className={styles.locationText}>Pakistan</p>
+        <p className={styles.locationText}>{data.location}</p>
       </div>
 
       {/* Highlight Date */}
-      <p className={styles.hlDate}>24,April 2021</p>
+      <p className={styles.hlDate}>{data.date}</p>
 
       {/* Highlight Condition */}
       <Image src="/weather/thunder.png" alt="Weather Condition Image" width={120} height={120} className={styles.hlConditionImage} />
       {/* Highlight Text */}
-      <p className={styles.hlCondition}>Sunny</p>
+      <p className={styles.hlCondition}>{data.condition}</p>
 
       {/* Highlight Temp */}
-      <p className={styles.hlTemp}>29 &#176;</p>
+      <p className={styles.hlTemp}>{data.temp}&#176;</p>
 
       {/* Highlight Details */}
-      <HighlightDetail label='Feels Like' value='19 km/hr' />
-      <HighlightDetail label='Wind' value='19 km/hr' />
-      <HighlightDetail label='Humidity' value='19 km/hr' />
+      <HighlightDetail type='temp' label='Feels Like' value={data.feelslike} />
+      <HighlightDetail type='speed' label='Wind' value={data.wind} />
+      <HighlightDetail type='per' label='Humidity' value={data.humidity} />
 
 
     </div>
   )
 }
 Highlights.displayName = 'Highlights'
+/*
+// html example
+<span>&#176;</span>
+
+// css example
+span {
+  content: "\00B0";
+}
+// js example
+  symbol = '\xB0';
+ */
