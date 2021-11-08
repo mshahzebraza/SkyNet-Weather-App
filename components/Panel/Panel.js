@@ -15,7 +15,7 @@ export default function Rainfall(params) {
   return (
     <div className={styles.panel}>
       <div className={styles.header}>
-        <Image src='/avatars/girl.png' alt='avatar' width={30} height={30} className={styles.avatar} />
+        <Image src='/avatars/girl.png' alt='avatar' width={40} height={40} className={styles.avatar} />
       </div>
     </div>
   )

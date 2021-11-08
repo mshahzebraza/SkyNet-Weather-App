@@ -27,7 +27,7 @@ export default function Welcome(params) {
           <span className={styles.currentDay} >{data.day}</span>, {data.date}
         </p>
         <p className={styles.greetings}>
-          <Image src={`/icons/${data.isDay ? 'sun' : 'moon'}.svg`} alt='Time of Day' width={20} height={20} />
+          <Image src={`/icons/${data.isDay ? 'sun' : 'moon'}.svg`} alt='Time of Day' width={25} height={25} />
           Good Morning !
         </p>
       </div>

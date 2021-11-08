@@ -1,14 +1,30 @@
+$prime1: #2f3346;
+$prime2: #5c92ff;
+$prime4: #aab5dd;
+$prime5: #f0f5ff;
+$neutral: #ffffff;
+$gradY: linear-gradient(#ffd88b, #ffa900);
+$gradW: linear-gradient(#fff, #d6e0f9);
+$gradB: radial-gradient(#d0d5ff, #419ef4);
+
 .rainfall {
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  // background: #000;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   // flex: 1;
+  background: $neutral;
+  border-radius: 0.75rem;
+  color: $prime1;
 }
 .rfHeader {
   display: flex;
+}
+.rfTitle {
+  // display: flex;
+  font-size: 1.9rem;
+  font-weight: 600;
 }
 .rfBody {
   flex: 1;
@@ -56,4 +72,5 @@
 }
 .rfStatDate {
   font-size: 1.2rem;
+  font-weight: 600;
 }

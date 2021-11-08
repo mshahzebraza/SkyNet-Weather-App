@@ -33,6 +33,10 @@ export default function AirQuality(params) {
         type: 'CO',
         amount: '1%'
       },
+      {
+        type: 'H',
+        amount: '1%'
+      },
     ]
   }
 
@@ -44,7 +48,7 @@ export default function AirQuality(params) {
         <p className={styles.aqTitle}>Air Quality</p>
         {/* Location */}
         <div className={styles.aqLocation}>
-          <Image src="/icons/locationPin.svg" alt="Location Pin" width={25} height={25} className={styles.locationIcon} />
+          <Image src="/icons/locationPin.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
           <p className={styles.locationText}>{data.location}</p>
         </div>
         {/* Location */}

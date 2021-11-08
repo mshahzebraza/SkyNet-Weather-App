@@ -1,13 +1,19 @@
-.s {
-  font-size: 1rem;
-}
+$prime1: #2f3346;
+$prime2: #5c92ff;
+$prime4: #aab5dd;
+$prime5: #f0f5ff;
+$neutral: #ffffff;
+$gradY: linear-gradient(#ffd88b, #ffa900);
+$gradW: linear-gradient(#fff, #d6e0f9);
+$gradB: radial-gradient(#d0d5ff, #419ef4);
+
 .weekList {
   // width: 100%;
   // background: #555;
   height: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  // gap: 2rem;
   // padding: 1rem 2rem;
 }
 .weekItem {
@@ -16,14 +22,19 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  border: 1px dashed saddlebrown;
-  padding: 1rem;
+  padding: 0.75rem 1.25rem;
   // height: 100%;
+  background: $neutral;
+  border-radius: 0.75rem;
+
+  font-weight: 600;
+  color: $prime1;
 }
 .weekImage {
 }
 
 .weekDay {
+  font-size: 1.8rem;
 }
 .weekTemp {
 }

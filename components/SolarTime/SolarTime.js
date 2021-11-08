@@ -23,15 +23,15 @@ function Alpha(props) {
       <div className={styles.stDetailItem}>
         <Image src='/icons/sun.svg' alt='Sun Rise Image' width={35} height={35} className={styles.stSolarImage} />
         <div className={styles.stBrief}>
-          <p className={styles.stRiseLabel}>Sunrise</p>
-          <p className={styles.stRiseValue}>{props.sunrise} AM</p>
+          <p className={styles.stLabel}>Sunrise</p>
+          <p className={styles.stValue}>{props.sunrise} AM</p>
         </div>
       </div>
       <div className={styles.stDetailItem}>
         <Image src='/icons/moon.svg' alt='Sun Set Image' width={35} height={35} className={styles.stLunarImage} />
         <div className={styles.stBrief}>
-          <p className={styles.stSetLabel}>Sunset</p>
-          <p className={styles.stSetValue}>{props.sunset} pM</p>
+          <p className={styles.stLabel}>Sunset</p>
+          <p className={styles.stValue}>{props.sunset} PM</p>
         </div>
       </div>
     </div>
@@ -49,11 +49,11 @@ function Bravo(props) {
     <div className={styles.stDetail}>
       <div className={styles.stDetailItem}>
         <Image src='/icons/sun.svg' alt='Sun Rise Image' width={20} height={20} className={styles.stSolarImage} />
-        <p className={styles.stRiseValue}>{props.sunrise} AM</p>
+        <p className={styles.stValue}>{props.sunrise} AM</p>
       </div>
       <div className={styles.stDetailItem}>
         <Image src='/icons/moon.svg' alt='Sun Set Image' width={20} height={20} className={styles.stLunarImage} />
-        <p className={styles.stSetValue}>{props.sunset} pM</p>
+        <p className={styles.stValue}>{props.sunset} PM</p>
       </div>
     </div>
   </div>);

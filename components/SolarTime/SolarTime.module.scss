@@ -1,15 +1,30 @@
+$prime1: #2f3346;
+$prime2: #5c92ff;
+$prime4: #aab5dd;
+$prime5: #f0f5ff;
+$neutral: #ffffff;
+$gradY: linear-gradient(#ffd88b, #ffa900);
+$gradW: linear-gradient(#fff, #d6e0f9);
+$gradB: radial-gradient(#d0d5ff, #419ef4);
+
 .solarTime {
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
+
+  background: $neutral;
+  border-radius: 0.75rem;
 }
 .stHeader {
   display: flex;
   justify-content: space-between;
 }
 .stTitle {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: $prime1;
 }
 .stLocation {
   display: inline-flex;
@@ -32,11 +47,25 @@
 
 // Alpha
 .stAlpha {
-  // background: #000;
-  border: 1px dotted saddlebrown;
-  padding: 1rem;
+  // border: 1px dotted saddlebrown;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  padding: 1.25rem 1.5rem;
+
+  background: $prime5;
+  border-radius: 0.75rem;
+  .stLocation {
+    font-size: 1.7rem;
+  }
 }
 .stLocation {
+  // font-size: 1.6rem;
+  font-weight: 600;
+  color: $prime1;
+  display: flex;
+  gap: 0.5rem;
 }
 .stLocationPin {
 }
@@ -58,46 +87,46 @@
 .stSolarImage {
 }
 .stBrief {
+  // background: red;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
-.stRiseLabel {
+.stLabel {
+  font-weight: 500;
+  color: $prime4;
 }
-.stRiseValue {
+.stValue {
+  font-weight: 600;
+  color: $prime2;
 }
-// .stSet {
-//   flex: 1;
-// }
 .stLunarImage {
 }
 .stBrief {
-}
-.stSetLabel {
-}
-.stSetValue {
 }
 // Bravo
 .stBravo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9em;
-}
-.stLocation {
+
+  .stLocation {
+    font-size: 1.5rem;
+    color: $prime2;
+  }
+  .stDetail {
+  }
+  .stValue {
+    font-size: 1.5rem;
+    color: $prime4;
+    // font-size: ;
+  }
 }
 .stLocationPin {
 }
 .stLocationName {
 }
-.stDetail {
-}
-.stRise {
-}
 .stSolarImage {
 }
-.stRiseValue {
-}
-.stSet {
-}
 .stLunarImage {
-}
-.stSetValue {
 }
