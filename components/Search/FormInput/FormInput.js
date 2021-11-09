@@ -4,8 +4,6 @@ import styles from './FormInput.module.scss';
 export default function FormInput({ label, type, id, placeholder, errorText, isReq, value, setValue }) {
 
 
-  console.log(label);
-  console.log(!!label);
 
   return (
     <div className={styles.formInput}>

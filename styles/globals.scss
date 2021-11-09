@@ -1,3 +1,12 @@
+$prime1: #2f3346;
+$prime2: #5c92ff;
+$prime4: #aab5dd;
+$prime5: #f0f5ff;
+$neutral: #ffffff;
+$gradY: linear-gradient(#ffd88b, #ffa900);
+$gradW: linear-gradient(#fff, #d6e0f9);
+$gradB: radial-gradient(#d0d5ff, #419ef4);
+
 html {
   font-size: 10px;
 }
@@ -59,12 +68,14 @@ input {
 
 button {
   cursor: pointer;
-  letter-spacing: inherit;
+  letter-spacing: 0.15em;
   padding: 0.8rem 1.6rem;
   font-weight: 600;
   border: 1px solid transparent;
   outline: none;
   transition: all 0.2s ease;
+  background: $prime1;
+  color: $neutral;
   &:hover,
   &:focus {
     // border-color: black;

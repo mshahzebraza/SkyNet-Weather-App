@@ -3,8 +3,8 @@
 
 // DEPENDENCIES
 import { useCallback, useEffect, useState } from 'react';
-// import useStore from '../../store/StoreContext';
-// import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../store/StoreDispatchers';
+import useStore from '../../store/StoreContext';
+import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../store/StoreDispatchers';
 
 // LIBRARY FUNCTIONS & STYLES
 import styles from './Search.module.scss';
@@ -19,18 +19,18 @@ export default function Search(params) {
 
   // State
   const [locationInput, setLocationInput] = useState('');
-  // const { state, dispatch } = useStore();
-  // const {
-  //   currentSearch: {
-  //     location: currentLocation
-  //   },
-  // } = state;
+  const { state, dispatch } = useStore();
+  const {
+    currentSearch: {
+      location: currentLocation,
+      errorMsg: errorMessage,
+    },
+  } = state;
 
-  /* 
-  
+
+
   // Fetch Handler
   const fetchHandler = useCallback(async (location = 'Washington') => {
-
     try {
       // API Call
       const apiResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=${location}&aqi=yes`)
@@ -64,15 +64,16 @@ export default function Search(params) {
     fetchHandler() // On Startup, Call without specifying location
   }, [fetchHandler])
 
-  
-  */
+
+
 
   // Submit Handler
   function submitHandler(e) {
     e.preventDefault();
 
+    // console.log(locationInput);
     //  dispatch(setIsLoading(true));
-    //  fetchHandler(locationInput); // location entered in text input
+    fetchHandler(locationInput); // location entered in text input
     //  dispatch(setIsLoading(false));
 
     setLocationInput('');
