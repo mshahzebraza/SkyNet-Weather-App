@@ -144,3 +144,61 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
       break;
   }
 }
+
+
+
+// Initial State
+export const iState = {
+  isLoading: false,
+  currentSearch: {
+    isValid: false, // dependant on response status OK / not OK
+    errorMessage: `Search for a Location`, // initial message, will change dynamically by api response
+    location: ``,
+    localTimeEpoch: ``,
+    localTime: ``,
+    country: ``,
+    condition: ``,
+    tempAct: ``,
+    tempFl: ``,
+    windDir: ``,
+    windSpeed: ``,
+    humidity: ``,
+    lastUpdatedEpoch: ``,
+    lastUpdated: ``,
+    isDay: ``,
+  },
+  recentLocations: []
+}
+
+// Current,
+// Air Quality, Highlights,
+
+// Monthly
+// Rainfall, Solar Time,
+
+
+// Highlights
+/*
+date, condition, temp, tempFL, wind, humidity
+ */
+
+// Air Quality
+/*
+Status, Comment, Traces w/ amount
+ */
+
+// Rainfall
+/*
+Date & Precipitation chances for a month
+ */
+
+// Solar Timing
+/*
+Duration for a week
+ */
+
+// Weekly condition
+/*
+Condition with day, and temperature
+ */
+
