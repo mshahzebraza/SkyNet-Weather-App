@@ -5,6 +5,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import useStore from '../../store/StoreContext';
 import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../store/StoreDispatchers';
+import { transformWeather } from '../../lib/helpers';
+
 
 // LIBRARY FUNCTIONS & STYLES
 import styles from './Search.module.scss';
@@ -20,12 +22,6 @@ export default function Search(params) {
   // State
   const [locationInput, setLocationInput] = useState('');
   const { state, dispatch } = useStore();
-  const {
-    currentSearch: {
-      location: currentLocation,
-      errorMsg: errorMessage,
-    },
-  } = state;
 
 
 
@@ -33,14 +29,15 @@ export default function Search(params) {
   const fetchHandler = useCallback(async (location = 'Washington') => {
     try {
       // API Call
-      const apiResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=df0dcf32a9b346308a814745212710&q=${location}&aqi=yes`)
+      // const apiResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${location}&days=${process.env.NEXT_PUBLIC_API_DAYS}&aqi=${process.env.NEXT_PUBLIC_API_AQ}&alerts=${process.env.NEXT_PUBLIC_API_ALERTS}`)
+      const apiResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=df0dcf32a9b346308a814745212710&q=${location}&days=10&aqi=yes&alerts=no`)
 
       // Good Response - fetch data and update the current weather & search history IF valid entry
       if (apiResponse.ok) {
         const apiJson = await apiResponse.json();
 
         // dispatch valid response - update current weather AND recent location
-        dispatch(updateCurrentValid(apiJson))
+        dispatch(updateCurrentValid(transformWeather(apiJson)))
       }
 
       // Bad Response - fetch error message and log to console IF invalid entry
