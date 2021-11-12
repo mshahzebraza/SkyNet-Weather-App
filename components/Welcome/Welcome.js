@@ -11,6 +11,7 @@ import styles from './Welcome.module.scss';
 
 /* BODY */
 export default function Welcome(params) {
+  console.log(`Rendering WELCOME`);
   const data = {
     time: '03:00 PM',
     day: 'Wednesday',
@@ -26,10 +27,10 @@ export default function Welcome(params) {
         <p className={styles.currentDate}>
           <span className={styles.currentDay} >{data.day}</span>, {data.date}
         </p>
-        <p className={styles.greetings}>
+        <div className={styles.greetings}>
           <Image src={`/icons/${data.isDay ? 'sun' : 'moon'}.svg`} alt='Time of Day' width={25} height={25} />
           Good Morning !
-        </p>
+        </div>
       </div>
     </>
   )

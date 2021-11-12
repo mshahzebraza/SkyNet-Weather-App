@@ -61,9 +61,10 @@ function Bravo(props) {
 
 
 export default function SolarTime(params) {
+  console.log(`Rendering SOLAR-TIME`);
 
   const featureQty = 2;
-  const solarTime = [
+  const data = (params.segProps != 'notAvailable' && params.segProps !== undefined) ? params.segProps : [
     { location: 'Pakistan', sunrise: '06:40', sunset: '07:00' },
     { location: 'India', sunrise: '06:40', sunset: '07:00' },
     { location: 'Bangladesh', sunrise: '06:40', sunset: '07:00' },
@@ -85,10 +86,10 @@ export default function SolarTime(params) {
       {/* Body */}
       <div className={styles.stBody}>
         {
-          solarTime.map((cur, id) => {
+          data.map((cur, id) => {
             return featureQty > id ?
-              <Alpha location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} /> :
-              <Bravo location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} />;
+              <Alpha location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} key={`solar-${id}`} /> :
+              <Bravo location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} key={`solar-${id}`} />;
           })
         }
         {/* Body */}

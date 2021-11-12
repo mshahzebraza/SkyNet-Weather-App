@@ -19,11 +19,15 @@ import { segregateProps } from "../../lib/helpers";
 
 
 // Function
-export default function Home(props) {
-
+export default function Weather(props) {
+  console.log(`-----------Rendering WEATHER---PAGE`);
   const { state } = useStore()
-  const segregatedProps = segregateProps(state)
-  // console.log(segregatedProps);
+  console.log('state');
+  console.log(state);
+
+  const segregatedProps = state.isValid ? segregateProps(state) : 'notAvailable';
+
+  console.log();
   // useEffect(() => {
   // },[])
 
@@ -44,35 +48,45 @@ export default function Home(props) {
         </ul>
       */}
       <main className={styles.dashboard}>
-        {/* <section className={styles.sec1}>
+        <section className={styles.sec1}>
           <Panel />
         </section>
         <section className={styles.sec2}>
           <Welcome />
         </section>
         <section className={styles.sec3}>
-          <Highlights {...segregatedProps.highlights} />
+          <Highlights
+            segProps={segregatedProps.highlights}
+          />
         </section>
         <section className={styles.sec4}>
           <Search />
         </section>
         <section className={styles.sec5}>
-          <WeekForecast {...segregatedProps.weekly} />
+          <WeekForecast
+            segProps={segregatedProps.weekly}
+          />
         </section>
         <section className={styles.sec6}>
-          <AirQuality {...segregatedProps.airQuality} />
+          <AirQuality
+            segProps={segregatedProps.airQuality}
+          />
         </section>
         <section className={styles.sec7}>
-          <Rainfall {...segregatedProps.rainfall} />
+          <Rainfall
+            segProps={segregatedProps.rainfall}
+          />
         </section>
         <section className={styles.sec8}>
-          <SolarTime {...segregatedProps.solar} />
-        </section> */}
+          <SolarTime
+            segProps={segregatedProps.solar}
+          />
+        </section>
       </main>
     </>
   );
 }
-Home.displayName = `Home`;
+Weather.displayName = `Weather`;
 
 export function getServerSideProps(pageContext) {
   // const { state } = useStore()

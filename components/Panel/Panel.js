@@ -10,7 +10,8 @@ import styles from './Panel.module.scss';
 
 
 /* BODY */
-export default function Rainfall(params) {
+export default function Panel(params) {
+  console.log(`Rendering PANEL`);
 
   return (
     <div className={styles.panel}>
@@ -20,4 +21,4 @@ export default function Rainfall(params) {
     </div>
   )
 }
-Rainfall.displayName = 'Rainfall'
+Panel.displayName = 'Panel'

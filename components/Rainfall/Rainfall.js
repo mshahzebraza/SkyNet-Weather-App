@@ -27,8 +27,9 @@ function StatBar(props) {
 
 
 export default function Rainfall(params) {
+  console.log(`Rendering RAINFALL`);
 
-  const rainfallData = [
+  const data = (params.segProps != 'notAvailable' && params.segProps !== undefined) ? params.segProps : [
     { date: '01', rain: 50 },
     { date: '02', rain: 18 },
     { date: '03', rain: 75 },
@@ -63,8 +64,8 @@ export default function Rainfall(params) {
         <ul className={styles.rfStats}>
           {/* Bi-Weekly Statistics */}
           {/* Stat Item */}
-          {rainfallData.map((cur, id) => {
-            return <StatBar date={cur.date} rain={cur.rain} />
+          {data.map((cur, id) => {
+            return <StatBar date={cur.date} rain={cur.rain} key={`rain-${id}`} />
           })}
         </ul>
 

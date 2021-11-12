@@ -28,19 +28,20 @@ function HighlightDetail(props) {
 }
 
 
-export default function Highlights({ city, date, condition, temp, feelsLike, wind, humidity }) {
+export default function Highlights(params) {
   // console.log(x);
   // console.log(s);
   // console.log(s.city);
-  // const data = {
-  //   city: 'Pakistan',
-  //   date: '04 April 2021',
-  //   condition: {},
-  //   temp: '29',
-  //   feelsLike: '30',
-  //   wind: '19',
-  //   humidity: '55',
-  // }
+  // console.log(params);
+  const data = (params.segProps != 'notAvailable' && params.segProps !== undefined) ? params.segProps : {
+    city: 'Pakistan',
+    date: '04 April 2021',
+    condition: {},
+    temp: '29',
+    feelsLike: '30',
+    wind: '19',
+    humidity: '55',
+  };
 
   return (
 
@@ -49,24 +50,24 @@ export default function Highlights({ city, date, condition, temp, feelsLike, win
       {/* Highlight Item */}
       <div className={styles.hlLocation}>
         <Image src="/icons/locationPin.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
-        <p className={styles.locationText}>{city}</p>
+        <p className={styles.locationText}>{data.city}</p>
       </div>
 
       {/* Highlight Date */}
-      <p className={styles.hlDate}>{date}</p>
+      <p className={styles.hlDate}>{data.date}</p>
 
       {/* Highlight Condition */}
       <Image src="/weather/thunder.png" alt="Weather Condition Image" width={120} height={120} className={styles.hlConditionImage} />
       {/* Highlight Text */}
-      <p className={styles.hlCondition}>{condition.text}</p>
+      <p className={styles.hlCondition}>{data.condition.text}</p>
 
       {/* Highlight Temp */}
-      <p className={styles.hlTemp}>{temp}&#176;</p>
+      <p className={styles.hlTemp}>{data.temp}&#176;</p>
 
       {/* Highlight Details */}
-      <HighlightDetail type='temp' label='Feels Like' value={feelsLike} />
-      <HighlightDetail type='speed' label='Wind' value={wind} />
-      <HighlightDetail type='per' label='Humidity' value={humidity} />
+      <HighlightDetail type='temp' label='Feels Like' value={data.feelsLike} />
+      <HighlightDetail type='speed' label='Wind' value={data.wind} />
+      <HighlightDetail type='per' label='Humidity' value={data.humidity} />
 
 
     </div>

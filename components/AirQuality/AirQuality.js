@@ -12,7 +12,7 @@ import styles from './AirQuality.module.scss';
 /* BODY */
 export default function AirQuality(params) {
 
-  const data = {
+  const data = (params.segProps != 'notAvailable' && params.segProps !== undefined) ? params.segProps : {
     location: 'England',
     status: 'Good',
     comment: 'A perfect day for a walk',
@@ -69,23 +69,23 @@ export default function AirQuality(params) {
         </div>
 
         {/* Detail */}
-        <div className={styles.aqDetail}>
+        <ul className={styles.aqDetail}>
           {
             data.traces.map((cur, id) => {
               return (
-                <div className={styles.aqDetailItem}>
+                <li className={styles.aqDetailItem} key={`aq-${id}`} >
                   {/* Detail Amount */}
                   <div className={styles.aqDetailAmount}>{cur.amount}</div>
                   {/* Detail Traces */}
                   <div className={styles.aqDetailTrace}>{cur.type}</div>
-                </div>
+                </li>
               )
             })
           }
           {/* Detail Item */}
 
 
-        </div>
+        </ul>
       </div>
     </div>
   )
