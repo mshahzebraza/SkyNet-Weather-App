@@ -7,42 +7,42 @@ import Image from 'next/image';
 import styles from './WeekForecast.module.scss';
 
 // COMPONENTS
-
+import Loader from '../../ui/Loader';
 
 /* BODY */
 export default function WeekForecast(params) {
   console.log(`Rendering WEEK-FORECAST`);
 
 
-  const data = (params.segProps != 'notAvailable' && params.segProps !== undefined) ? params.segProps : [
-    {
-      condition: {
-        icon: '/weather/thunder.png'
-      },
-      day: 'Mon',
-      temp: 27
-    },
-    {
-      condition: {
-        icon: '/weather/thunder.png'
-      },
-      day: 'Tue',
-      temp: 28
-    },
-    {
-      condition: {
-        icon: '/weather/thunder.png'
-      },
-      day: 'Wed',
-      temp: 35
-    },
-  ];
+  // const data = [
+  //   {
+  //     condition: {
+  //       icon: '/weather/thunder.png'
+  //     },
+  //     day: 'Mon',
+  //     temp: 27
+  //   },
+  //   {
+  //     condition: {
+  //       icon: '/weather/thunder.png'
+  //     },
+  //     day: 'Tue',
+  //     temp: 28
+  //   },
+  //   {
+  //     condition: {
+  //       icon: '/weather/thunder.png'
+  //     },
+  //     day: 'Wed',
+  //     temp: 35
+  //   },
+  // ];
 
   return (
-    <>
 
-      <ul className={styles.weekList}>
-        {data.map((cur, id) => {
+    <ul className={styles.weekList}>
+      {params.segProps === undefined ? <Loader /> : <>
+        {params.segProps.map((cur, id) => {
           return (
             <li className={styles.weekItem} key={`fc-${id}`} >
               <Image
@@ -60,9 +60,10 @@ export default function WeekForecast(params) {
             </li>
           )
         })}
-      </ul>
+      </>}
 
-    </>
+    </ul>
+
   )
 }
 WeekForecast.displayName = 'WeekForecast'

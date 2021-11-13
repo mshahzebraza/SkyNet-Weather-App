@@ -3,9 +3,9 @@
 
 // DEPENDENCIES
 import { useCallback, useEffect, useState } from 'react';
-import useStore from '../../store/StoreContext';
-import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../store/StoreDispatchers';
-import { transformWeather } from '../../lib/helpers';
+import useStore from '../../../store/StoreContext';
+import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../../store/StoreDispatchers';
+import { transformWeather } from '../../../lib/helpers';
 
 
 // LIBRARY FUNCTIONS & STYLES

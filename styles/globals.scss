@@ -11,9 +11,14 @@ html {
   font-size: 10px;
 }
 body {
+  background: rgb(238, 238, 238);
+  // height: 100vh;
+  // background: url("../public/bg/starSky.jpg"), #000;
+  // backdrop-filter: hue-rotate(-50deg) grayscale(0.5) brightness(1000%) blur(0.85rem);
+
   padding: 0;
   margin: 0;
-  background-color: #e6edfb;
+  // background-color: #e6edfb;
   font-size: 1.6rem;
   letter-spacing: 0.035em;
   font-family: Poppins, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,

@@ -5,14 +5,14 @@ import Head from 'next/head';
 // Objects & Styles
 
 // Components
-import Panel from '../../components/Panel/Panel';
-import Welcome from '../../components/Welcome/Welcome';
-import Highlights from '../../components/Highlights/Highlights';
-import Search from '../../components/Search/Search';
-import WeekForecast from '../../components/WeekForecast/WeekForecast';
-import AirQuality from '../../components/AirQuality/AirQuality';
-import Rainfall from '../../components/Rainfall/Rainfall';
-import SolarTime from '../../components/SolarTime/SolarTime';
+import Panel from '../../components/AppSections/Panel/Panel';
+import Welcome from '../../components/AppSections/Welcome/Welcome';
+import Highlights from '../../components/AppSections/Highlights/Highlights';
+import Search from '../../components/AppSections/Search/Search';
+import WeekForecast from '../../components/AppSections/WeekForecast/WeekForecast';
+import AirQuality from '../../components/AppSections/AirQuality/AirQuality';
+import Rainfall from '../../components/AppSections/Rainfall/Rainfall';
+import SolarTime from '../../components/AppSections/SolarTime/SolarTime';
 import useStore from "../../store/StoreContext";
 import { useEffect } from "react";
 import { segregateProps } from "../../lib/helpers";
@@ -25,7 +25,10 @@ export default function Weather(props) {
   console.log('state');
   console.log(state);
 
-  const segregatedProps = state.isValid ? segregateProps(state) : 'notAvailable';
+  const segregatedProps = state.isValid ? segregateProps(state) : {};
+  // For a failed request
+  // segregatedProps = 'notAvailable'
+  // segregatedProps.weekly = undefined
 
   console.log();
   // useEffect(() => {

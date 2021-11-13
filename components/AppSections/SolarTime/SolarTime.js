@@ -9,7 +9,7 @@ import Image from "next/image"
 import styles from './SolarTime.module.scss';
 
 // COMPONENTS
-
+import Loader from '../../ui/Loader';
 
 /* BODY */
 
@@ -64,40 +64,50 @@ export default function SolarTime(params) {
   console.log(`Rendering SOLAR-TIME`);
 
   const featureQty = 2;
-  const data = (params.segProps != 'notAvailable' && params.segProps !== undefined) ? params.segProps : [
-    { location: 'Pakistan', sunrise: '06:40', sunset: '07:00' },
-    { location: 'India', sunrise: '06:40', sunset: '07:00' },
-    { location: 'Bangladesh', sunrise: '06:40', sunset: '07:00' },
-    { location: 'England', sunrise: '06:40', sunset: '07:00' },
-    { location: 'Africa', sunrise: '06:40', sunset: '07:00' },
-  ]
+  console.log('params.segProps');
+  console.log(params.segProps);
+
+  // const data = [
+  //   { location: 'Pakistan', sunrise: '06:40', sunset: '07:00' },
+  //   { location: 'India', sunrise: '06:40', sunset: '07:00' },
+  //   { location: 'Bangladesh', sunrise: '06:40', sunset: '07:00' },
+  //   { location: 'England', sunrise: '06:40', sunset: '07:00' },
+  //   { location: 'Africa', sunrise: '06:40', sunset: '07:00' },
+  // ]
 
   return (
-    <div className={styles.solarTime} >
-      {/* Header */}
-      <div className={styles.stHeader}>
-        <p className={styles.stTitle}>Sunrise & Sunset</p>
-        {/* Location */}
-        <div className={styles.stLocation}>
-          <Image src="/icons/add.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
-        </div>
-      </div>
 
-      {/* Body */}
-      <div className={styles.stBody}>
-        {
-          data.map((cur, id) => {
-            return featureQty > id ?
-              <Alpha location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} key={`solar-${id}`} /> :
-              <Bravo location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} key={`solar-${id}`} />;
-          })
-        }
+    <div className={styles.solarTime} >
+
+      {params.segProps === undefined ? <Loader /> : <>
+        {/* Header */}
+        <div className={styles.stHeader}>
+          <p className={styles.stTitle}>Sunrise & Sunset</p>
+          {/* Location */}
+          <div className={styles.stLocation}>
+            <Image src="/icons/add.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
+          </div>
+        </div>
+
         {/* Body */}
-        {/* Primary Detail */}
-        {/* <Alpha /> */}
-        {/* Secondary Detail */}
-        {/* <Bravo /> */}
-      </div>
+        <div className={styles.stBody}>
+          {
+            params.segProps.map((cur, id) => {
+              return featureQty > id ?
+                <Alpha location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} key={`solar-${id}`} /> :
+                <Bravo location={cur.location} sunrise={cur.sunrise} sunset={cur.sunset} key={`solar-${id}`} />;
+            })
+          }
+          {/* Body */}
+          {/* Primary Detail */}
+          {/* <Alpha /> */}
+          {/* Secondary Detail */}
+          {/* <Bravo /> */}
+        </div>
+      </>}
+
+
+
     </div>
   )
 }
