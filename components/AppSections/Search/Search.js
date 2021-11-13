@@ -32,7 +32,7 @@ export default function Search(params) {
     try {
       // API Call
       // const apiResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${location}&days=${process.env.NEXT_PUBLIC_API_DAYS}&aqi=${process.env.NEXT_PUBLIC_API_AQ}&alerts=${process.env.NEXT_PUBLIC_API_ALERTS}`)
-      const apiResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=df0dcf32a9b346308a814745212710&q=${location}&days=10&aqi=yes&alerts=no`)
+      const apiResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=df0dcf32a9b346308a814745212710&q=${location}&days=10&aqi=yes&alerts=no`)
 
       // Good Response - fetch data and update the current weather & search history IF valid entry
       if (apiResponse.ok) {
