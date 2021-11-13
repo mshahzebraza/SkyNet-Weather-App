@@ -13,31 +13,6 @@ import Loader from '../../ui/Loader';
 export default function WeekForecast(params) {
   console.log(`Rendering WEEK-FORECAST`);
 
-
-  // const data = [
-  //   {
-  //     condition: {
-  //       icon: '/weather/thunder.png'
-  //     },
-  //     day: 'Mon',
-  //     temp: 27
-  //   },
-  //   {
-  //     condition: {
-  //       icon: '/weather/thunder.png'
-  //     },
-  //     day: 'Tue',
-  //     temp: 28
-  //   },
-  //   {
-  //     condition: {
-  //       icon: '/weather/thunder.png'
-  //     },
-  //     day: 'Wed',
-  //     temp: 35
-  //   },
-  // ];
-
   return (
 
     <ul className={styles.weekList}>

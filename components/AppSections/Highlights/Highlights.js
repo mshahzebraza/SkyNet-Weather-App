@@ -30,15 +30,6 @@ function HighlightDetail(props) {
 
 export default function Highlights(params) {
 
-  // const data = {
-  //   city: 'Pakistan',
-  //   date: '04 April 2021',
-  //   condition: {},
-  //   temp: '29',
-  //   feelsLike: '30',
-  //   wind: '19',
-  //   humidity: '55',
-  // };
 
   return (
     <div className={styles.highlights}>
@@ -69,36 +60,6 @@ export default function Highlights(params) {
   )
 }
 Highlights.displayName = 'Highlights'
-
-/*
-<div className={styles.highlights}>
-
-        (
-        Highlight Item
-          <div className={styles.hlLocation}>
-          <Image src="/icons/locationPin.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
-          <p className={styles.locationText}>{data.city}</p>
-        </div>
-
-       Highlight Date
-        <p className={styles.hlDate}>{data.date}</p>
-
-        Highlight Condition
-        <Image src="/weather/thunder.png" alt="Weather Condition Image" width={120} height={120} className={styles.hlConditionImage} />
-        Highlight Text
-        <p className={styles.hlCondition}>{data.condition.text}</p>
-
-        Highlight Temp
-        <p className={styles.hlTemp}>{data.temp}&#176;</p>
-
-        Highlight Details
-        <HighlightDetail type='temp' label='Feels Like' value={data.feelsLike} />
-        <HighlightDetail type='speed' label='Wind' value={data.wind} />
-        <HighlightDetail type='per' label='Humidity' value={data.humidity} />)
-
-
-      </div>
- */
 
 /*
 // html example

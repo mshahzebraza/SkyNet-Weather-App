@@ -17,11 +17,11 @@ export default function Home(props) {
   return (
 
     <>
-
       <div className={styles.container} >
-        <SearchForm />
-        <InfoPanel info='s' />
-        <SearchHistory styles={styles.footer} />
+        {/* <SearchForm /> */}
+        {/* The Old reducer doesn't exist now, which means the dispatch functions will be no longer valid */}
+        {/* <InfoPanel info='s' /> */}
+        {/* <SearchHistory styles={styles.footer} /> */}
 
       </div>
     </>

@@ -13,33 +13,7 @@ import Loader from '../../ui/Loader';
 /* BODY */
 export default function AirQuality(params) {
 
-  // const data = {
-  //   location: 'England',
-  //   status: 'Good',
-  //   comment: 'A perfect day for a walk',
-  //   traces: [
-  //     {
-  //       type: 'O2',
-  //       amount: '50%'
-  //     },
-  //     {
-  //       type: 'NO2',
-  //       amount: '14%'
-  //     },
-  //     {
-  //       type: 'CO2',
-  //       amount: '4%'
-  //     },
-  //     {
-  //       type: 'CO',
-  //       amount: '1%'
-  //     },
-  //     {
-  //       type: 'H',
-  //       amount: '1%'
-  //     },
-  //   ]
-  // }
+
 
 
   return (

@@ -29,22 +29,7 @@ function StatBar(props) {
 export default function Rainfall(params) {
   console.log(`Rendering RAINFALL`);
 
-  // const data = [
-  //   { date: '01', rain: 50 },
-  //   { date: '02', rain: 18 },
-  //   { date: '03', rain: 75 },
-  //   { date: '04', rain: 25 },
-  //   { date: '05', rain: 66 },
-  //   { date: '06', rain: 32 },
-  //   { date: '07', rain: 88 },
-  //   { date: '08', rain: 10 },
-  //   { date: '09', rain: 18 },
-  //   { date: '10', rain: 75 },
-  //   { date: '11', rain: 25 },
-  //   { date: '12', rain: 66 },
-  //   { date: '13', rain: 32 },
-  //   { date: '14', rain: 88 },
-  // ]
+
 
   return (
     <div className={styles.rainfall}>

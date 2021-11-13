@@ -67,13 +67,7 @@ export default function SolarTime(params) {
   console.log('params.segProps');
   console.log(params.segProps);
 
-  // const data = [
-  //   { location: 'Pakistan', sunrise: '06:40', sunset: '07:00' },
-  //   { location: 'India', sunrise: '06:40', sunset: '07:00' },
-  //   { location: 'Bangladesh', sunrise: '06:40', sunset: '07:00' },
-  //   { location: 'England', sunrise: '06:40', sunset: '07:00' },
-  //   { location: 'Africa', sunrise: '06:40', sunset: '07:00' },
-  // ]
+
 
   return (
 
