@@ -10,8 +10,8 @@ export const initialState =
   weather: {
     // city: '',
     // country: '',
-    // localTime: '',
-    // updateTime: '',
+    // localTime: {},
+    // updateTime: {},
     // isDay: '',
     // condition: {},
     // temp: '',

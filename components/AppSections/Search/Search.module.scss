@@ -1,6 +1,18 @@
+@import "../../../styles/abstracts";
 .form {
   height: 100%;
+  padding: 1rem 1.5rem;
+  @extend %effect1;
+
   display: flex;
-  gap: 1rem;
-  // align-items: center;
+  gap: min(2rem, 5vw);
+  align-items: center;
+
+  background: $neutral;
+  border-radius: 0.5rem;
+  transition: 0.2s all ease;
+  &:hover {
+    cursor: pointer;
+    @extend %effect1Hover;
+  }
 }

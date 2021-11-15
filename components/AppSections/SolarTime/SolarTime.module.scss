@@ -1,12 +1,12 @@
-$prime1: #2f3346;
-$prime2: #5c92ff;
-$prime4: #aab5dd;
-$prime5: #f0f5ff;
-$neutral: #ffffff;
-$gradY: linear-gradient(#ffd88b, #ffa900);
-$gradW: linear-gradient(#fff, #d6e0f9);
-$gradB: radial-gradient(#d0d5ff, #419ef4);
-
+@import "../../../styles/abstracts";
+// $prime1: #2f3346;
+// $prime2: #5c92ff;
+// $prime4: #aab5dd;
+// $prime5: #f0f5ff;
+// $neutral: #ffffff;
+// $gradY: linear-gradient(#ffd88b, #ffa900);
+// $gradW: linear-gradient(#fff, #d6e0f9);
+// $gradB: radial-gradient(#d0d5ff, #419ef4);
 .solarTime {
   height: 100%;
   display: flex;
@@ -54,7 +54,9 @@ $gradB: radial-gradient(#d0d5ff, #419ef4);
 
   padding: 1.25rem 1.5rem;
 
-  background: $prime5;
+  // background: $prime5;
+  @extend %effect2;
+  // background: $neutral;
   border-radius: 0.75rem;
   .stLocation {
     font-size: 1.7rem;

@@ -1,11 +1,12 @@
-$prime1: #2f3346;
-$prime2: #5c92ff;
-$prime4: #aab5dd;
-$prime5: #f0f5ff;
-$neutral: #ffffff;
-$gradY: linear-gradient(#ffd88b, #ffa900);
-$gradW: linear-gradient(#fff, #d6e0f9);
-$gradB: radial-gradient(#d0d5ff, #419ef4);
+@import "../../../styles/abstracts";
+// $prime1: #2f3346;
+// $prime2: #5c92ff;
+// $prime4: #aab5dd;
+// $prime5: #f0f5ff;
+// $neutral: #ffffff;
+// $gradY: linear-gradient(#ffd88b, #ffa900);
+// $gradW: linear-gradient(#fff, #d6e0f9);
+// $gradB: radial-gradient(#d0d5ff, #419ef4);
 
 .rainfall {
   height: 100%;
@@ -43,9 +44,9 @@ $gradB: radial-gradient(#d0d5ff, #419ef4);
   align-items: center;
 }
 .rfStatBar {
-  background: #ccc;
+  background: $prime5;
   content: "";
-  width: 0.5rem;
+  width: 0.7rem;
   border-radius: 1rem;
   // height: 10rem;
   flex: 1;
@@ -66,7 +67,7 @@ $gradB: radial-gradient(#d0d5ff, #419ef4);
 .rfStatVal {
   border-radius: 1rem;
   width: 100%;
-  background: #333;
+  background: $prime1;
   content: "";
   // flex: 0 0 5%;
 }

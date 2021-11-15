@@ -17,19 +17,17 @@ export default function AirQuality(params) {
 
 
   return (
-    <div className={styles.airQuality}>
+    // <div className={styles.airQuality}>
+    <div className={'alphaCard'}>
 
       {params.segProps === undefined ? <Loader /> : <>
-        <div className={styles.aqHeader}>
+        {/* Header */}
+        <div className={'alphaHeader'}>
           {/* Title */}
-          <p className={styles.aqTitle}>Air Quality</p>
-          {/* Location */}
-          <div className={styles.aqLocation}>
-            <Image src="/icons/locationPin.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
-            <p className={styles.locationText}>{params.segProps.location}</p>
-          </div>
-          {/* Location */}
+          <p className={'alphaTitle'}>Air Quality</p>
+          {/* Legend Optional */}
         </div>
+
 
         <div className={styles.aqBody}>
           {/* Brief */}

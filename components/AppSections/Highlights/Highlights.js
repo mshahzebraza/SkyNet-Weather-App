@@ -32,28 +32,31 @@ export default function Highlights(params) {
 
 
   return (
-    <div className={styles.highlights}>
+
+    <div className={'alphaCard'}>
 
       {params.segProps === undefined ? <Loader /> :
-
         <>
-          <div className={styles.hlLocation}>
-            <Image src="/icons/locationPin.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
-            <p className={styles.locationText}>{params.segProps.city}</p>
+          {/* Header */}
+          <div className={'alphaHeader'}>
+            <p className={'alphaTitle'}>Highlights</p>
           </div>
 
-          <p className={styles.hlDate}>{params.segProps.date}</p>
+          {/* Body */}
+          <div className={styles.highlights}>
 
-          <Image src="/weather/thunder.png" alt="Weather Condition Image" width={120} height={120} className={styles.hlConditionImage} />
-          <p className={styles.hlCondition}>{params.segProps.condition.text}</p>
+            {/* <p className={styles.hlDate}>{params.segProps.date}</p> */}
 
-          <p className={styles.hlTemp}>{params.segProps.temp}&#176;</p>
+            <Image src="/weather/thunder.png" alt="Weather Condition Image" width={120} height={120} className={styles.hlConditionImage} />
+            <p className={styles.hlCondition}>{params.segProps.condition.text}</p>
 
-          <HighlightDetail type='temp' label='Feels Like' value={params.segProps.feelsLike} />
-          <HighlightDetail type='speed' label='Wind' value={params.segProps.wind} />
-          <HighlightDetail type='per' label='Humidity' value={params.segProps.humidity} />
+            <p className={styles.hlTemp}>{params.segProps.temp}&#176;</p>
+
+            <HighlightDetail type='temp' label='Feels Like' value={params.segProps.feelsLike} />
+            <HighlightDetail type='speed' label='Wind' value={params.segProps.wind} />
+            <HighlightDetail type='per' label='Humidity' value={params.segProps.humidity} />
+          </div>
         </>
-
       }
 
     </div>

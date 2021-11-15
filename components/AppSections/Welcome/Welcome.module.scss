@@ -1,35 +1,45 @@
-$prime1: #2f3346;
-$prime2: #5c92ff;
-$prime4: #aab5dd;
-$prime5: #f0f5ff;
-$neutral: #ffffff;
-$gradY: linear-gradient(#ffd88b, #ffa900);
-$gradW: linear-gradient(#fff, #d6e0f9);
-$gradB: radial-gradient(#d0d5ff, #419ef4);
+@import "../../../styles/abstracts";
+// $prime1: #2f3346;
+// $prime2: #5c92ff;
+// $prime4: #aab5dd;
+// $prime5: #f0f5ff;
+// $neutral: #ffffff;
+// $gradY: linear-gradient(#ffd88b, #ffa900);
+// $gradW: linear-gradient(#fff, #d6e0f9);
+// $gradB: radial-gradient(#d0d5ff, #419ef4);
 
 .welcome {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 1rem;
   text-align: center;
 }
 
-.currentTime {
-  color: $prime2;
-  font-size: 3.5rem;
-  font-weight: 600;
+.place {
+  // margin-top: 1rem;
+  color: $prime1;
+  display: flex;
+  flex-direction: column;
+  .city {
+    font-weight: 600;
+    font-size: 3.2rem;
+  }
+  .country {
+    font-size: 1.5rem;
+  }
 }
 
-.currentDate {
-  color: $prime1;
-  font-size: 1.7rem;
+.date {
+  color: $prime2;
+  font-size: 1.5rem;
   font-weight: 600;
 }
-.currentDay {
+.day {
 }
-.greetings {
-  font-size: 1.9rem;
+.time {
+  font-size: 1.8rem;
   font-weight: 600;
   display: flex;
   gap: 0.5rem;

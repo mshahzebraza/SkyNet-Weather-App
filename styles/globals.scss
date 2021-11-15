@@ -1,20 +1,29 @@
-$prime1: #2f3346;
-$prime2: #5c92ff;
-$prime4: #aab5dd;
-$prime5: #f0f5ff;
-$neutral: #ffffff;
-$gradY: linear-gradient(#ffd88b, #ffa900);
-$gradW: linear-gradient(#fff, #d6e0f9);
-$gradB: radial-gradient(#d0d5ff, #419ef4);
+@import "../styles/abstracts";
+// $prime1: #2f3346;
+// $prime2: #5c92ff;
+// $prime4: #aab5dd;
+// $prime5: #f0f5ff;
+// $neutral: #ffffff;
+// $gradY: linear-gradient(#ffd88b, #ffa900);
+// $gradW: linear-gradient(#fff, #d6e0f9);
+// $gradB: radial-gradient(#d0d5ff, #419ef4);
+// Global Styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   font-size: 10px;
 }
 body {
-  background: rgb(238, 238, 238);
+  background: rgb(255, 255, 255);
   // height: 100vh;
-  // background: url("../public/bg/starSky.jpg"), #000;
-  // backdrop-filter: hue-rotate(-50deg) grayscale(0.5) brightness(1000%) blur(0.85rem);
+  background: url("../public/bg/starSky.jpg"), #000;
+  backdrop-filter: 
+  // hue-rotate(-50deg)
+    grayscale(0.5) brightness(130%) blur(0.85rem);
 
   padding: 0;
   margin: 0;
@@ -25,60 +34,68 @@ body {
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+// General Styles
+
 a {
+  font-family: inherit;
   color: inherit;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 ul {
   list-style: none;
 }
-.container {
-  max-width: 114rem;
-  width: 98%;
-  margin: auto;
-  // background: red;
-}
-.pageContainer {
-  padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  // border: 1px solid green;
+  -webkit-text-fill-color: $prime4;
+  // -webkit-text-background-color: red;
+  // -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 input {
   margin-top: 0.2em;
-  color: #385ca4;
+  // color: #385ca4;
   padding: 0.6rem 1rem;
   font-size: 1.4rem;
-  font-family: raleway;
+  font-family: inherit;
   font-weight: 500;
   font-style: italic;
-  border: 1.5px solid #5c92ff;
+  border: 1.5px solid #000;
   border-radius: 0.25rem;
   outline: none;
-  // letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
+  color: $prime2;
 
   &:focus {
-    border-color: #385ca4;
-    box-shadow: 0 0.5rem 1rem rgba($color: #385ca4, $alpha: 0.05);
+    // border-color: #385ca4;
+    // box-shadow: 0 0.5rem 1rem rgba($color: #385ca4, $alpha: 0.05);
   }
   &::placeholder {
-    font-weight: 400;
-    color: #5c92ff;
+    color: $prime1;
+    // font-weight: 500;
   }
 }
 
 button {
+  font-family: inherit;
   cursor: pointer;
   letter-spacing: 0.15em;
   padding: 0.8rem 1.6rem;
   font-weight: 600;
   border: 1px solid transparent;
   outline: none;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   background: $prime1;
   color: $neutral;
   &:hover,
@@ -86,4 +103,65 @@ button {
     // border-color: black;
     box-shadow: 0 0.5rem 1.25rem rgba($color: #000, $alpha: 0.15);
   }
+}
+
+// Containers
+.container {
+  max-width: 114rem;
+  width: 98%;
+  margin: auto;
+  padding: 2.5rem 0;
+  // background: red;
+}
+.pageContainer {
+  padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+}
+
+// Card Styles
+.alphaCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: $neutral;
+  @extend %effect1;
+
+  // align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  // flex: 1;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    @extend %effect1Hover;
+
+    .alphaTitle {
+      background: $prime1;
+      color: $prime4;
+    }
+  }
+}
+
+.alphaHeader {
+  align-self: stretch;
+  color: $prime1;
+  display: flex;
+}
+
+.alphaTitle {
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 0.5rem 1.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background: $prime5;
+  color: $prime2;
+  transition: all 0.2s ease;
+}
+.alphaSubTitle {
+  font-size: 1.9rem;
+  font-weight: 400;
 }

@@ -1,11 +1,12 @@
-$prime1: #2f3346;
-$prime2: #5c92ff;
-$prime4: #aab5dd;
-$prime5: #f0f5ff;
-$neutral: #ffffff;
-$gradY: linear-gradient(#ffd88b, #ffa900);
-$gradW: linear-gradient(#fff, #d6e0f9);
-$gradB: radial-gradient(#d0d5ff, #419ef4);
+@import "../../../styles/abstracts";
+// $prime1: #2f3346;
+// $prime2: #5c92ff;
+// $prime4: #aab5dd;
+// $prime5: #f0f5ff;
+// $neutral: #ffffff;
+// $gradY: linear-gradient(#ffd88b, #ffa900);
+// $gradW: linear-gradient(#fff, #d6e0f9);
+// $gradB: radial-gradient(#d0d5ff, #419ef4);
 
 .highlights {
   color: $prime1;
@@ -14,10 +15,10 @@ $gradB: radial-gradient(#d0d5ff, #419ef4);
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
+  // padding: 1.5rem 2rem;
   gap: 0.75rem;
 
-  background: #fff;
+  // background: #fff;
   border-radius: 0.75rem;
 }
 .hlLocation {
@@ -45,7 +46,7 @@ $gradB: radial-gradient(#d0d5ff, #419ef4);
 }
 .hlTemp {
   font-size: 4.5rem;
-  font-weight: 200;
+  font-weight: 300;
 }
 .hlDetail {
   align-self: stretch;

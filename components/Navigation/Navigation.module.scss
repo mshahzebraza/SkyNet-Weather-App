@@ -1,26 +1,51 @@
 .nav {
-  min-height: 10vh;
+  min-height: 7.5vh;
+  color: #fff;
   padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 1rem;
-  background: white;
+  background: #333;
+
   &Brand {
   }
   &List {
     display: flex;
     gap: 1rem 2rem;
     transition: all 0.2s eas;
-    color: #333;
+    // color: #333;
   }
   &Item {
-    font-weight: 500;
-    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    font-style: italic;
+    transition: all 0.15s ease;
+    // text-transform: uppercase;
+    position: relative;
+    // background: yellow;
+
+    &::before {
+      position: absolute;
+      bottom: -0.15rem;
+      // display: flex;
+      content: "";
+      background: darken($color: #8ebfee, $amount: 10);
+      width: 100%;
+      height: 0.2rem;
+      transition: all 0.15s ease;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    &:hover::before {
+      transform: scaleX(1);
+    }
+
     &:hover {
+      transform: translateY(-0.15rem);
       text-shadow: 0 0.25rem 2rem rgba($color: #1d6688, $alpha: 0.25);
-      color: rgb(21, 68, 112);
+      color: #8ebfee;
     }
   }
 }

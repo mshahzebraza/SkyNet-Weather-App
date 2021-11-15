@@ -85,13 +85,13 @@ export default function Search(params) {
       {/* Search */}
 
 
-      <form className={styles.form} action="#" onSubmit={submitHandler} >
+      <form className={`${styles.form}`} action="#" onSubmit={submitHandler} >
 
         < FormInput
           // label='Search Location'
           type='text'
           id='location'
-          placeholder='Type the Location Name here'
+          placeholder='Search ...'
           // errorText={'Invalid Input'} // will be dynamically fetched from the context or props
           isReq={true}
           value={locationInput}
@@ -99,7 +99,7 @@ export default function Search(params) {
         />
 
         {/* <div className={styles.controlGroup}> */}
-        <FormControl></FormControl>
+        <FormControl />
         {/* </div> */}
 
       </form>
