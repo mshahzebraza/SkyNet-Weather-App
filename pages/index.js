@@ -11,13 +11,14 @@ import Image from "next/image"
 import SearchForm from '../components/SearchForm/SearchForm';
 import InfoPanel from '../components/InfoPanel/InfoPanel';
 import SearchHistory from '../components/SearchHistory/SearchHistory';
+import router, { useRouter } from 'next/router';
 
 
 
 // Function
 export default function Home(props) {
+  const router = useRouter();
   return (
-
     <>
       <Head>
         <link key='googleFontsConnect' rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,7 +34,9 @@ export default function Home(props) {
             <h5 className={styles.text}>
               A Weather app using React JS and Sass by <span className={styles.name}>M. Shahzeb Raza</span>
             </h5>
-            <button className={styles.search}>Search Weather</button>
+            <button onClick={(params) => {
+              router.push('/weather')
+            }} className={styles.search}>Search Weather</button>
           </div>
 
           <div className={styles.graphic}>
