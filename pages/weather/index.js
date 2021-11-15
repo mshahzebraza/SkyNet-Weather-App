@@ -50,44 +50,46 @@ export default function Weather(props) {
           <li className="toolboxItem"><a href="#" className="toolboxIcon">Icon</a></li>
         </ul>
       */}
-      <main className={styles.dashboard}>
-        <section className={styles.sec1}>
-          <Panel />
-        </section>
-        <section className={styles.sec2}>
-          <Welcome
-            segProps={segregatedProps.welcome}
-          />
-        </section>
-        <section className={styles.sec3}>
-          <Highlights
-            segProps={segregatedProps.highlights}
-          />
-        </section>
-        <section className={styles.sec4}>
-          <Search />
-        </section>
-        <section className={styles.sec5}>
-          <WeekForecast
-            segProps={segregatedProps.weekly}
-          />
-        </section>
-        <section className={styles.sec6}>
-          <AirQuality
-            segProps={segregatedProps.airQuality}
-          />
-        </section>
-        <section className={styles.sec7}>
-          <Rainfall
-            segProps={segregatedProps.rainfall}
-          />
-        </section>
-        <section className={styles.sec8}>
-          <SolarTime
-            segProps={segregatedProps.solar}
-          />
-        </section>
-      </main>
+      <div className={`${styles.page} pageContainer`}>
+        <main className={`${styles.dashboard}`}>
+          <section className={styles.sec1}>
+            <Panel />
+          </section>
+          <section className={styles.sec2}>
+            <Welcome
+              segProps={segregatedProps.welcome}
+            />
+          </section>
+          <section className={styles.sec3}>
+            <Highlights
+              segProps={segregatedProps.highlights}
+            />
+          </section>
+          <section className={styles.sec4}>
+            <Search />
+          </section>
+          <section className={styles.sec5}>
+            <WeekForecast
+              segProps={segregatedProps.weekly}
+            />
+          </section>
+          <section className={styles.sec6}>
+            <AirQuality
+              segProps={segregatedProps.airQuality}
+            />
+          </section>
+          <section className={styles.sec7}>
+            <Rainfall
+              segProps={segregatedProps.rainfall}
+            />
+          </section>
+          <section className={styles.sec8}>
+            <SolarTime
+              segProps={segregatedProps.solar}
+            />
+          </section>
+        </main>
+      </div>
     </>
   );
 }

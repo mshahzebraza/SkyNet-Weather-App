@@ -20,7 +20,7 @@ html {
 body {
   background: rgb(255, 255, 255);
   // height: 100vh;
-  background: url("../public/bg/starSky.jpg"), #000;
+  // background: url("../public/bg/starSky.jpg"), #000;
   backdrop-filter: 
   // hue-rotate(-50deg)
     grayscale(0.5) brightness(130%) blur(0.85rem);
@@ -97,7 +97,7 @@ button {
   outline: none;
   transition: all 0.15s ease;
   background: $prime1;
-  color: $neutral;
+  color: $prime5;
   &:hover,
   &:focus {
     // border-color: black;
@@ -107,6 +107,7 @@ button {
 
 // Containers
 .container {
+  // height: 100%;
   max-width: 114rem;
   width: 98%;
   margin: auto;
@@ -114,7 +115,9 @@ button {
   // background: red;
 }
 .pageContainer {
-  padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+  // padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+  padding: 2.5rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+  min-height: 92.5vh;
 }
 
 // Card Styles

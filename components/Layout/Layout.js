@@ -23,9 +23,9 @@ export default function Layout(props) {
   return (
     <>
       <Navigation />
-      <div className="container">
-        {props.children}
-      </div>
+      {/* <div className="container"> */}
+      {props.children}
+      {/* </div> */}
     </>
   )
 }
