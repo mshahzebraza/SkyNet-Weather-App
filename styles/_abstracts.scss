@@ -3,7 +3,9 @@
 $prime1: #2f3346;
 // $prime1: #fa261f;
 $prime2: #12528c;
-$prime4: #9ba8d8;
+// $prime4: #9ba8d8;
+$prime4: #7076c7;
+// $prime4: #000fe7;
 $prime5: #e5ecfa;
 $neutral: rgba(#ffffff, 0.35);
 $gradY: linear-gradient(#ffd88b, #ffa900);
@@ -15,7 +17,7 @@ $gradB: radial-gradient(#d0d5ff, #419ef4);
 %effect1 {
   box-shadow: rgba($prime1, 0.1) 0px 10px 36px 0px,
     rgba($prime1, 0.06) 0px 0px 0px 0.03px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: brightness(1.3) blur(40px);
 }
 %effect1Hover {
   box-shadow: rgba($prime4, 0.25) 0px 2px 25px, rgba($prime4, 0.4) 0px 5px 45px;

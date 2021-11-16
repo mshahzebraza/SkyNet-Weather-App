@@ -11,7 +11,7 @@ import styles from './Panel.module.scss';
 
 /* BODY */
 export default function Panel(params) {
-  console.log(`Rendering PANEL`);
+  // console.log(`Rendering PANEL`);
 
   return (
     <div className={styles.panel}>

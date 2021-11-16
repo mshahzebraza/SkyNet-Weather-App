@@ -45,11 +45,8 @@ export default function Highlights(params) {
           {/* Body */}
           <div className={styles.highlights}>
 
-            {/* <p className={styles.hlDate}>{params.segProps.date}</p> */}
-
             <Image src="/weather/thunder.png" alt="Weather Condition Image" width={120} height={120} className={styles.hlConditionImage} />
             <p className={styles.hlCondition}>{params.segProps.condition.text}</p>
-
             <p className={styles.hlTemp}>{params.segProps.temp}&#176;</p>
 
             <HighlightDetail type='temp' label='Feels Like' value={params.segProps.feelsLike} />

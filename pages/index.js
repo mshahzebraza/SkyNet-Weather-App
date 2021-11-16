@@ -21,6 +21,10 @@ export default function Home(props) {
   return (
     <>
       <Head>
+        <title>My page title</title>
+        <meta name="description" content="Search the state of current weather in your location with the amazingly fast web app powered by NEXT.JS" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
         <link key='googleFontsConnect' rel="preconnect" href="https://fonts.googleapis.com" />
         <link key='googleFontsCrossOrigin' rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link key='googleFonts'

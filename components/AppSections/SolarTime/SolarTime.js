@@ -14,29 +14,19 @@ import Loader from '../../ui/Loader';
 /* BODY */
 
 export default function SolarTime(params) {
-  console.log(`Rendering SOLAR-TIME`);
+  // console.log(`Rendering SOLAR-TIME`);
 
   const featureQty = 3;
-  console.log('params.segProps');
-  console.log(params.segProps);
-
 
 
   return (
 
-    // <div className={styles.solarTime} >
     <div className={'alphaCard'}>
 
       {params.segProps === undefined ? <Loader /> : <>
-
         {/* Header */}
         <div className={'alphaHeader'}>
-          {/* Title */}
           <p className={'alphaTitle'}>Sunrise & Sunset</p>
-          {/* Legend Optional */}
-          {/* <div className={styles.stLocation}>
-            <Image src="/icons/add.svg" alt="Location Pin" width={20} height={20} className={styles.locationIcon} />
-          </div> */}
         </div>
 
         {/* Body */}
@@ -48,11 +38,6 @@ export default function SolarTime(params) {
                 <Bravo date={cur.time.date} sunrise={cur.sunrise} sunset={cur.sunset} key={`solar-${id}`} />;
             })
           }
-          {/* Body */}
-          {/* Primary Detail */}
-          {/* <Alpha /> */}
-          {/* Secondary Detail */}
-          {/* <Bravo /> */}
         </div>
       </>}
 

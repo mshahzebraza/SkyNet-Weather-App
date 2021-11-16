@@ -63,6 +63,8 @@
 }
 .aqComment {
   color: $prime4;
+  text-shadow: 0 1px 1px rgba($neutral, 0.746),
+    0 2px 5px rgba(255, 255, 255, 0.746);
 }
 .aqRefresh {
   padding: 1rem 1.5rem;

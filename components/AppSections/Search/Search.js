@@ -18,8 +18,7 @@ import { FormControl } from './FormControl/FormControl';
 
 /* BODY */
 export default function Search(params) {
-  console.log(`Rendering SEARCH`);
-  // console.log(params);
+  // console.log(`Rendering SEARCH`);
 
   // State
   const [locationInput, setLocationInput] = useState('');
@@ -60,7 +59,7 @@ export default function Search(params) {
 
   // UseEffect
   useEffect(() => {
-    console.log(`Running UseEffect`);
+    // console.log(`Running UseEffect`);
     fetchHandler() // On Startup, Call without specifying location
   }, [fetchHandler])
 
@@ -98,9 +97,7 @@ export default function Search(params) {
           setValue={setLocationInput}
         />
 
-        {/* <div className={styles.controlGroup}> */}
         <FormControl />
-        {/* </div> */}
 
       </form>
     </>

@@ -11,7 +11,7 @@ import Loader from '../../ui/Loader';
 
 /* BODY */
 export default function WeekForecast(params) {
-  console.log(`Rendering WEEK-FORECAST`);
+  // console.log(`Rendering WEEK-FORECAST`);
 
   return (
 

@@ -12,8 +12,6 @@ import Loader from '../../ui/Loader';
 /* BODY */
 
 function StatBar(props) {
-  console.log('props.date');
-  console.log(props.date);
 
   return (<li className={styles.rfStat}>
     {/* Stat Bar */}
@@ -30,33 +28,22 @@ function StatBar(props) {
 
 
 export default function Rainfall(params) {
-  console.log(`Rendering RAINFALL`);
+  // console.log(`Rendering RAINFALL`);
 
 
 
   return (
-    // <div className={styles.rainfall}>
     <div className={'alphaCard'}>
-      {/* Rainfall */}
 
+      {/* Header */}
       {params.segProps === undefined ? <Loader /> : <>
-        {/* Rainfall Header */}
-        {/* <div className={styles.rfHeader}> */}
         <div className={'alphaHeader'}>
-          {/* Header */}
-          {/* Title */}
-          {/* <p className={styles.rfTitle}>Rainfall</p> */}
           <p className={'alphaTitle'}>Rainfall</p>
-          {/* Legend Optional */}
         </div>
 
-        {/* Rainfall Body */}
+        {/* Body */}
         <div className={styles.rfBody}>
-          {/* Body */}
-          {/* Rainfall Stat Section */}
           <ul className={styles.rfStats}>
-            {/* Bi-Weekly Statistics */}
-            {/* Stat Item */}
             {params.segProps.map((cur, id) => {
               return <StatBar date={cur.time.date} rain={cur.rain} key={`rain-${id}`} />
             })}
