@@ -10,19 +10,18 @@ import Image from "next/image"
 // Components
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 // Function
 export default function Home(props) {
   const router = useRouter();
 
-  let location = {}
-  console.log(location);
-  // let location = {
-  //   lat: "position.coords.latitude",
-  //   long: "position.coords.longitude"
-  // }
+  const [location, setLocation] = useState({});
+  // let location = {}
+  // console.log('location');
+  // let lat = 'x', long = 'y';
+
   const searchHandler = (params) => {
     // router.prefetch('/weather')
     // router.push({
@@ -33,19 +32,27 @@ export default function Home(props) {
     // })
 
   }
-  useEffect(() => {
-    console.log(`useEffect`);
-    navigator.geolocation.getCurrentPosition(function (position) {
-      location = {
-        lat: position.coords.latitude,
-        long: position.coords.longitude
-      }
-      console.log(location);
-    });
 
-  })
+  useEffect(() => {
+    console.log('sss');
+    navigator.geolocation.getCurrentPosition(function (position) {
+      // location = {
+      //   lat: position.coords.latitude,
+      //   long: position.coords.longitude
+      // }
+
+      const { coords: { latitude: lat, longitude: long } } = position
+      // console.log(position.coords.latitude);
+      setLocation({ lat, long })
+      console.log(location);
+      // lat = position.coords.latitude;
+      // long = position.coords.longitude;
+
+    })
+  }, [setLocation])
 
   console.log(location);
+  console.log('locations');
 
   return (
     <>
