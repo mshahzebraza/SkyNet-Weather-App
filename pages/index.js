@@ -34,25 +34,12 @@ export default function Home(props) {
   }
 
   useEffect(() => {
-    console.log('sss');
+    // https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
     navigator.geolocation.getCurrentPosition(function (position) {
-      // location = {
-      //   lat: position.coords.latitude,
-      //   long: position.coords.longitude
-      // }
-
       const { coords: { latitude: lat, longitude: long } } = position
-      // console.log(position.coords.latitude);
       setLocation({ lat, long })
-      console.log(location);
-      // lat = position.coords.latitude;
-      // long = position.coords.longitude;
-
     })
   }, [setLocation])
-
-  console.log(location);
-  console.log('locations');
 
   return (
     <>
@@ -76,9 +63,9 @@ export default function Home(props) {
             </h5>
             {/* <button onClick={searchHandler} className={styles.search}>Search Weather</button> */}
             <Link href={{
-              pathname: `/weather/[sId]`,
+              pathname: `/weather/[query]`,
               query: {
-                sId: `${location.lat}_${location.long}`
+                query: `${location.lat},${location.long}`
               }
             }} className={styles.search}>Search Weather</Link>
           </div>
