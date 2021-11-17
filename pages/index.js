@@ -8,16 +8,45 @@ import Image from "next/image"
 
 
 // Components
-import SearchForm from '../components/SearchForm/SearchForm';
-import InfoPanel from '../components/InfoPanel/InfoPanel';
-import SearchHistory from '../components/SearchHistory/SearchHistory';
-import router, { useRouter } from 'next/router';
-
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 
 // Function
 export default function Home(props) {
   const router = useRouter();
+
+  let location = {}
+  console.log(location);
+  // let location = {
+  //   lat: "position.coords.latitude",
+  //   long: "position.coords.longitude"
+  // }
+  const searchHandler = (params) => {
+    // router.prefetch('/weather')
+    // router.push({
+    //   pathname: `/weather/[sId]`,
+    //   query: {
+    //     sId: `${location.lat}_${location.long}`
+    //   }
+    // })
+
+  }
+  useEffect(() => {
+    console.log(`useEffect`);
+    navigator.geolocation.getCurrentPosition(function (position) {
+      location = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
+      }
+      console.log(location);
+    });
+
+  })
+
+  console.log(location);
+
   return (
     <>
       <Head>
@@ -38,9 +67,13 @@ export default function Home(props) {
             <h5 className={styles.text}>
               A Weather app using React JS and Sass by <span className={styles.name}>M. Shahzeb Raza</span>
             </h5>
-            <button onClick={(params) => {
-              router.push('/weather')
-            }} className={styles.search}>Search Weather</button>
+            {/* <button onClick={searchHandler} className={styles.search}>Search Weather</button> */}
+            <Link href={{
+              pathname: `/weather/[sId]`,
+              query: {
+                sId: `${location.lat}_${location.long}`
+              }
+            }} className={styles.search}>Search Weather</Link>
           </div>
 
           <div className={styles.graphic}>
