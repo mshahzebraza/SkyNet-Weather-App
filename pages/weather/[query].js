@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import fetch from 'node-fetch';
+import { useState } from "react";
 
 export async function getStaticProps(context) {
   const { params: { query } } = context;
@@ -30,9 +31,7 @@ export async function getStaticPaths() {
 
 export default function WeatherPage(props) {
   const router = useRouter();
-  console.log(`Query : ${props.query}`);
-  console.log(`State :-`);
-  console.log(props.result);
+  const [searchOptions, setSearchOptions] = useState({ valid: false, data: 'No input' });
 
   function submitHandler(e) {
     e.preventDefault();
@@ -44,15 +43,46 @@ export default function WeatherPage(props) {
 
   async function changeHandler(e) {
     const searchQuery = e.target.value;
-    console.log(searchQuery);
+
+    // console.log(searchQuery);
 
     if (searchQuery.trim().split("").length > 0) {
+      // !NOTE: use SWR hook from NEXT js
       const qryResponse = await fetch(`http://api.weatherapi.com/v1/search.json?key=df0dcf32a9b346308a814745212710&q=${searchQuery}`)
+
       const qryJson = await qryResponse.json();
-      qryJson.length > 0 && qryJson.error === undefined && qryJson.forEach((cur, id) => {
-        console.log(cur.name);
-      });
+      // const options = qryJson.length > 0 && qryJson.error === undefined && qryJson.map((cur, id) => cur.name);
+
+      if (qryJson.error !== undefined) {
+        console.log('Input Error');
+        // console.log(error);
+        setSearchOptions({
+          valid: false,
+          data: error
+        })
+      }
+      if (qryJson.length === 0) {
+        console.log(`No Matching Found`);
+        setSearchOptions({
+          valid: false,
+          data: 'No Match found'
+        })
+        console.log(qryJson);
+      }
+      if (qryJson.length > 0) {
+        setSearchOptions({
+          valid: true,
+          data: qryJson.map((cur, id) => cur.name)
+        })
+      }
+
+      // const options =  && qryJson.map((cur, id) => cur.name);
+
+      // !!options && setSearchOptions(options)
+    } else {
+      setSearchOptions({ valid: false, data: 'No input' })
     }
+
   }
 
   return (
@@ -64,7 +94,14 @@ export default function WeatherPage(props) {
         <input type='text' onChange={changeHandler} />
         <button type='submit' >Submit</button>
       </form>
-      <p></p>
+      {
+        !searchOptions.valid && <p>{searchOptions.data}</p>
+      }
+      {
+        searchOptions.valid && searchOptions.data.map((cur, id) => {
+          return <p onClick={(e) => router.push(e.target.innerText.split(',')[0])} key={id} > {cur}</p>
+        })
+      }
     </>
   )
 }
