@@ -17,6 +17,7 @@ import { useState, useEffect } from 'react';
 export default function Home(props) {
   const router = useRouter();
 
+  const [location, setLocation] = useState({});
 
   useEffect(() => {
     // https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs

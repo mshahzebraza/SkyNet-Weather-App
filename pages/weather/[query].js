@@ -55,7 +55,6 @@ export default function WeatherPage({ query: lastQuery, result: lastResponse }) 
     dispatch(updateCurrentValid(transformWeather(lastResponse)))
   }, [dispatch, updateCurrentValid, lastResponse])
 
-
   return (
     <>
       <Head>
