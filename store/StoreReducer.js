@@ -29,6 +29,7 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
       return {
         isLoading: false,
         isValid: true,
+        // clientLocation: '',
         weather: {
           ...validWeatherData
         }
