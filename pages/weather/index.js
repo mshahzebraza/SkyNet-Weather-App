@@ -30,9 +30,7 @@ export default function Weather(props) {
   // segregatedProps = 'notAvailable'
   // segregatedProps.weekly = undefined
 
-  console.log();
-  // useEffect(() => {
-  // },[])
+
 
   return (
     <>

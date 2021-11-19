@@ -41,3 +41,24 @@
   border-bottom: 1px solid #ddd;
   border-radius: 0;
 }
+
+.stay {
+  position: absolute;
+  top: 30%;
+  right: 13.5rem;
+  font-size: 1rem;
+}
+
+.qty {
+  color: white;
+  padding: 0.35rem;
+  border-radius: 50rem;
+  background: green;
+}
+.error {
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50rem;
+  background: rgb(179, 6, 6);
+  // color: red;
+}

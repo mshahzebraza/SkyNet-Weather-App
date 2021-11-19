@@ -1,5 +1,9 @@
 @import "../../../styles/abstracts";
 .form {
+  position: relative;
+  z-index: 1;
+  // ^ to get the search suggestions display on top of other sections sitting at the same level in DOM
+
   height: 100%;
   padding: 1rem 1.5rem;
   @extend %effect1;

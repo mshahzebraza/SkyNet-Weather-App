@@ -7,83 +7,69 @@ import useStore from '../../../store/StoreContext';
 import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../../store/StoreDispatchers';
 import { transformWeather } from '../../../lib/helpers';
 
-
 // LIBRARY FUNCTIONS & STYLES
 import styles from './Search.module.scss';
 
 // COMPONENTS
 import FormInput from './FormInput/FormInput';
-import { FormControl } from './FormControl/FormControl';
-
+import FormControl from './FormControl/FormControl';
+import SearchList from './SearchList.js/SearchList';
 
 /* BODY */
+
+
+
 export default function Search(params) {
   // console.log(`Rendering SEARCH`);
+  // console.log(`Search`);
 
   // State
-  const [locationInput, setLocationInput] = useState('');
-  const { state, dispatch } = useStore();
+  const [searchOptions, setSearchOptions] = useState({ valid: false, data: 'No input' });
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isFormSelected, setIsFormSelected] = useState(false);
+  const { dispatch } = useStore();
+
+  useEffect(async () => {
+
+    if (searchQuery.trim().split("").length > 0) {
+
+      const qryResponse = await fetch(`http://api.weatherapi.com/v1/search.json?key=df0dcf32a9b346308a814745212710&q=${searchQuery}`)
+      const qryJson = await qryResponse.json();
 
 
+      qryJson.error !== undefined && setSearchOptions({
+        valid: false,
+        data: error
+      })
+      qryJson.length === 0 && setSearchOptions({
+        valid: false,
+        data: 'No Match found'
+      })
+      qryJson.length > 0 && setSearchOptions({
+        valid: true,
+        data: qryJson.map((cur, id) => cur.name)
+      })
 
-  // Fetch Handler
-  const fetchHandler = useCallback(async (location = 'Washington') => {
-    try {
-      // API Call
-      // const apiResponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${location}&days=${process.env.NEXT_PUBLIC_API_DAYS}&aqi=${process.env.NEXT_PUBLIC_API_AQ}&alerts=${process.env.NEXT_PUBLIC_API_ALERTS}`)
-      const apiResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=df0dcf32a9b346308a814745212710&q=${location}&days=10&aqi=yes&alerts=no`)
-
-      // Good Response - fetch data and update the current weather & search history IF valid entry
-      if (apiResponse.ok) {
-        const apiJson = await apiResponse.json();
-
-        // dispatch valid response - update current weather AND recent location
-        dispatch(updateCurrentValid(transformWeather(apiJson)))
-      }
-
-      // Bad Response - fetch error message and log to console IF invalid entry
-      if (!apiResponse.ok) {
-
-        const apiJson = await apiResponse.json()
-        const { error: { message: errorMessage } } = apiJson;
-        // dispatch invalid response - update the current weather data
-        dispatch(updateCurrentInvalid(errorMessage))
-        throw new Error(errorMessage);
-      }
-
-    } catch (error) {
-      console.error(error);
     }
-
-  }, [])
-
-  // UseEffect
-  useEffect(() => {
-    // console.log(`Running UseEffect`);
-    fetchHandler() // On Startup, Call without specifying location
-  }, [fetchHandler])
+    else {
+      setSearchOptions({ valid: false, data: 'No input' })
+    }
+  }, [searchQuery])
 
 
 
+  // -------------
 
   // Submit Handler
   function submitHandler(e) {
     e.preventDefault();
-
-    // console.log(locationInput);
-    //  dispatch(setIsLoading(true));
-    fetchHandler(locationInput); // location entered in text input
-    //  dispatch(setIsLoading(false));
-
-    setLocationInput('');
+    router.push(searchQuery)
+    setSearchQuery('');
   }
 
 
   return (
     <>
-      {/* Search */}
-
-
       <form className={`${styles.form}`} action="#" onSubmit={submitHandler} >
 
         < FormInput
@@ -93,11 +79,25 @@ export default function Search(params) {
           placeholder='Search ...'
           // errorText={'Invalid Input'} // will be dynamically fetched from the context or props
           isReq={true}
-          value={locationInput}
-          setValue={setLocationInput}
+          value={searchQuery}
+          setValue={setSearchQuery}
+          showList={setIsFormSelected}
+          isListShown={isFormSelected}
+          listDataQty={searchOptions.data.length}
+          isListDataValid={searchOptions.valid}
+          listData={searchOptions.data}
+        // querySetter={setSearchQuery}
+        // isDataValid={searchOptions.valid} data={searchOptions.data}
         />
 
         <FormControl />
+
+        {<SearchList
+          showList={isFormSelected}
+          querySetter={setSearchQuery}
+          isListDataValid={searchOptions.valid}
+          listData={searchOptions.data}
+        />}
 
       </form>
     </>

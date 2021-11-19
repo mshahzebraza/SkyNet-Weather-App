@@ -138,7 +138,8 @@ button {
   border-radius: 0.75rem;
   transition: all 0.2s ease;
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
     @extend %effect1Hover;
 

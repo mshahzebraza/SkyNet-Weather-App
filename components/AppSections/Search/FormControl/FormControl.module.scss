@@ -22,6 +22,7 @@
   // width: 2em;
   // color: #061a35;
   border-radius: 0.25rem;
+  &:focus,
   &:hover,
   &:active {
     background: $prime2;

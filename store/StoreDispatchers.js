@@ -23,7 +23,6 @@ export const actionCreators = {
   // UPDATE_RESPONSE: `APP/RESPONSE/UPDATE`
 }
 
-
 // DispatchFn - to create a suitable object parameter for the dispatchFn
 export const updateHistory = (updatedLocations) => ({
   type: actionCreators.UPDATE_HISTORY,

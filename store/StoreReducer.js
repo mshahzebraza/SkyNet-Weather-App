@@ -1,5 +1,4 @@
 // use of the reducer is just to make fetching data from the context easier. Otherwise, the context is the real store.
-import { scanLocationHistory } from '../lib/helpers';
 import { actionCreators } from './StoreDispatchers';
 
 // Initial State
@@ -7,40 +6,7 @@ export const initialState =
 {
   isLoading: false,
   isValid: false,
-  weather: {
-    // city: '',
-    // country: '',
-    // localTime: {},
-    // updateTime: {},
-    // isDay: '',
-    // condition: {},
-    // temp: '',
-    // feelsLike: '',
-    // humidity: '',
-    // windSpeed: '',
-    // airQuality: {
-    //  traces: {
-    //    co,
-    //    no2,
-    //    o3,
-    //    so2,
-    //    pm2_5,
-    //    pm10,
-    //  },
-    //  aqStatus, 
-    //  ukDefraIndex
-    // },
-    // extendedForecast: [
-    // {
-    //   date,
-    //   temp,
-    //   rainChances,
-    //   condition,
-    //   astro,
-    // } , 
-    // ...
-    // ]
-  }
+  weather: {}
 }
 
 // Reducer Fn
@@ -48,18 +14,18 @@ export const StoreReducer = (state = initialState, action) => { // WHY did i set
 
   switch (action.type) {
 
-    case actionCreators.SET_IS_LOADING:
-
-      return {
-        ...state,
-        isLoading: action.payload
-      }
-      break;
-
+    /* 
+        case actionCreators.SET_IS_LOADING:
+    
+          return {
+            ...state,
+            isLoading: action.payload
+          }
+          break;
+     */
 
     case actionCreators.UPDATE_CURRENT_VALID:
       const validWeatherData = action.payload;
-
       return {
         isLoading: false,
         isValid: true,
