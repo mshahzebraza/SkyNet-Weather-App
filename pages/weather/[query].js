@@ -44,10 +44,9 @@ export async function getStaticPaths() {
   }
 }
 
-export default function WeatherPage(props) {
+export default function WeatherPage({ query: lastQuery, result: lastResponse }) {
   // const router = useRouter();
 
-  const { query: lastQuery, result: lastResponse } = props;
   const { state, dispatch } = useStore()
   const segregatedProps = state.isValid ? segregateProps(state) : {}
 

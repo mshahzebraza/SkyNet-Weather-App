@@ -1,36 +1,43 @@
+import router, { useRouter } from 'next/router';
 import { useState } from 'react';
 import styles from './FormInput.module.scss';
-
+import Link from 'next/link';
 // Component Body
 export default function FormInput(props) {
+  const router = useRouter();
+  const [isFocussed, setIsFocussed] = useState(false);
 
-  // console.log(props.listData);
-
-  function changeHandler(event) {
-    props.setValue(event.target.value)
+  function changeHandler(e) {
+    props.setValue(e.target.value)
   }
   function focusHandler(e) {
-    props.showList(true)
+    setIsFocussed(true)
     // console.log(`focus`);
   }
   function blurHandler(e) {
-    props.showList(false)
+    setIsFocussed(false)
     // console.log(`blur`);
   }
   function keyDownHandler(e) {
     e.keyCode === 27 && props.setValue('')
   }
 
+  function clickHandler(e) {
+    router.push(e.target.innerText.split(',')[0])
+    props.setValue('')
+  }
+
 
   return (
     <div className={styles.formInput}>
 
-
+      {/* LABEL */}
       {props.label &&
         <label htmlFor={props.id} className={styles.label} >
           {props.label}
         </label>}
 
+      {/* LABEL */}
       <input
         id={props.id}
         // list='none'
@@ -47,29 +54,34 @@ export default function FormInput(props) {
         className={styles.input}
       />
 
-      {/* Error Text */}
+      {/* Status Icon */}
       {
-        props.isListDataValid &&
-        // !props.isListShown &&
-        <p className={`${styles.stay} ${styles.qty}`} >
-          {props.listDataQty}
-        </p>
-      }
-      {
-        !props.isListDataValid &&
-        props.isListShown &&
-        <p className={`${styles.stay} ${styles.error}`} >
-          No match found
+        isFocussed &&
+        <p className={`${styles.status} ${props.isListDataValid ? styles.success : styles.failed}`} >
+          {/* {props.isListDataValid ? props.listData.length : 0} */}
         </p>
       }
 
-      {/* {!props.isListDataValid && props.isListShown && <p className={styles.stay} >{props.listDataQty}</p>} */}
-      {/* {
-        errorText &&
-        <p className={styles.errorText}>
-          {errorText}
-        </p>
-      } */}
+      {(props.isListDataValid) && (
+        <ul className={styles.list} >
+          {props.listData.map((cur, id) => {
+            return (
+              // <Link key={id} href={`/weather/${cur.split(',')[0]}`}>
+              <li
+                className={styles.listItem}
+                key={id}
+                onClick={clickHandler} >
+                {cur}
+                {/* <Link>s</Link> */}
+                {/* <Link href={cur.split(',')[0]}>{cur} </Link> */}
+              </li>
+              // </Link>
+            )
+          })}
+        </ul>
+      )}
+
+
 
     </div >
   )

@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 import useStore from '../../../store/StoreContext';
 import { setIsLoading, updateCurrentInvalid, updateCurrentValid } from '../../../store/StoreDispatchers';
 import { transformWeather } from '../../../lib/helpers';
+import router from 'next/router';
 
 // LIBRARY FUNCTIONS & STYLES
 import styles from './Search.module.scss';
@@ -21,13 +22,11 @@ import SearchList from './SearchList.js/SearchList';
 
 export default function Search(params) {
   // console.log(`Rendering SEARCH`);
-  // console.log(`Search`);
 
   // State
-  const [searchOptions, setSearchOptions] = useState({ valid: false, data: 'No input' });
   const [searchQuery, setSearchQuery] = useState('');
-  const [isFormSelected, setIsFormSelected] = useState(false);
-  const { dispatch } = useStore();
+  const [searchOptions, setSearchOptions] = useState({ valid: false, data: 'No input' });
+
 
   useEffect(async () => {
 
@@ -81,24 +80,17 @@ export default function Search(params) {
           isReq={true}
           value={searchQuery}
           setValue={setSearchQuery}
-          showList={setIsFormSelected}
-          isListShown={isFormSelected}
-          listDataQty={searchOptions.data.length}
           isListDataValid={searchOptions.valid}
           listData={searchOptions.data}
-        // querySetter={setSearchQuery}
-        // isDataValid={searchOptions.valid} data={searchOptions.data}
         />
 
         <FormControl />
-
-        {<SearchList
+        {/* <SearchList
           showList={isFormSelected}
           querySetter={setSearchQuery}
           isListDataValid={searchOptions.valid}
           listData={searchOptions.data}
-        />}
-
+        /> */}
       </form>
     </>
   )
