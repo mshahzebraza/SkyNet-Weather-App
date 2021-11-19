@@ -32,7 +32,7 @@ export default function Search(params) {
 
     if (searchQuery.trim().split("").length > 0) {
 
-      const qryResponse = await fetch(`http://api.weatherapi.com/v1/search.json?key=df0dcf32a9b346308a814745212710&q=${searchQuery}`)
+      const qryResponse = await fetch(`https://api.weatherapi.com/v1/search.json?key=df0dcf32a9b346308a814745212710&q=${searchQuery}`)
       const qryJson = await qryResponse.json();
 
 

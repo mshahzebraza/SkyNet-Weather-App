@@ -55,62 +55,6 @@ export default function WeatherPage({ query: lastQuery, result: lastResponse }) 
     dispatch(updateCurrentValid(transformWeather(lastResponse)))
   }, [dispatch, updateCurrentValid, lastResponse])
 
-  // const [searchOptions, setSearchOptions] = useState({ valid: false, data: 'No input' });
-  // const segregatedProps = state.isValid ? segregateProps(state) : {};
-
-  function submitHandler(e) {
-    e.preventDefault();
-
-    router.push(e.target[0].value)
-    // console.log();
-    e.target[0].value = ''
-  }
-
-  /* 
-    async function changeHandler(e) {
-      const searchQuery = e.target.value;
-  
-      // console.log(searchQuery);
-  
-      if (searchQuery.trim().split("").length > 0) {
-        // !NOTE: use SWR hook from NEXT js
-        const qryResponse = await fetch(`http://api.weatherapi.com/v1/search.json?key=df0dcf32a9b346308a814745212710&q=${searchQuery}`)
-  
-        const qryJson = await qryResponse.json();
-        // const options = qryJson.length > 0 && qryJson.error === undefined && qryJson.map((cur, id) => cur.name);
-  
-        if (qryJson.error !== undefined) {
-          console.log('Input Error');
-          // console.log(error);
-          setSearchOptions({
-            valid: false,
-            data: error
-          })
-        }
-        if (qryJson.length === 0) {
-          console.log(`No Matching Found`);
-          setSearchOptions({
-            valid: false,
-            data: 'No Match found'
-          })
-          console.log(qryJson);
-        }
-        if (qryJson.length > 0) {
-          setSearchOptions({
-            valid: true,
-            data: qryJson.map((cur, id) => cur.name)
-          })
-        }
-  
-        // const options =  && qryJson.map((cur, id) => cur.name);
-  
-        // !!options && setSearchOptions(options)
-      } else {
-        setSearchOptions({ valid: false, data: 'No input' })
-      }
-  
-    }
-   */
 
   return (
     <>

@@ -17,21 +17,6 @@ import { useState, useEffect } from 'react';
 export default function Home(props) {
   const router = useRouter();
 
-  const [location, setLocation] = useState({});
-  // let location = {}
-  // console.log('location');
-  // let lat = 'x', long = 'y';
-
-  const searchHandler = (params) => {
-    // router.prefetch('/weather')
-    // router.push({
-    //   pathname: `/weather/[sId]`,
-    //   query: {
-    //     sId: `${location.lat}_${location.long}`
-    //   }
-    // })
-
-  }
 
   useEffect(() => {
     // https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
@@ -61,7 +46,6 @@ export default function Home(props) {
             <h5 className={styles.text}>
               A Weather app using React JS and Sass by <span className={styles.name}>M. Shahzeb Raza</span>
             </h5>
-            {/* <button onClick={searchHandler} className={styles.search}>Search Weather</button> */}
             <Link href={{
               pathname: `/weather/[query]`,
               query: {
