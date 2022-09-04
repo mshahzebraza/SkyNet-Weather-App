@@ -1,0 +1,32 @@
+.form {
+  // flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: baseline;
+  align-items: flex-end;
+  gap: 1rem;
+  // align-items: flex-end;
+  width: 100%;
+  // max-width: 60rem;
+  margin: 0 auto;
+  padding: min(4vw, 3.5rem) min(4vw, 5rem);
+
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+// .controlGroup {
+//   display: flex;
+//   gap: 1rem;
+//   // justify-content: center;
+//   // margin: 1rem 0;
+//   // flex-direction: column;
+// }
+// .btn {
+//   flex: 1;
+//   text-transform: uppercase;
+//   // background-color: #9dbfef;
+//   // width: 2em;
+//   // color: #061a35;
+//   border-radius: 0.25rem;
+// }

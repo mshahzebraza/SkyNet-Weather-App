@@ -2,7 +2,7 @@
 import styles from "../../styles/Weather.module.scss";
 import Head from 'next/head';
 import fetch from 'node-fetch';
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
 import useStore from "../../store/StoreContext";
 import { segregateProps, transformWeather } from "../../lib/helpers";
