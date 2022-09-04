@@ -16,6 +16,7 @@ import SolarTime from '../../components/AppSections/SolarTime/SolarTime';
 import useStore from "../../store/StoreContext";
 import { useEffect } from "react";
 import { segregateProps } from "../../lib/helpers";
+import Grid from '@mui/material/Grid'
 
 // Function
 export default function Weather(props) {
@@ -29,68 +30,59 @@ export default function Weather(props) {
     // segregatedProps = 'notAvailable'
     // segregatedProps.weekly = undefined
 
+    [
+        "panel",
+        "welcome",
+        "highlights",
+        "search",
+        "weekly",
+        "airQuality",
+        "rainfall",
+        "sunDuration"
+    ]
 
 
     return (
         <>
-            {/* TOOLBOX */}
-            {/*
-        <ul className="toolbox">
-          <li className="toolboxItem"><a href="#" className="toolboxIcon">Icon</a></li>
-          <li className="toolboxItem"><a href="#" className="toolboxIcon">Icon</a></li>
-          <li className="toolboxItem"><a href="#" className="toolboxIcon">Icon</a></li>
-          <li className="toolboxItem"><a href="#" className="toolboxIcon">Icon</a></li>
-        </ul>
-      */}
-            <div className={`${styles.page} pageContainer`}>
-                <main className={`${styles.dashboard}`}>
-                    <section className={styles.sec1}>
-                        <Panel />
-                    </section>
-                    <section className={styles.sec2}>
-                        <Welcome
-                            segProps={segregatedProps.welcome}
-                        />
-                    </section>
-                    <section className={styles.sec3}>
-                        <Highlights
-                            segProps={segregatedProps.highlights}
-                        />
-                    </section>
-                    <section className={styles.sec4}>
-                        <Search />
-                    </section>
-                    <section className={styles.sec5}>
-                        <WeekForecast
-                            segProps={segregatedProps.weekly}
-                        />
-                    </section>
-                    <section className={styles.sec6}>
-                        <AirQuality
-                            segProps={segregatedProps.airQuality}
-                        />
-                    </section>
-                    <section className={styles.sec7}>
-                        <Rainfall
-                            segProps={segregatedProps.rainfall}
-                        />
-                    </section>
-                    <section className={styles.sec8}>
-                        <SolarTime
-                            segProps={segregatedProps.solar}
-                        />
-                    </section>
-                </main>
-            </div>
+
+            <Grid
+                container
+                gap={2}
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                alignContent="center"
+                // wrap="nowrap"
+                className={`${styles.dashboard}`}
+            /* className={`${styles.page} pageContainer`} */
+            >
+                {
+                    [
+                        "panel",
+                        "welcome",
+                        "highlights",
+                        "search",
+                        "weekly",
+                        "airQuality",
+                        "rainfall",
+                        "sunDuration"
+                    ].map(
+                        (item, idx) => <Grid
+                            item
+                            // xs={2}
+                            sx={{ border: '1px dashed red', width: '100%', height: '100%', minHeight: 100 }}
+                            className={styles[`sec${idx + 1}`]}
+                            container
+                            justifyContent='center'
+                            alignItems='center'
+                        >
+                            {`Section #${idx + 1}: \xa0 ${item.toLocaleUpperCase()}`}
+                        </Grid>
+                    )
+                }
+
+            </Grid>
         </>
     );
 }
 Weather.displayName = `Weather`;
-
-export function getServerSideProps(pageContext) {
-    // const { state } = useStore()
-
-    return {
-        props: {}
-    }
-}

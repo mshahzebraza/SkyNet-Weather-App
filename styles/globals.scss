@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
 @import "../styles/abstracts";
 // $prime1: #2f3346;
 // $prime2: #5c92ff;
@@ -9,41 +12,42 @@
 // $gradB: radial-gradient(#d0d5ff, #419ef4);
 // Global Styles
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 html {
-  font-size: 10px;
+	// font-size: 10px;
 }
 body {
-  background: rgb(255, 255, 255);
-  // height: 100vh;
-  // background: url("../public/bg/starSky.jpg"), #000;
-  backdrop-filter: 
+	background: rgb(255, 255, 255);
+	// height: 100vh;
+	// background: url("../public/bg/starSky.jpg"), #000;
+	backdrop-filter: 
   // hue-rotate(-50deg)
-    grayscale(0.5) brightness(130%) blur(0.85rem);
+		grayscale(0.5) brightness(130%) blur(0.85rem);
 
-  padding: 0;
-  margin: 0;
-  // background-color: #e6edfb;
-  font-size: 1.6rem;
-  letter-spacing: 0.035em;
-  font-family: Poppins, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	// background-color: #e6edfb;
+	// font-size: 1.6rem;
+	letter-spacing: 0.035em;
+	font-family: Poppins, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	overflow: hidden;
 }
 
 // General Styles
 
 a {
-  font-family: inherit;
-  color: inherit;
-  text-decoration: none;
+	font-family: inherit;
+	color: inherit;
+	text-decoration: none;
 }
 
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -56,117 +60,117 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  // border: 1px solid green;
-  -webkit-text-fill-color: $prime4;
-  // -webkit-text-background-color: red;
-  // -webkit-box-shadow: 0 0 0px 1000px #000 inset;
-  transition: background-color 5000s ease-in-out 0s;
+	// border: 1px solid green;
+	-webkit-text-fill-color: $prime4;
+	// -webkit-text-background-color: red;
+	// -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+	transition: background-color 5000s ease-in-out 0s;
 }
 
 input {
-  margin-top: 0.2em;
-  // color: #385ca4;
-  padding: 0.6rem 1rem;
-  font-size: 1.4rem;
-  font-family: inherit;
-  font-weight: 500;
-  font-style: italic;
-  border: 1.5px solid #000;
-  border-radius: 0.25rem;
-  outline: none;
-  letter-spacing: 0.04em;
-  color: $prime2;
+	margin-top: 0.2em;
+	// color: #385ca4;
+	padding: 0.6rem 1rem;
+	font-size: 1.4rem;
+	font-family: inherit;
+	font-weight: 500;
+	font-style: italic;
+	border: 1.5px solid #000;
+	border-radius: 0.25rem;
+	outline: none;
+	letter-spacing: 0.04em;
+	color: $prime2;
 
-  &:focus {
-    // border-color: #385ca4;
-    // box-shadow: 0 0.5rem 1rem rgba($color: #385ca4, $alpha: 0.05);
-  }
-  &::placeholder {
-    color: $prime1;
-    // font-weight: 500;
-  }
+	&:focus {
+		// border-color: #385ca4;
+		// box-shadow: 0 0.5rem 1rem rgba($color: #385ca4, $alpha: 0.05);
+	}
+	&::placeholder {
+		color: $prime1;
+		// font-weight: 500;
+	}
 }
 
 button {
-  font-family: inherit;
-  cursor: pointer;
-  letter-spacing: 0.15em;
-  padding: 0.8rem 1.6rem;
-  font-weight: 600;
-  border: 1px solid transparent;
-  outline: none;
-  transition: all 0.15s ease;
-  background: $prime1;
-  color: $prime5;
-  &:hover,
-  &:focus {
-    // border-color: black;
-    box-shadow: 0 0.5rem 1.25rem rgba($color: #000, $alpha: 0.15);
-  }
+	font-family: inherit;
+	cursor: pointer;
+	letter-spacing: 0.15em;
+	padding: 0.8rem 1.6rem;
+	font-weight: 600;
+	border: 1px solid transparent;
+	outline: none;
+	transition: all 0.15s ease;
+	background: $prime1;
+	color: $prime5;
+	&:hover,
+	&:focus {
+		// border-color: black;
+		box-shadow: 0 0.5rem 1.25rem rgba($color: #000, $alpha: 0.15);
+	}
 }
 
 // Containers
 .container {
-  // height: 100%;
-  max-width: 114rem;
-  width: 98%;
-  margin: auto;
-  padding: 2.5rem 0;
-  // background: red;
+	// height: 100%;
+	max-width: 114rem;
+	width: 98%;
+	margin: auto;
+	padding: 2.5rem 0;
+	// background: red;
 }
 .pageContainer {
-  // padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
-  padding: 2.5rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
-  min-height: 92.5vh;
+	// padding: 1rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+	padding: 2.5rem max(calc((100vw - 114rem) / 2), 1rem, 4vw);
+	min-height: 92.5vh;
 }
 
 // Card Styles
 .alphaCard {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: $neutral;
-  @extend %effect1;
-  // backdrop-filter: ;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background: $neutral;
+	@extend %effect1;
+	// backdrop-filter: ;
 
-  // align-items: center;
-  justify-content: space-between;
+	// align-items: center;
+	justify-content: space-between;
 
-  gap: 2rem;
-  padding: 1.5rem 2rem;
-  // flex: 1;
-  border-radius: 0.75rem;
-  transition: all 0.2s ease;
+	gap: 2rem;
+	padding: 1.5rem 2rem;
+	// flex: 1;
+	border-radius: 0.75rem;
+	transition: all 0.2s ease;
 
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    @extend %effect1Hover;
+	&:hover,
+	&:focus {
+		cursor: pointer;
+		@extend %effect1Hover;
 
-    .alphaTitle {
-      background: $prime1;
-      color: $prime4;
-    }
-  }
+		.alphaTitle {
+			background: $prime1;
+			color: $prime4;
+		}
+	}
 }
 
 .alphaHeader {
-  align-self: stretch;
-  color: $prime1;
-  display: flex;
+	align-self: stretch;
+	color: $prime1;
+	display: flex;
 }
 
 .alphaTitle {
-  font-size: 1.8rem;
-  font-weight: 400;
-  padding: 0.5rem 1.5rem;
-  border-top-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  background: $prime5;
-  color: $prime2;
-  transition: all 0.2s ease;
+	font-size: 1.8rem;
+	font-weight: 400;
+	padding: 0.5rem 1.5rem;
+	border-top-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	background: $prime5;
+	color: $prime2;
+	transition: all 0.2s ease;
 }
 .alphaSubTitle {
-  font-size: 1.9rem;
-  font-weight: 400;
+	font-size: 1.9rem;
+	font-weight: 400;
 }
