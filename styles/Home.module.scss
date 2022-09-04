@@ -1,55 +1,55 @@
 @import "../styles/_abstracts.scss";
 .page {
-  display: flex;
-  background: url("../public/bg/mountains.png"), #000;
-  // background-position: 3rem 00rem;
-  // background-size: 99.5%;
-  background-size: cover;
-  // background: red;
-  // width: 98vw;
-  //   max-width: 114rem;
-  // min-height: 100vh;
-  //   margin: auto;
-  //   padding: 0.5rem;
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   gap: 2rem;
+	display: flex;
+	background: url("../public/bg/mountains.png"), #000;
+	// background-position: 3rem 00rem;
+	// background-size: 99.5%;
+	background-size: cover;
+	// background: red;
+	// width: 98vw;
+	//   max-width: 114rem;
+	// min-height: 100vh;
+	//   margin: auto;
+	//   padding: 0.5rem;
+	//   display: flex;
+	//   flex-direction: column;
+	//   justify-content: center;
+	//   gap: 2rem;
 }
 .main {
-  flex: 1;
-  // height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8rem;
+	flex: 1;
+	// height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8rem;
 }
 .intro {
-  flex-basis: 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2em;
+	flex-basis: 45%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2em;
 }
 .title {
-  color: $prime5;
-  font-size: 5.4rem;
-  font-weight: 600;
-  font-style: italic;
-  line-height: 1em;
-  font-family: "Open Sans";
-  text-transform: uppercase;
+	color: $prime5;
+	font-size: 5.4rem;
+	font-weight: 600;
+	font-style: italic;
+	line-height: 1em;
+	font-family: "Open Sans";
+	text-transform: uppercase;
 }
 .text {
-  color: $prime5;
-  font-size: 1.9rem;
-  font-weight: 300;
-  font-style: italic;
+	color: $prime5;
+	font-size: 1.9rem;
+	font-weight: 300;
+	font-style: italic;
 }
 .search {
-  align-self: flex-start;
-  font-weight: 400;
-  text-transform: uppercase;
-  // background: #000;
+	align-self: flex-start;
+	font-weight: 400;
+	text-transform: uppercase;
+	// background: #000;
 }
 .graphic {
 }
@@ -59,32 +59,32 @@
 // }
 
 .fsLato {
-  font-family: Lato;
+	font-family: Lato;
 }
 .fsOpenSans {
-  font-family: "Open Sans";
+	font-family: "Open Sans";
 }
 .w100 {
-  font-weight: 100;
+	font-weight: 100;
 }
 .w200 {
-  font-weight: 200;
+	font-weight: 200;
 }
 .w300 {
-  font-weight: 300;
+	font-weight: 300;
 }
 .w400 {
-  font-weight: 400;
+	font-weight: 400;
 }
 .w500 {
-  font-weight: 500;
+	font-weight: 500;
 }
 .w600 {
-  font-weight: 600;
+	font-weight: 600;
 }
 .w700 {
-  font-weight: 700;
+	font-weight: 700;
 }
 .w800 {
-  font-weight: 800;
+	font-weight: 800;
 }

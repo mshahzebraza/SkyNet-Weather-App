@@ -70,8 +70,8 @@ select:-webkit-autofill:focus {
 input {
 	margin-top: 0.2em;
 	// color: #385ca4;
-	padding: 0.6rem 1rem;
-	font-size: 1.4rem;
+	padding: 0.3rem 7rem;
+	font-size: 1rem;
 	font-family: inherit;
 	font-weight: 500;
 	font-style: italic;
@@ -95,7 +95,7 @@ button {
 	font-family: inherit;
 	cursor: pointer;
 	letter-spacing: 0.15em;
-	padding: 0.8rem 1.6rem;
+	padding: 0.45rem 1.2rem;
 	font-weight: 600;
 	border: 1px solid transparent;
 	outline: none;
@@ -136,8 +136,8 @@ button {
 	// align-items: center;
 	justify-content: space-between;
 
-	gap: 2rem;
-	padding: 1.5rem 2rem;
+	gap: 1.4rem;
+	padding: 1rem 1.4rem;
 	// flex: 1;
 	border-radius: 0.75rem;
 	transition: all 0.2s ease;
@@ -161,9 +161,9 @@ button {
 }
 
 .alphaTitle {
-	font-size: 1.8rem;
+	font-size: 1.2rem;
 	font-weight: 400;
-	padding: 0.5rem 1.5rem;
+	padding: 0.35rem 1.1rem;
 	border-top-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
 	background: $prime5;
@@ -171,6 +171,6 @@ button {
 	transition: all 0.2s ease;
 }
 .alphaSubTitle {
-	font-size: 1.9rem;
+	font-size: 1.5rem;
 	font-weight: 400;
 }

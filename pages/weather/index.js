@@ -58,14 +58,14 @@ export default function Weather(props) {
             >
                 {
                     [
-                        "panel",
-                        "welcome",
-                        "highlights",
-                        "search",
-                        "weekly",
-                        "airQuality",
-                        "rainfall",
-                        "sunDuration"
+                        ["panel", <Panel />],
+                        ["welcome", <Welcome />],
+                        ["highlights", <Highlights />],
+                        ["search", <Search />],
+                        ["weekly", <WeekForecast />],
+                        ["airQuality", <AirQuality />],
+                        ["rainfall", <Rainfall />],
+                        ["sunDuration", <SolarTime />]
                     ].map(
                         (item, idx) => <Grid
                             item
@@ -76,7 +76,9 @@ export default function Weather(props) {
                             justifyContent='center'
                             alignItems='center'
                         >
-                            {`Section #${idx + 1}: \xa0 ${item.toLocaleUpperCase()}`}
+                            {
+                                item[1] ? item[1] : `Section #${idx + 1}: \xa0 ${item[0].toLocaleUpperCase()}`
+                            }
                         </Grid>
                     )
                 }
