@@ -1,4 +1,4 @@
-import Navigation from "../Navigation/Navigation"
+import Navigation from "../legacy/Navigation/Navigation"
 // import Router from 'next/router';
 import Head from 'next/head'
 import Grid from '@mui/material/Grid'

@@ -5,61 +5,26 @@ import Head from 'next/head';
 // Objects & Styles
 
 // Components
-import Panel from '../../components/AppSections/Panel/Panel';
-import Welcome from '../../components/AppSections/Welcome/Welcome';
-import Highlights from '../../components/AppSections/Highlights/Highlights';
-import Search from '../../components/AppSections/Search';
-import WeekForecast from '../../components/AppSections/WeekForecast/WeekForecast';
-import AirQuality from '../../components/AppSections/AirQuality/AirQuality';
-import Rainfall from '../../components/AppSections/Rainfall/Rainfall';
-import SolarTime from '../../components/AppSections/SolarTime/SolarTime';
-import useStore from "../../store/StoreContext";
 import { useEffect, useState } from "react";
-import { segregateProps } from "../../lib/helpers";
 import useAxios from "../../lib/useAxios";
-import { Button, Box, Grid } from '@mui/material'
+import { Button, Box, Grid, IconButton, Typography } from '@mui/material'
+import { Pin } from "@mui/icons-material";
+import { getURL } from "../../lib/helpers";
+import Canvas from "../../components/Canvas/Canvas";
+import { Header } from "../../components/Canvas/Header";
+import { Body } from "../../components/Canvas/Body";
+import { Footer } from "../../components/Canvas/Footer";
+
+
+import { ErrorBlock, Loader, ResponseBlock } from "../../components/ui/stateBlocks"
 
 // https://api.weatherapi.com/v1/forecast.json?key=df0dcf32a9b346308a814745212710&q=asd&days=10&aqi=yes&alerts=no
-const getURL = (
-    query,
-    key = process.env.API_KEY,
-    days = 3,
-    aqi = 'no',
-    alerts = 'no'
-) => (
-    `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${query}&days=${days}&aqi=${aqi}&alerts=${alerts}`
-)
-
-// Function
-
-function ResponseBlock({ data }) {
-    const { location, current } = data;
-    return (<div>
-        <p>{location.name}, <span>{location.region}</span> </p>
-        <p>{location.localtime} </p>
-        <p>{current.condition.text} </p>
-    </div>);
-}
-function ErrorBlock({ error }) {
-    const { message, name, code, status } = error;
-    return (<div style={{ marginTop: "2rem", color: 'red' }} >
-        <p>{code} | <span>{status}</span> </p>
-        <p>{message} </p>
-        <p>{name} </p>
-    </div>);
-}
-
-
-export default function Weather(props) {
-
+export default function Weather() {
 
     const [data, setData] = useState(null);
     const [query, setQuery] = useState('karachi');
     // https://api.weatherapi.com/v1/forecast.json?key={API_KEY}&q={QUERY}&days=10&aqi=yes&alerts=no
     const { response, loading, error } = useAxios(getURL(query));
-
-    console.log({ query, error: !!error, response: !!response, loading })
-
 
 
     useEffect(() => {
@@ -67,39 +32,34 @@ export default function Weather(props) {
     }, [response]);
 
 
+    if (!!loading) return 'xxxxxxxxxxx'
 
+    const { location = {}, current = {}, forecast = {} } = data;
 
     return (
-        <>
+        <Canvas>
+            {/* Search Bar */}
+            <Header query={query} setQuery={setQuery}></Header>
+            <Body />
+            <Footer />
+            <Grid item className={styles[`sec${6}`]}>
+                {!!loading ? (
+                    <p>isLoading...</p>
+                ) : (
+                    <div>
+                        {error && <ErrorBlock error={error} />}
+                        {data && <ResponseBlock data={data} />}
+                        {data && <pre>{JSON.stringify(data, null, 4)}</pre>}
+                    </div>
+                )}
 
-            <Grid
-                container
-                direction='column'
-                gap={2}
-            >
-                {<Grid item>
-                    <Search
-                        query={query}
-                        setQuery={setQuery}
-                    />
-
-                </Grid>}
-
-                <Grid item className={styles[`sec${6}`]}>
-                    {!!loading ? (
-                        <p>isLoading...</p>
-                    ) : (
-                        <div>
-                            {error && <ErrorBlock error={error} />}
-                            {data && <ResponseBlock data={data} />}
-                        </div>
-                    )}
-
-                </Grid>
             </Grid>
-        </>
+        </Canvas>
     );
 }
 Weather.displayName = `Weather`;
+
+
+
 
 

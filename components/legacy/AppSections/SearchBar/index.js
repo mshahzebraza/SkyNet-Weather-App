@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
@@ -10,10 +9,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export default function SearchBar({ query, setQuery, response, loading, error }) {
 
-    // if (loading) return 'loading...';
-    // if (error) return 'error...';
-
-
     return (
         <Paper
             component="form"
@@ -24,7 +19,7 @@ export default function SearchBar({ query, setQuery, response, loading, error })
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 sx={{ flex: 1 }}
-                placeholder="Search Location"
+                placeholder="Search for Coordinates, Areas, Country ..."
                 inputProps={{ 'aria-label': 'search weather' }}
             />
 
