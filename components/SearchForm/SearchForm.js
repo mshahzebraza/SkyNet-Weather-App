@@ -85,7 +85,6 @@ export default function SearchForm(props) {
     return (
 
         <form className={styles.form} action="#" onSubmit={submitHandler} >
-
             < FormInput
                 label='Search Location'
                 type='text'
@@ -96,7 +95,6 @@ export default function SearchForm(props) {
                 value={locationInput}
                 setValue={setLocationInput}
             />
-
             {/* <div className={styles.controlGroup}> */}
             <FormControl></FormControl>
             {/* </div> */}

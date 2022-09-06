@@ -1,23 +1,16 @@
 /* IMPORTS */
 
 // DEPENDENCIES
-import Image from 'next/image';
-
-// LIBRARY FUNCTIONS & STYLES
-import styles from './Panel.module.scss';
-
-// COMPONENTS
-
+import { Avatar, Grid, Typography } from '@mui/material';
 
 /* BODY */
 export default function Panel(params) {
     // console.log(`Rendering PANEL`);
     return (
-        <div className={styles.panel}>
-            <div className={styles.header}>
-                <Image src='/avatars/girl.png' alt='avatar' width={40} height={40} className={styles.avatar} />
-            </div>
-        </div>
+        <Grid container gap={2} alignItems='end' >
+            <Avatar variant="rounded" src="/avatars/girl.png" />
+            <Typography variant="h6" color="primary" component='p' >M.Shahzeb Raza</Typography>
+        </Grid>
     )
 }
-Panel.displayName = 'Panel'
+Panel.displayName = 'User Info Panel'

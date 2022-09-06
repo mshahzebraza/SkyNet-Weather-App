@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
 
 @import "../styles/abstracts";
 // $prime1: #2f3346;
@@ -35,7 +36,7 @@ body {
 	letter-spacing: 0.035em;
 	font-family: Poppins, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
 		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 // General Styles

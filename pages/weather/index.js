@@ -8,38 +8,65 @@ import Head from 'next/head';
 import Panel from '../../components/AppSections/Panel/Panel';
 import Welcome from '../../components/AppSections/Welcome/Welcome';
 import Highlights from '../../components/AppSections/Highlights/Highlights';
-import Search from '../../components/AppSections/Search/Search';
+import Search from '../../components/AppSections/Search';
 import WeekForecast from '../../components/AppSections/WeekForecast/WeekForecast';
 import AirQuality from '../../components/AppSections/AirQuality/AirQuality';
 import Rainfall from '../../components/AppSections/Rainfall/Rainfall';
 import SolarTime from '../../components/AppSections/SolarTime/SolarTime';
 import useStore from "../../store/StoreContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { segregateProps } from "../../lib/helpers";
-import Grid from '@mui/material/Grid'
+import useAxios from "../../lib/useAxios";
+import { Button, Box, Grid } from '@mui/material'
+
+// https://api.weatherapi.com/v1/forecast.json?key=df0dcf32a9b346308a814745212710&q=asd&days=10&aqi=yes&alerts=no
+const getURL = (
+    query,
+    key = process.env.API_KEY,
+    days = 3,
+    aqi = 'no',
+    alerts = 'no'
+) => (
+    `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${query}&days=${days}&aqi=${aqi}&alerts=${alerts}`
+)
 
 // Function
+
+function ResponseBlock({ data }) {
+    const { location, current } = data;
+    return (<div>
+        <p>{location.name}, <span>{location.region}</span> </p>
+        <p>{location.localtime} </p>
+        <p>{current.condition.text} </p>
+    </div>);
+}
+function ErrorBlock({ error }) {
+    const { message, name, code, status } = error;
+    return (<div style={{ marginTop: "2rem", color: 'red' }} >
+        <p>{code} | <span>{status}</span> </p>
+        <p>{message} </p>
+        <p>{name} </p>
+    </div>);
+}
+
+
 export default function Weather(props) {
-    console.log(`-----------Rendering WEATHER---PAGE`);
-    const { state } = useStore()
-    console.log('state');
-    console.log(state);
 
-    const segregatedProps = state.isValid ? segregateProps(state) : {};
-    // For a failed request
-    // segregatedProps = 'notAvailable'
-    // segregatedProps.weekly = undefined
 
-    [
-        "panel",
-        "welcome",
-        "highlights",
-        "search",
-        "weekly",
-        "airQuality",
-        "rainfall",
-        "sunDuration"
-    ]
+    const [data, setData] = useState(null);
+    const [query, setQuery] = useState('karachi');
+    // https://api.weatherapi.com/v1/forecast.json?key={API_KEY}&q={QUERY}&days=10&aqi=yes&alerts=no
+    const { response, loading, error } = useAxios(getURL(query));
+
+    console.log({ query, error: !!error, response: !!response, loading })
+
+
+
+    useEffect(() => {
+        if (response && response.data) setData(response.data)
+    }, [response]);
+
+
 
 
     return (
@@ -47,44 +74,32 @@ export default function Weather(props) {
 
             <Grid
                 container
+                direction='column'
                 gap={2}
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                alignContent="center"
-                // wrap="nowrap"
-                className={`${styles.dashboard}`}
-            /* className={`${styles.page} pageContainer`} */
             >
-                {
-                    [
-                        ["panel", <Panel />],
-                        ["welcome", <Welcome />],
-                        ["highlights", <Highlights />],
-                        ["search", <Search />],
-                        ["weekly", <WeekForecast />],
-                        ["airQuality", <AirQuality />],
-                        ["rainfall", <Rainfall />],
-                        ["sunDuration", <SolarTime />]
-                    ].map(
-                        (item, idx) => <Grid
-                            item
-                            // xs={2}
-                            sx={{ border: '1px dashed red', width: '100%', height: '100%', minHeight: 100 }}
-                            className={styles[`sec${idx + 1}`]}
-                            container
-                            justifyContent='center'
-                            alignItems='center'
-                        >
-                            {
-                                item[1] ? item[1] : `Section #${idx + 1}: \xa0 ${item[0].toLocaleUpperCase()}`
-                            }
-                        </Grid>
-                    )
-                }
+                {<Grid item>
+                    <Search
+                        query={query}
+                        setQuery={setQuery}
+                    />
 
+                </Grid>}
+
+                <Grid item className={styles[`sec${6}`]}>
+                    {!!loading ? (
+                        <p>isLoading...</p>
+                    ) : (
+                        <div>
+                            {error && <ErrorBlock error={error} />}
+                            {data && <ResponseBlock data={data} />}
+                        </div>
+                    )}
+
+                </Grid>
             </Grid>
         </>
     );
 }
 Weather.displayName = `Weather`;
+
+
