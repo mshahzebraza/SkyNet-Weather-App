@@ -6,3 +6,4 @@ export const ResponseBlock = ({ data }) => {
         <p>{current.condition.text} </p>
     </div>);
 }
+ResponseBlock.displayName = `ResponseBlock`;

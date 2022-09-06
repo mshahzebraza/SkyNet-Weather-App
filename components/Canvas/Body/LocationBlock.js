@@ -1,17 +1,23 @@
-import { Pin } from "@mui/icons-material";
-import { Typography, Box, IconButton } from "@mui/material";
-
+import { Typography, Grid, Box, IconButton } from "@mui/material";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 export const LocationBlock = ({ location }) => {
     if (!location) return null
     const { name: areaName, region, country } = location;
 
     return (
-        <Box>
-            <Typography variant="h6" color="initial">Location</Typography>
+        <Grid item xs container alignItems='center' >
             <IconButton aria-label="Current Location Icon">
-                <Pin />
+                <LocationOnOutlinedIcon />
             </IconButton>
-            {areaName}, {country}
-        </Box>);
+            <Box component='p' >
+                <Typography variant="body1" component='span' >
+                    {areaName},&nbsp;
+                </Typography>
+                <Typography variant="body1" component='span' >
+                    {country}
+                </Typography>
+            </Box>
+        </Grid>);
 }
+LocationBlock.displayName = `LocationBlock`;

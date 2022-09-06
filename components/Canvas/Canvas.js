@@ -17,3 +17,4 @@ const Canvas = ({ children, ...props }) => {
 }
 
 export default Canvas;
+Canvas.displayName = `Canvas`;

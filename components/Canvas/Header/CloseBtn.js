@@ -1,7 +1,7 @@
 import { Close } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
-function CloseBtn({ close }) {
+export const CloseBtn = ({ close }) => {
     return (<IconButton
         type="button"
         sx={{ p: '10px' }}
@@ -11,5 +11,5 @@ function CloseBtn({ close }) {
         <Close />
     </IconButton>);
 }
+CloseBtn.displayName = `CloseBtn`;
 
-export { CloseBtn }

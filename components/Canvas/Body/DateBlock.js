@@ -1,17 +1,21 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
+import { formatDayNum, formatDigits, formatMonthNum } from "../../../lib/helpers";
+
+
 
 export const DateBlock = ({ epochTime }) => {
     const curTime = new Date(epochTime * 1000);
-    const elems = {
-        date: curTime.getDate(),
-        day: curTime.getDay(),
-        month: curTime.getMonth(),
-        year: curTime.getFullYear(),
-    }
-    const renderElems = Object.keys(elems).map(key => <p key={key}>{key}: {elems[key]}</p>)
+    const date = formatDigits(curTime.getDate(), 2);
+    const day = formatDayNum(curTime.getDay());
+    const month = formatMonthNum(curTime.getMonth());
+    const year = curTime.getFullYear();
+
     return (
-        <Box>
-            <Typography variant="h6" color="initial">Date</Typography>
-            {renderElems}
-        </Box>);
+        <Grid item xs container alignItems='center' justifyContent='end' >
+            <Typography variant="h6" component='span'>{day},&nbsp;</Typography>
+            <Typography variant="h6" component='span'>{date} &nbsp;</Typography>
+            <Typography variant="h6" component='span'>{month} &nbsp;</Typography>
+            <Typography variant="h6" component='span'>{year}</Typography>
+        </Grid>);
 }
+DateBlock.displayName = `DateBlock`;

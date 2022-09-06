@@ -5,7 +5,7 @@ import { SearchBtn } from './SearchBtn';
 import { CloseBtn } from './CloseBtn';
 
 
-function SearchBar({ query, setQuery }) {
+export const SearchBar = ({ query, setQuery }) => {
 
     return (
         <Paper
@@ -27,4 +27,4 @@ function SearchBar({ query, setQuery }) {
         </Paper>
     );
 }
-export { SearchBar };
+SearchBar.displayName = `SearchBar`;

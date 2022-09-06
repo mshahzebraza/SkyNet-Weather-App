@@ -1,18 +1,38 @@
 import { Grid } from "@mui/material";
-import { DateBlock } from "./DateBlock";
-import { LocationBlock } from "./LocationBlock";
-import { TimeBlock } from "./TimeBlock";
+import { Loader } from "../../ui/stateBlocks/Loader";
+import { ResponseBlock } from "../../ui/stateBlocks/ResponseBlock";
+import { ErrorBlock } from "../../ui/stateBlocks/ErrorBlock";
+import { InfoBar } from "./InfoBar";
+import { WeatherRow } from "./WeatherRow";
 
-export const Body = ({ location, current }) => {
+
+export const Body = ({ data: weatherData, loading, error }) => {
+    console.log('weatherData', weatherData)
+    if (!weatherData) return 'No Response ...'
+    if (!!loading) return <Loader />
+
+    const { location, current, forecast } = weatherData;
+
+
     return (<>
-        <Grid item> App Header: Time </Grid>
-        <Grid item>
-            <LocationBlock location={location} />
-            <TimeBlock epochTime={location?.localtime_epoch} />
-            <DateBlock epochTime={location?.localtime_epoch} />
-        </Grid>
+        <InfoBar location={location} />
+        <WeatherRow />
+
         <Grid item> App Main: Weather </Grid>
         <Grid item> App Footer: Last Updated </Grid>
+        <Grid item >
+            {!!loading ? (
+                <p>isLoading...</p>
+            ) : (
+                <div>
+                    {error && <ErrorBlock error={error} />}
+                    {weatherData && <ResponseBlock data={weatherData} />}
+                    {weatherData && <pre>{JSON.stringify(weatherData, null, 4)}</pre>}
+                </div>
+            )}
+
+        </Grid>
     </>);
 }
 
+Body.displayName = `Canvas-Body`;

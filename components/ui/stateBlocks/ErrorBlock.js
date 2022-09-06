@@ -7,3 +7,4 @@ export const ErrorBlock = ({ error }) => {
         <p>{name} </p>
     </div>);
 }
+ErrorBlock.displayName = `ErrorBlock`;

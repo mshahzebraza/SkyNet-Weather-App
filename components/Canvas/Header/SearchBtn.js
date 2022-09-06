@@ -2,7 +2,7 @@ import { Search } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
 
-function SearchBtn({ search }) {
+export const SearchBtn = ({ search }) => {
     return (
         <IconButton
             type="button"
@@ -13,5 +13,4 @@ function SearchBtn({ search }) {
             <Search />
         </IconButton>);
 }
-
-export { SearchBtn }
+SearchBtn.displayName = `SearchBtn`;
