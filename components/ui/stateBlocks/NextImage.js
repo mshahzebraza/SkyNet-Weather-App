@@ -7,11 +7,12 @@ const myLoader = ({ src, width, quality }) => {
 }
 
 export const NextImage = ({
-    loader = myLoader,
+    // loader = myLoader,
     src = "/bg/starSky.jpg",
     alt = "Starry Sky",
     width = 150,
     height = 150,
+    ...rest
 }) => {
     return (
         <Image
@@ -20,6 +21,7 @@ export const NextImage = ({
             alt={alt}
             width={width}
             height={height}
+            {...rest}
         />
     )
 }

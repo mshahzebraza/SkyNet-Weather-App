@@ -1,14 +1,10 @@
 import { Typography, Grid } from "@mui/material";
-import { formatDayNum, formatDigits, formatMonthNum } from "../../../lib/helpers";
+import { formatDayNum, formatDigits, formatMonthNum, getFromEpoch } from "../../../../lib/helpers";
 
 
 
 export const DateBlock = ({ epochTime }) => {
-    const curTime = new Date(epochTime * 1000);
-    const date = formatDigits(curTime.getDate(), 2);
-    const day = formatDayNum(curTime.getDay());
-    const month = formatMonthNum(curTime.getMonth());
-    const year = curTime.getFullYear();
+    const { date, day, month, year } = getFromEpoch(epochTime * 1000)
 
     return (
         <Grid item xs container alignItems='center' justifyContent='end' >

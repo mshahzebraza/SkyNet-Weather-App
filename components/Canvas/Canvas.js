@@ -1,8 +1,18 @@
 import { Grid } from "@mui/material";
+import { Body } from "./Body";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 
 
-const Canvas = ({ children, ...props }) => {
+const Canvas = ({
+    query,
+    setQuery,
+    data,
+    loading,
+    error,
+    ...props
+}) => {
     return (
         <Grid
             container
@@ -11,7 +21,9 @@ const Canvas = ({ children, ...props }) => {
             component='main'
             {...props}
         >
-            {children}
+            <Header query={query} setQuery={setQuery} />
+            <Body data={data} loading={loading} error={error} />
+            <Footer />
         </Grid>
     )
 }

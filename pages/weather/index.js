@@ -9,9 +9,7 @@ import { useEffect, useState } from "react";
 import useAxios from "../../lib/useAxios";
 import { getURL } from "../../lib/helpers";
 import Canvas from "../../components/Canvas/Canvas";
-import { Header } from "../../components/Canvas/Header";
-import { Body } from "../../components/Canvas/Body";
-import { Footer } from "../../components/Canvas/Footer";
+import { mockResponse } from "../../lib/mockResponse";
 
 
 
@@ -28,12 +26,13 @@ export default function Weather() {
     }, [response]);
 
     return (
-        <Canvas>
-            {/* Search Bar */}
-            <Header query={query} setQuery={setQuery} />
-            <Body data={data} loading={loading} error={error} />
-            <Footer />
-        </Canvas>
+        <Canvas
+            query={query}
+            setQuery={setQuery}
+            data={data}
+            loading={loading}
+            error={error}
+        />
     );
 }
 Weather.displayName = `Weather`;

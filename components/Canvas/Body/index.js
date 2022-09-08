@@ -1,10 +1,10 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Loader } from "../../ui/stateBlocks/Loader";
 import { ResponseBlock } from "../../ui/stateBlocks/ResponseBlock";
 import { ErrorBlock } from "../../ui/stateBlocks/ErrorBlock";
-import { InfoBar } from "./InfoBar";
-import { WeatherRow } from "./WeatherRow";
-
+import { InfoBar } from "./Info/InfoBar";
+import { CurrentWeather } from "./Current/CurrentWeather";
+import { ForecastWeather } from "./Forecast/ForecastWeather";
 
 export const Body = ({ data: weatherData, loading, error }) => {
     console.log('weatherData', weatherData)
@@ -13,14 +13,12 @@ export const Body = ({ data: weatherData, loading, error }) => {
 
     const { location, current, forecast } = weatherData;
 
-
     return (<>
         <InfoBar location={location} />
-        <WeatherRow />
-
-        <Grid item> App Main: Weather </Grid>
-        <Grid item> App Footer: Last Updated </Grid>
-        <Grid item >
+        <CurrentWeather current={current} />
+        <ForecastWeather forecastCollection={forecast} />
+        <Typography >Last Updated: {current.last_updated_epoch}</Typography>
+        {/*    <Grid item >
             {!!loading ? (
                 <p>isLoading...</p>
             ) : (
@@ -31,7 +29,7 @@ export const Body = ({ data: weatherData, loading, error }) => {
                 </div>
             )}
 
-        </Grid>
+        </Grid> */}
     </>);
 }
 

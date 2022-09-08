@@ -1,20 +1,6 @@
 import React from 'react'
 import { Paper, Typography, Grid, Box } from '@mui/material';
-import { NextImage } from '../../ui/stateBlocks/NextImage';
-
-
-
-function WeatherTempBox() {
-    return (
-        <Grid item container gap={2} alignItems='center' >
-            <Typography variant="body1">22 deg</Typography>
-            <Box>
-                <NextImage />
-            </Box>
-        </Grid>
-    );
-}
-
+import { WeatherTempBox } from './WeatherTempBox'
 
 export const SecondaryWeatherCard = () => {
     return (
