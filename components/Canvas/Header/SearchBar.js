@@ -6,11 +6,20 @@ import { CloseBtn } from './CloseBtn';
 
 
 export const SearchBar = ({ query, setQuery }) => {
+    const containerStyles = {
+        px: 2,
+        py: 1,
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        background: '#F6F6F6',
+        boxShadow: 'none'
+    }
 
     return (
         <Paper
             component="form"
-            sx={{ px: 2, py: 1, display: 'flex', alignItems: 'center', width: '100%' }}
+            sx={containerStyles}
         >
 
             <InputBase
@@ -21,7 +30,7 @@ export const SearchBar = ({ query, setQuery }) => {
                 inputProps={{ 'aria-label': 'search weather' }}
             />
 
-            <CloseBtn close={setQuery} />
+            {!!query && <CloseBtn close={setQuery} />}
             <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
             <SearchBtn search={() => console.log('Searching')} />
         </Paper>

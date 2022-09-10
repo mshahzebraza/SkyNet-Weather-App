@@ -1,4 +1,3 @@
-import { Grid, Typography } from "@mui/material";
 import { Loader } from "../../ui/stateBlocks/Loader";
 import { ResponseBlock } from "../../ui/stateBlocks/ResponseBlock";
 import { ErrorBlock } from "../../ui/stateBlocks/ErrorBlock";
@@ -17,7 +16,6 @@ export const Body = ({ data: weatherData, loading, error }) => {
         <InfoBar location={location} />
         <CurrentWeather current={current} />
         <ForecastWeather forecastCollection={forecast} />
-        <Typography >Last Updated: {current.last_updated_epoch}</Typography>
         {/*    <Grid item >
             {!!loading ? (
                 <p>isLoading...</p>

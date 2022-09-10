@@ -2,19 +2,29 @@ import { Typography, Grid, Box } from "@mui/material";
 import { formatDigits, formatHours12 } from "../../../../lib/helpers";
 
 
-export const TemperatureBlock = ({ actualTemp, feelslikeTemp }) => {
+
+
+
+
+function TemperatureRow({ tempLabel, value }) {
+    const containerStyles = {
+        // width: 5
+    }
 
     return (
-        <Grid item xs container alignItems='center' justifyContent='center'>
-            <Grid item container>
-                <Typography variant="subtitle2" component='p'>Actual Temperature: </Typography>
-                <Typography variant="h6" component='p'>{actualTemp}</Typography>
-            </Grid>
+        <Grid item container gap={2.75} sx={containerStyles} alignItems='end' justifyContent='space-between' >
+            <Typography variant="subtitle2" component='p'>{tempLabel}<br />Temperature: </Typography>
+            <Typography variant="h4" component='p'>{value}&deg;C</Typography>
+        </Grid>
+    );
+}
 
-            <Grid item container>
-                <Typography variant="subtitle2" component='p'>Feels Like Temperature: </Typography>
-                <Typography variant="h6" component='p'> {feelslikeTemp}</Typography>
-            </Grid>
+
+export const TemperatureBlock = ({ actualTemp, feelslikeTemp }) => {
+    return (
+        <Grid item xs/* ='auto' */ container gap={2.75} direction='column' justifyContent='center'   >
+            <TemperatureRow value={actualTemp} tempLabel={'Actual'} />
+            <TemperatureRow value={feelslikeTemp} tempLabel={'Feels Like'} />
 
         </Grid>);
 }

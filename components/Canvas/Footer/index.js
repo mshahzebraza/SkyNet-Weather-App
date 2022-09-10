@@ -1,11 +1,17 @@
 import { Grid, Typography } from "@mui/material";
+import { getFromEpoch } from "../../../lib/helpers";
+import { Credits } from './Credits'
+import { UpdateLogger } from './UpdateLogger'
 
-export const Footer = () => {
+
+
+export const Footer = ({ lastUpdateEpoch }) => {
+    if (!lastUpdateEpoch) return 'No Response ...'
+
     return (
-        <Grid item container justifyContent='center'>
-            <Typography variant="body1" >
-                Made in ❤️JavaScript❤️ by <em>M.Shahzeb Raza</em>
-            </Typography>
+        <Grid item container justifyContent='space-between'>
+            <UpdateLogger lastUpdateEpoch={lastUpdateEpoch} />
+            <Credits />
         </Grid>);
 }
 Footer.displayName = `Canvas-Footer`;
