@@ -7,14 +7,14 @@ export const LocationBlock = ({ location }) => {
 
     return (
         <Grid item xs container alignItems='center' >
-            <IconButton aria-label="Current Location Icon">
+            <IconButton aria-label="Current Location Icon" sx={{ color: "#000000" }} >
                 <LocationOnOutlinedIcon />
             </IconButton>
             <Box component='p' >
-                <Typography variant="body1" component='span' >
+                <Typography variant="h6" component='span' >
                     {areaName},&nbsp;
                 </Typography>
-                <Typography variant="body1" component='span' >
+                <Typography variant="h6" component='span' >
                     {country}
                 </Typography>
             </Box>

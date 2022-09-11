@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import { Body } from "./Body";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -16,8 +16,9 @@ const Canvas = ({
 
     const containerStyles = {
         px: 5,
-        pt: 6.25,
-        pb: 2.5,
+        py: 4,
+        // pt: 6.25,
+        // pb: 2.5,
         backgroundColor: '#FFFFFF',
         borderRadius: 2.5
     }
@@ -27,12 +28,14 @@ const Canvas = ({
         <Grid
             container
             direction='column'
-            gap={2.5}
+            alignItems='center'
+            gap={2}
             component='main'
             sx={containerStyles}
             {...props}
         >
             <Header query={query} setQuery={setQuery} />
+            <Divider sx={{ width: '100%' }} />
             <Body data={data} loading={loading} error={error} />
             <Footer lastUpdateEpoch={data?.current?.last_updated_epoch * 1000} />
         </Grid>

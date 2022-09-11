@@ -7,9 +7,9 @@ export const TimeBlock = ({ epochTime }) => {
 
     return (
         <Grid item xs container alignItems='center' component='p' justifyContent='center'>
-            <Typography variant="h6" component='span'>{hours}: &nbsp;</Typography>
-            <Typography variant="h6" component='span'>{minutes}: &nbsp;</Typography>
-            <Typography variant="h6" component='span'>{seconds}&nbsp;</Typography>
+            <Typography variant="h6" component='span'>{hours}:&nbsp;</Typography>
+            <Typography variant="h6" component='span'>{minutes}&nbsp;</Typography>
+            {/* <Typography variant="h6" component='span'>{seconds}&nbsp;</Typography> */}
             <Typography variant="h6" component='span'>{hoursSuffix}</Typography>
         </Grid>);
 }

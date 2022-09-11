@@ -9,19 +9,16 @@ import { LabelValueIcon as ConditionBlock } from '../../reusable/LabelValueIcon'
 
 
 
-
-
 export const CurrentWeather = ({ current }) => {
 
-    const containerStyles = {
-        px: 6.25,
-        py: 3.75,
+    const containerStyles = ({ palette }) => ({
+        px: 3.5,
+        py: 2,
         borderRadius: 2.5,
-        background: '#F6F6F6',
-    }
+        background: palette.nute.main, //#F6F6F6
+    })
 
     const dividerStyles = {
-        background: '#10101033',
         height: 'auto',
     }
 

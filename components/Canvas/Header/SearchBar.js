@@ -8,9 +8,10 @@ import { CloseBtn } from './CloseBtn';
 export const SearchBar = ({ query, setQuery }) => {
     const containerStyles = {
         px: 2,
-        py: 1,
+        // py: 1,
         display: 'flex',
-        alignItems: 'center',
+        // justifyContent: "center",
+        // alignItems: 'center',
         width: '100%',
         background: '#F6F6F6',
         boxShadow: 'none'

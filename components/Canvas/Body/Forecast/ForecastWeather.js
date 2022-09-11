@@ -7,15 +7,15 @@ import { ForecastRow } from './ForecastRow';
 export const ForecastWeather = ({ forecastCollection }) => {
 
 
-    const containerStyles = {
-        py: 1.25,
-        px: 6.25,
-        backgroundColor: '#F6F6F6',
+    const containerStyles = ({ palette }) => ({
+        px: 3.5,
+        py: 2,
+        backgroundColor: palette.nute.main, // '#F6F6F6'
         borderRadius: 2.5
-    }
+    })
 
     return (
-        <Grid item container direction={'column'} gap={1.25} justifyContent='space-around' sx={containerStyles} >
+        <Grid item container direction={'column'} gap={2} justifyContent='space-around' sx={containerStyles} >
             {
                 forecastCollection.forecastday.map(({
                     date_epoch: dateEpoch,

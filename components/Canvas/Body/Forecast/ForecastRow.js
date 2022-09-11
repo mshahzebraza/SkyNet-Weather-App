@@ -7,22 +7,9 @@ import { Nightlight, WbSunny } from "@mui/icons-material";
 
 
 
-function ForecastElement({ label, value, ...restProps }) {
-    return (
-        <Grid item xs='auto' container direction={'column'} {...restProps} >
-            <Typography variant="overline" component='p'>{label}</Typography>
-            <Typography variant="h6" component='p'>{value}</Typography>
-        </Grid>
-    );
-}
-
-
-
-
 export const ForecastRow = ({ forecast }) => {
 
     const dividerStyles = {
-        background: '#10101033',
         height: '100%',
     }
 
@@ -38,15 +25,7 @@ export const ForecastRow = ({ forecast }) => {
                 label={'Date'}
                 value={`${date} ${month}, ${year}`}
             />
-            <Divider orientation='vertical' sx={dividerStyles} />
-
-            <LabelValueIcon
-                label='Condition'
-                value={text}
-                imagePath={'https:' + icon}
-                isMini
-            />
-            <Divider orientation='vertical' sx={dividerStyles} />
+            {/* <Divider orientation='vertical' sx={dividerStyles} /> */}
 
             <LabelValue
                 label={'Average Temp'}
@@ -56,12 +35,23 @@ export const ForecastRow = ({ forecast }) => {
                 icon={WbSunny}
                 label={'Sunrise'}
                 value={sunrise}
+                isMini
             />
             <LabelValueIcon
                 icon={Nightlight}
                 label={'Sunset'}
                 value={sunset}
+                isMini
             />
+
+            <LabelValueIcon
+                label='Condition'
+                value={text}
+                imagePath={'https:' + icon}
+                isMini
+            />
+            {/* <Divider orientation='vertical' sx={dividerStyles} /> */}
+
         </Grid>
     );
 }

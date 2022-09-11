@@ -12,7 +12,7 @@ function StatisticsRow({ icon: StatIcon, label, value, suffix }) {
                 <IconButton><StatIcon /></IconButton>
                 <Typography variant="subtitle2">{label}</Typography>
             </Grid>
-            <Grid item xs='auto' container alignItems='center' gap={0.25} >
+            <Grid item xs='auto' container alignItems='flex-end' gap={0.60} >
                 <Typography variant="h5" >{value}</Typography>
                 <Typography variant="caption">{suffix}</Typography>
             </Grid>
@@ -23,11 +23,10 @@ function StatisticsRow({ icon: StatIcon, label, value, suffix }) {
 
 export const StatisticsBlock = ({ wind, windDirection, humidity, cloud, isDay }) => {
     const dividerStyles = {
-        background: '#10101033',
         width: '100%',
     }
     return (
-        <Grid item xs container alignItems='center' justifyContent='center' gap={2} >
+        <Grid item xs container alignItems='center' justifyContent='center' gap={1.25} >
 
             <StatisticsRow icon={Air} label={'Wind'} value={wind} suffix={'kph'} />
             <Divider sx={dividerStyles} />
