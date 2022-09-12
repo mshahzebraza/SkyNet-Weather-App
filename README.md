@@ -1,4 +1,5 @@
 <!-- Style Guide -->
+<<<<<<< HEAD
 
 ### Todo
 
@@ -8,3 +9,6 @@
 4. Scale down the components in accordance with the MUI sizes.
 5. Customize the Navigation
 6. Add About Me Page
+=======
+[Project's Live Link](https://weather-next-app-ten.vercel.app/weather/pakistan)
+>>>>>>> 058b3e353ed8c790e0edfdddae11b443b9a8ea00
