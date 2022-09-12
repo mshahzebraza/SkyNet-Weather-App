@@ -4,20 +4,18 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 export const LocationBlock = ({ location }) => {
     if (!location) return null
     const { name: areaName, region, country } = location;
+    const locationBlockStyles = (theme) => ({
+        justifyContent: { xs: 'center', md: 'flex-start' },
+    })
 
     return (
-        <Grid item xs container alignItems='center' >
-            <IconButton aria-label="Current Location Icon" sx={{ color: "#000000" }} >
+        <Grid item xs={12} md={3.5} container alignItems='center' sx={locationBlockStyles} >
+            <IconButton aria-label="Current Location Icon" sx={{ color: "#000000" }} size='small' >
                 <LocationOnOutlinedIcon />
             </IconButton>
-            <Box component='p' >
-                <Typography variant="h6" component='span' >
-                    {areaName},&nbsp;
-                </Typography>
-                <Typography variant="h6" component='span' >
-                    {country}
-                </Typography>
-            </Box>
+            <Typography variant="h6" component='p' >
+                {areaName},&nbsp;{country}
+            </Typography>
         </Grid>);
 }
 LocationBlock.displayName = `LocationBlock`;

@@ -9,7 +9,7 @@ export const ForecastWeather = ({ forecastCollection }) => {
 
     const containerStyles = ({ palette }) => ({
         px: 3.5,
-        py: 2,
+        py: 3.5,
         backgroundColor: palette.nute.main, // '#F6F6F6'
         borderRadius: 2.5
     })

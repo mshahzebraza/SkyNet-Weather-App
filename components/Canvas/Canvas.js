@@ -20,7 +20,8 @@ const Canvas = ({
         // pt: 6.25,
         // pb: 2.5,
         backgroundColor: '#FFFFFF',
-        borderRadius: 2.5
+        borderRadius: 2.5,
+        gap: { xs: 2, md: 2 }
     }
 
 

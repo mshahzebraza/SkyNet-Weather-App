@@ -2,20 +2,32 @@ import { Grid, Typography } from "@mui/material";
 import { SearchBar } from "./SearchBar";
 
 export const Header = ({ title = 'SkyNet', query, setQuery }) => {
+    const headerStyles = {
+        direction: {
+
+        }
+    }
+
     return (
         <Grid
             item
             container
             justifyContent={'space-between'}
-            alignItems='center'
-            gap={40}
+            wrap='nowrap'
+            sx={{
+                flexDirection: { xs: 'column', sm: 'row' },
+                alignItems: { xs: 'space-between', sm: 'center' },
+                textAlign: { xs: 'center', sm: 'left' }
+                // background: { xs: 'red', sm: 'yellow', md: 'green' },
+            }}
+            gap={2}
         >
-            <Grid item xs='auto' >
+            <Grid item xs={'auto'} >
                 <Typography variant='h3' >
                     {title}
                 </Typography>
             </Grid>
-            <Grid item xs >
+            <Grid item xs={12}  >
                 <SearchBar
                     query={query}
                     setQuery={setQuery}

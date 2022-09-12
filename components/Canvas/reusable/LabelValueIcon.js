@@ -2,39 +2,64 @@ import { Grid, IconButton, Typography } from "@mui/material";
 import { NextImage } from "../../ui/stateBlocks/NextImage";
 
 
-export const LabelValueIcon = ({ label = 'Condition', value, icon: Icon, imagePath, isMini = false, ...restProps }) => {
+export const LabelValueIcon = ({ label = 'Condition', value, icon: Icon, imagePath, isMini = false, sx: customSX, ...restProps }) => {
 
-    const dynProps = {
-        container: isMini ? { gap: 1.25 } : { gap: 2 },
-        image: isMini ? { width: 40, height: 40 } : { width: 75, height: 75 },
-        label: isMini ? { variant: 'overline' } : { variant: 'subtitle2' },
-        value: isMini ? { variant: 'h6' } : { variant: 'h5' },
-        icon: isMini ? { size: 'small' } : {}
+    const ctnStyles = {
+        flexDirection: { md: 'column', lg: 'row' },
+        textAlign: { md: 'center' },
+        alignItems: 'center',
+        justifyContent: { xs: 'center' },
+        wrap: "nowrap",
+        gap: { xs: 1.25, sm: 3, md: 1 },
+        // justifyContent: { xs: 'stretch', sm: 'flex-start' },
+        // gap: { xs: 0, sm: 1.25 },
+        ...customSX
     }
+
+    const mediaBlockStyles = {}
+
+    const textBlockStyles = {
+        gap: 0.65,
+        flexDirection: { xs: 'column' },
+        alignItems: { xs: 'flex-start', md: 'center' },
+        // flexDirection: { xs: 'row', sm: 'column' },
+        // justifyContent: { xs: 'space-between', sm: 'flex-start' },
+        // flex: { xs: 1, sm: 'auto' },
+    }
+
 
     return (
         <Grid
             item
-            xs='auto'
             container
-            alignItems='center'
-            justifyContent='center'
-            wrap="nowrap"
-            {...dynProps.container}
+            sx={ctnStyles}
             {...restProps}
         >
-            {
-                Icon ?
-                    <IconButton {...dynProps.icon} >
-                        <Icon />
-                    </IconButton>
-                    :
-                    <NextImage src={imagePath} {...dynProps.image} />
-            }
+            <Grid
+                item
+                xs='auto'
+                sx={mediaBlockStyles}
+            >
 
-            <Grid item xs container direction={'column'} gap={0.65} >
-                <Typography {...dynProps.label} component='p' >{label}</Typography>
-                <Typography {...dynProps.value} component='p' >{value}</Typography>
+                {
+                    Icon ?
+                        <IconButton  >
+                            <Icon />
+                        </IconButton>
+                        :
+                        <NextImage src={imagePath} width={75} height={75} />
+                }
+
+            </Grid>
+            <Grid
+                item
+                container
+                xs='auto'
+                md={12}
+                sx={textBlockStyles}
+            >
+                <Typography variant="subtitle2" component='p' >{label}</Typography>
+                <Typography variant="h5" component='p' >{value}</Typography>
             </Grid>
         </Grid>);
 }
