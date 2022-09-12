@@ -22,11 +22,11 @@ export const Header = ({ title = 'SkyNet', query, setQuery }) => {
             }}
             gap={2}
         >
-            <Grid item xs={'auto'} >
+            {/* <Grid item xs={'auto'} >
                 <Typography variant='h3' >
                     {title}
                 </Typography>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}  >
                 <SearchBar
                     query={query}
