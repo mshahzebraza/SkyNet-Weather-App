@@ -5,7 +5,7 @@ import { NextImage } from "../../ui/stateBlocks/NextImage";
 export const LabelValueIcon = ({ label = 'Condition', value, icon: Icon, imagePath, isMini = false, sx: customSX, ...restProps }) => {
 
     const ctnStyles = {
-        flexDirection: { md: 'column', lg: 'row' },
+        flexDirection: { md: 'row', lg: 'row' },
         textAlign: { md: 'center' },
         alignItems: 'center',
         justifyContent: { xs: 'center' },

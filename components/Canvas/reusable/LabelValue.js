@@ -14,7 +14,7 @@ export const LabelValue = ({ label, value, sx: customSX, ...restProps }) => {
     }
 
     const typoValueStyles = {
-        textAlign: { xs: 'right', sm: 'left' },
+        textAlign: { xs: 'right', sm: 'center' },
         lineHeight: { xs: 1.2, sm: 1 }
     }
 

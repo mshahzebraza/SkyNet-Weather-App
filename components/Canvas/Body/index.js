@@ -4,6 +4,7 @@ import { ErrorBlock } from "../../ui/stateBlocks/ErrorBlock";
 import { InfoBar } from "./Info/InfoBar";
 import { CurrentWeather } from "./Current/CurrentWeather";
 import { ForecastWeather } from "./Forecast/ForecastWeather";
+import Typography from '@mui/material/Typography'
 
 export const Body = ({ data: weatherData, loading, error }) => {
     console.log('weatherData', weatherData)
@@ -13,21 +14,10 @@ export const Body = ({ data: weatherData, loading, error }) => {
     const { location, current, forecast } = weatherData;
 
     return (<>
+        {error && <Typography variant="h6" color="error"> Old Data Being Shown </Typography>}
         <InfoBar location={location} />
         <CurrentWeather current={current} />
         <ForecastWeather forecastCollection={forecast} />
-        {/*    <Grid item >
-            {!!loading ? (
-                <p>isLoading...</p>
-            ) : (
-                <div>
-                    {error && <ErrorBlock error={error} />}
-                    {weatherData && <ResponseBlock data={weatherData} />}
-                    {weatherData && <pre>{JSON.stringify(weatherData, null, 4)}</pre>}
-                </div>
-            )}
-
-        </Grid> */}
     </>);
 }
 

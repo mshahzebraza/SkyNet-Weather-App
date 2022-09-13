@@ -15,6 +15,8 @@ const Canvas = ({
 }) => {
 
     const containerStyles = {
+        maxWidth: 'xl',
+        m: 'auto',
         px: 5,
         py: 4,
         // pt: 6.25,

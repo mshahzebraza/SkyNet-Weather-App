@@ -12,12 +12,12 @@ import {
     Menu,
     MenuItem
 } from '@mui/material';
-// import { Menu as MenuIcon, AdbIcon } from '@mui/icons-material';
-import MenuIcon from '@mui/icons-material/Menu';
-import AdbIcon from '@mui/icons-material/Adb';
+// import Menu from '@mui/icons-material/Menu';
+// import Cloud from '@mui/icons-material/Adb';
+import { Cloud, Menu as MenuIcon } from '@mui/icons-material';
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Home', 'Weather', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navigation = () => {
@@ -43,31 +43,34 @@ const Navigation = () => {
 
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" color='nute' enableColorOnDark	 >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    {/* Brand */}
+                    <Cloud sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
-                        variant="h6"
+                        variant="h5"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
                             mr: 2,
+                            ml: 1,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
+                            // color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        SKYNET
                     </Typography>
 
+                    {/* Responsive MenuIcon + MenuList */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
-                            size="large"
+                            size="small"
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
@@ -101,7 +104,8 @@ const Navigation = () => {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    {/* Responsive Brand */}
+                    <Cloud sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
                         variant="h5"
                         noWrap
@@ -120,18 +124,21 @@ const Navigation = () => {
                     >
                         LOGO
                     </Typography>
+
+                    {/* Pages */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'inherit', display: 'block' }}
                             >
                                 {page}
                             </Button>
                         ))}
                     </Box>
 
+                    {/* Avatar + Settings Dropdown */}
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

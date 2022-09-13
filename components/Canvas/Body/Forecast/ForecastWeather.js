@@ -30,7 +30,7 @@ export const ForecastWeather = ({ forecastCollection }) => {
                         <ForecastRow
                             forecast={{ dateEpoch, avgTemp, chancesOfRain, text, icon, sunrise, sunset }}
                         />
-                        {idx + 1 !== arr.length && <Divider sx={{ background: '#10101033' }} />}
+                        {idx + 1 !== arr.length && <Divider />}
                     </React.Fragment>
                 })
             }
