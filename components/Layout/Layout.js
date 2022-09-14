@@ -5,23 +5,6 @@ import Grid from '@mui/material/Grid'
 import Container from '@mui/material/Container'
 // // you can then hook into there events
 
-// Router.onRouteChangeStart = () => {
-
-// };
-
-// Router.onRouteChangeComplete = () => {
-//   window.scroll({
-//     top: 0,
-//     left: 0,
-//   });
-// };
-
-// Router.onRouteChangeError = () => {
-
-// };
-
-
-
 function LayoutHead() {
     return (<Head>
         <title>WheatherNet</title>
@@ -41,6 +24,7 @@ function LayoutBody({ children }) {
     const outerCtnrStyles = ({ palette: { primary, nute } }) => ({
         background: "#990000",
         // background: "url('./bg/svgPattern.svg')",
+        gap: { xs: 2, md: 0 },
         height: "100vh"
     })
 
@@ -51,7 +35,6 @@ function LayoutBody({ children }) {
     })
     return (<Grid
         container
-        /* gap={1}  */
         direction='column'
         wrap='nowrap'
         sx={outerCtnrStyles}

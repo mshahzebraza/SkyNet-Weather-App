@@ -15,7 +15,7 @@ import { Container, Box, Grid, Typography, Button } from '@mui/material';
 export default function Home(props) {
 
     return (
-        <Box  >
+        <Container  >
 
             <Grid
                 container
@@ -58,7 +58,7 @@ export default function Home(props) {
             {/* <div className={styles.graphic}>
                         <Image src='/appScreenshot.png' alt="app screenshot" width={650} height={450} />
                     </div> */}
-        </Box>
+        </Container>
     );
 }
 

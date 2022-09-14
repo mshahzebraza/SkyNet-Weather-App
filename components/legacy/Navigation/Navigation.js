@@ -98,7 +98,11 @@ function NavMenu(props) {
 
 function NavMenuResponsive({ anchorElNav, handleCloseNavMenu, handleOpenNavMenu }) {
     return (
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+        <Box sx={{
+            flexGrow: 0,
+            mr: { xs: 1, md: 0 },
+            display: { xs: 'flex', md: 'none' }
+        }}>
             <IconButton
                 size="small"
                 aria-label="account of current user"
@@ -192,7 +196,7 @@ const Navigation = () => {
 
     return (
         <AppBar position="static" color='nute' enableColorOnDark	 >
-            <Container maxWidth="xl">
+            <Container maxWidth="xl" sx={{ px: { xs: 3 } }}>
                 <Toolbar disableGutters>
                     {/* Brand */}
                     <Brand />

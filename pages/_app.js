@@ -6,6 +6,22 @@ import { Button, ThemeProvider } from '@mui/material';
 import { theme } from '../lib/theme';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
+
+function FullScreenBtn({ handle: { active, enter, exit } }) {
+    return (<Button variant='contained' color='nute' onClick={active ? exit : enter} sx={{
+        display: {
+            xs: 'none',
+            md: "initial"
+        },
+        position: 'absolute',
+        bottom: 10,
+        right: 20
+    }}>
+        {active ? "Exit Full-Screen" : "Enter Full-Screen"}
+    </Button>);
+}
+
+
 function MyApp({ Component, pageProps }) {
     const handle = useFullScreenHandle();
 
@@ -13,17 +29,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <ThemeProvider theme={theme} >
             <CssBaseline />
-            <Button
-                variant='contained'
-                onClick={handle.active ? handle.exit : handle.enter}
-                sx={{
-                    position: 'fixed',
-                    bottom: 10,
-                    right: 20,
-                }}
-            >
-                {handle.active ? "Exit Full-Screen" : "Enter Full-Screen"}
-            </Button>
+            <FullScreenBtn handle={handle} />
             <FullScreen handle={handle} >
                 <Layout>
                     <Component {...pageProps} />
