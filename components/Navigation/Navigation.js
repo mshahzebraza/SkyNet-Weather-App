@@ -16,9 +16,15 @@ import {
 // import Cloud from '@mui/icons-material/Adb';
 import { Cloud, Menu as MenuIcon } from '@mui/icons-material';
 import Link from 'next/link';
+import { LinkedIn, Email, HomeOutlined } from "@mui/icons-material";
 
 
 const pages = ['Home', 'Weather'/* , 'About' */];
+// const pages = [
+//     {name: 'Home', path: '/'},
+//     {name: 'Weather', path: '/weather'},
+//     {name: 'About', path: '/about'},
+//     , 'Weather'/* , 'About' */];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -195,7 +201,7 @@ const Navigation = () => {
 
 
     return (
-        <AppBar position="static" color='nute' enableColorOnDark	 >
+        <AppBar position="static" color='nute' enableColorOnDark sx={{ mt: .35 }} >
             <Container maxWidth="xl" sx={{ px: { xs: 3 } }}>
                 <Toolbar disableGutters>
                     {/* Brand */}

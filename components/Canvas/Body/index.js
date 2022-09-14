@@ -1,6 +1,4 @@
 import { Loader } from "../../ui/stateBlocks/Loader";
-import { ResponseBlock } from "../../ui/stateBlocks/ResponseBlock";
-import { ErrorBlock } from "../../ui/stateBlocks/ErrorBlock";
 import { InfoBar } from "./Info/InfoBar";
 import { CurrentWeather } from "./Current/CurrentWeather";
 import { ForecastWeather } from "./Forecast/ForecastWeather";

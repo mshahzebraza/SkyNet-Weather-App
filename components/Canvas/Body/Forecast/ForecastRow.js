@@ -1,9 +1,6 @@
-import { Typography, Grid, Divider } from "@mui/material";
-import { formatDigits, formatHours12, getFromEpoch } from "../../../../lib/helpers";
-import { NextImage } from "../../../ui/stateBlocks/NextImage";
-import { LabelValueIcon } from "../../reusable/LabelValueIcon";
+import { Grid } from "@mui/material";
+import { getFromEpoch } from "../../../../lib/helpers";
 import { LabelValue } from '../../reusable/LabelValue'
-import { Nightlight, WbSunny } from "@mui/icons-material";
 
 
 
