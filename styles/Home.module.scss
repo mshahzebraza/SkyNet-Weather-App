@@ -1,7 +1,7 @@
 @import "../styles/_abstracts.scss";
 .page {
 	display: flex;
-	background: url("../public/bg/mountains.png"), #000;
+	// background: url("../public/bg/mountains.png"), #000;
 	// background-position: 3rem 00rem;
 	// background-size: 99.5%;
 	background-size: cover;
@@ -25,7 +25,8 @@
 	gap: 8rem;
 }
 .intro {
-	flex-basis: 45%;
+	// flex-basis: 45%;
+	text-align: center;
 	display: flex;
 	flex-direction: column;
 	gap: 1.2em;

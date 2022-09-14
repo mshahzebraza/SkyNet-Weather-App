@@ -5,7 +5,7 @@ import { UpdateLogger } from './UpdateLogger'
 
 
 export const Footer = ({ lastUpdateEpoch }) => {
-    if (!lastUpdateEpoch) return 'No Response ...'
+    if (!lastUpdateEpoch) return 'No Response (Footer) - Add a Structure...'
 
     const footerStyles = {
         flexDirection: { xs: 'column', sm: 'row' },

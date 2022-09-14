@@ -8,49 +8,57 @@ import Image from "next/image"
 
 // Components
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-
+import { Container, Box, Grid, Typography, Button } from '@mui/material';
 
 // Function
 export default function Home(props) {
-    const router = useRouter();
-
-    const [location, setLocation] = useState({});
-
-    useEffect(() => {
-        // https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
-        navigator.geolocation.getCurrentPosition(function (position) {
-            const { coords: { latitude: lat, longitude: long } } = position
-            setLocation({ lat, long })
-        })
-    }, [setLocation])
 
     return (
-        <>
-            <div className={`pageContainer ${styles.page}`} >
+        <Box  >
 
-                <main className={styles.main}>
-                    <div className={styles.intro}>
-                        <h1 className={styles.title}>Weather <br />Application</h1>
-                        <h5 className={styles.text}>
-                            A Weather app using React JS and Sass by <span className={styles.name}>M. Shahzeb Raza</span>
-                        </h5>
-                        <Link href={{
-                            pathname: `/weather/[query]`,
-                            query: {
-                                query: `${location.lat},${location.long}`
-                            }
-                        }} className={styles.search}>Search Weather</Link>
-                    </div>
+            <Grid
+                container
+                direction='column'
+                justifyContent='center'
+                alignItems='center'
+                gap={4}
+            >
+                <Typography variant="h1" color='white' >
+                    Weather <br />Application
+                </Typography>
+                <Typography variant="h5" color='white' sx={{ opacity: .8 }} >
+                    A Weather app using React JS and Sass by <span className={styles.name}>M. Shahzeb Raza</span>
+                </Typography>
+                <Grid item container xs='auto' gap={1} >
 
-                    <div className={styles.graphic}>
+                    <Link href={'/weather'} >
+                        <Button
+                            variant="contained"
+                            color="nute"
+                            sx={{ px: 5, py: 1 }}
+                        >
+                            Go To App
+                        </Button>
+                    </Link>
+                    <Link href={'https://www.linkedin.com/in/mshahzebraza'} >
+                        <Button
+                            variant="contained"
+                            color="nute"
+                            sx={{ px: 5, py: 1 }}
+                        >
+                            LinkedIn
+                        </Button>
+                    </Link>
+                </Grid>
+
+
+            </Grid>
+
+            {/* <div className={styles.graphic}>
                         <Image src='/appScreenshot.png' alt="app screenshot" width={650} height={450} />
-                    </div>
-                </main>
-
-            </div>
-        </>
+                    </div> */}
+        </Box>
     );
 }
 

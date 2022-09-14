@@ -1,6 +1,5 @@
 // Dependency imports
 // import Head from 'next/head'
-import styles from "../../styles/Weather.module.scss";
 import Head from 'next/head';
 // Objects & Styles
 

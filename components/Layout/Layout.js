@@ -38,22 +38,23 @@ function LayoutHead() {
 
 function LayoutBody({ children }) {
 
-    const mainCtnrStyles = ({ palette: { primary, nute } }) => ({
-        height: '100%',
-        // background: nute.main,
-        // justifyContent: 'center',
-        alignItems: 'center',
-        // background: "url('./bg/svgPattern.svg')"
-
+    const outerCtnrStyles = ({ palette: { primary, nute } }) => ({
+        background: "#990000",
+        // background: "url('./bg/svgPattern.svg')",
+        height: "100vh"
     })
 
+    const innerCtnrStyles = ({ palette: { primary, nute } }) => ({
+        height: '100%',
+        alignItems: 'center',
+
+    })
     return (<Grid
         container
         /* gap={1}  */
         direction='column'
         wrap='nowrap'
-        height={'100vh'}
-        sx={{ background: "url('./bg/svgPattern.svg')" }}
+        sx={outerCtnrStyles}
     >
 
         { /* Navigation */}
@@ -62,7 +63,7 @@ function LayoutBody({ children }) {
         </Grid>
 
         { /* Container */}
-        <Grid item container sx={mainCtnrStyles}>
+        <Grid item container sx={innerCtnrStyles}>
             <Container maxWidth="xl">
                 {children}
             </Container>

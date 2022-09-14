@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography'
 
 export const Body = ({ data: weatherData, loading, error }) => {
     console.log('weatherData', weatherData)
-    if (!weatherData) return 'No Response ...'
+    if (!weatherData) return 'No Response (Footer) - Add a Structure ...'
     if (!!loading) return <Loader />
 
     const { location, current, forecast } = weatherData;

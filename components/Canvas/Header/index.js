@@ -2,11 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import { SearchBar } from "./SearchBar";
 
 export const Header = ({ title = 'SkyNet', query, setQuery }) => {
-    const headerStyles = {
-        direction: {
 
-        }
-    }
 
     return (
         <Grid
