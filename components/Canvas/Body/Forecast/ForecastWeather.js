@@ -1,6 +1,5 @@
 import React from 'react'
-import { Divider, Grid, Typography } from '@mui/material';
-import Card from '../../../ui/Card';
+import { Divider, Grid } from '@mui/material';
 import { ForecastRow } from './ForecastRow';
 
 

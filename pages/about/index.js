@@ -15,42 +15,28 @@ const btnArr = [
         to: '/',
         icon: HomeOutlined
     },
-    {
-        label: "LinkedIn",
-        to: '/',
-        icon: LinkedIn,
-        external: true,
-    },
-    {
-        label: "Email",
-        to: '/',
-        icon: Email,
-        external: true,
-    }
 ]
 
 const BtnLink = ({ label = 'default', to = '/', icon: Icon = null, external = false }) => {
 
-    const btnJsx =
-        <Button
-            startIcon={Icon && <Icon />}
-            variant="contained"
-            color="nute"
-            sx={{ px: 5, py: 1 }}
-        >
-            {label}
-        </Button>
+    const bodyJSX = <>
+        <Link href={to} /* passHref */ >
+            <Button
+                startIcon={Icon && <Icon />}
+                variant="contained"
+                color="nute"
+                sx={{ px: 5, py: 1 }}
+            >
+                {label}
+            </Button>
 
-    if (external) {
-        return <Link href={to} passHref >
-            <a target='_blank'>
-                {btnJsx}
-            </a>
-        </Link>;
-    } else {
-        return <Link href={to}>
-            {btnJsx}
         </Link>
+    </>
+
+    if (external) { // wrap in "target: blank"
+        return <a target='_blank'>{bodyJSX}</a>;
+    } else {
+        return bodyJSX
     }
 
 }
@@ -64,14 +50,24 @@ export default function Home(props) {
                 direction='column'
                 justifyContent='center'
                 alignItems='center'
-                gap={4}
+                gap={2}
             >
-                <Typography variant="h1" color='white' >
-                    Weather <br />Application
+                <Typography variant="h2" color='white' >
+                    About the Project
                 </Typography>
 
-                <Typography variant="h5" color='white' sx={{ opacity: .8 }} >
+                <Typography
+                    variant="body1"
+                    textAlign='center'
+                    color='white'
+                    sx={{
+                        opacity: .8,
+                        maxWidth: 680,
+                        mx: 3
+                    }} >
                     A Weather app using React JS and Sass by <strong>M. Shahzeb Raza</strong>
+
+                    This app was created as a personal portfolio project. It pulls data <Link href='https://api.weatherapi.com/v1' passHref ><a target='_blank' >WeatherAPI</a></Link> to display the <strong>current weather condition for the searched location</strong> as well as the <strong>forecast weather for the next 3 days</strong>.
                 </Typography>
 
                 <Grid item container xs='auto' gap={1} >
@@ -84,12 +80,12 @@ export default function Home(props) {
                 </Grid>
 
 
-            </Grid>
+            </Grid >
 
             {/* <div className={styles.graphic}>
                         <Image src='/appScreenshot.png' alt="app screenshot" width={650} height={450} />
                     </div> */}
-        </Container>
+        </Container >
     );
 }
 

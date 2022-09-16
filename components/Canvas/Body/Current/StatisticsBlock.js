@@ -1,7 +1,7 @@
 import { Air, Cloud, Opacity } from "@mui/icons-material";
 import { Typography, Grid, Box, IconButton, Divider } from "@mui/material";
 import { formatDigits, formatHours12 } from "../../../../lib/helpers";
-import { NextImage } from "../../../ui/stateBlocks/NextImage";
+import { NextImage } from "../../../ui/NextImage";
 
 
 

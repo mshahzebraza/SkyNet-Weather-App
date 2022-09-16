@@ -19,12 +19,12 @@ import Link from 'next/link';
 import { LinkedIn, Email, HomeOutlined } from "@mui/icons-material";
 
 
-const pages = ['Home', 'Weather'/* , 'About' */];
-// const pages = [
-//     {name: 'Home', path: '/'},
-//     {name: 'Weather', path: '/weather'},
-//     {name: 'About', path: '/about'},
-//     , 'Weather'/* , 'About' */];
+// const pages = ['Home', 'Weather'/* , 'About' */];
+const pages = [
+    { label: 'Home', to: '/' },
+    { label: 'Weather', to: '/weather' },
+    { label: 'About', to: '/about' },
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -86,7 +86,7 @@ function NavMenu(props) {
                 md: 'flex'
             }
         }}>
-            {pages.map(page => <Link key={page} href={page === 'Home' ? '/' : page.toLowerCase()}>
+            {pages.map(({ label, to }) => <Link key={label} href={to}>
                 <Button
                     // disableElevation
                     onClick={props.handleCloseNavMenu} sx={{
@@ -95,7 +95,7 @@ function NavMenu(props) {
                         color: 'inherit',
                         display: 'block'
                     }}>
-                    {page}
+                    {label}
                 </Button>
             </Link>)}
         </Box>
@@ -137,9 +137,9 @@ function NavMenuResponsive({ anchorElNav, handleCloseNavMenu, handleOpenNavMenu 
                     display: { xs: 'block', md: 'none' },
                 }}
             >
-                {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                        <Typography textAlign="center">{page}</Typography>
+                {pages.map(({ label, to }) => (
+                    <MenuItem key={label} onClick={handleCloseNavMenu}>
+                        <Typography textAlign="center">{label}</Typography>
                     </MenuItem>
                 ))}
             </Menu>

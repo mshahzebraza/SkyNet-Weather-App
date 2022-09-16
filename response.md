@@ -1,19 +1,4 @@
-The Response from `forecast` is simplified as follows:
-
-Special Features of Current:
-
-- AQ
-- Location {area,region,country,coords,localTime, humidity, temp, feelslike,}
-
-```js
-Main: {
-	[Area, Date, Day], [Icon, Condition, [Avg_Temp, Temp, Feelslike]], [Wind];
-}
-
-Forecast: {
-	[Icon, Condition, [Avg_Temp]], [sunrise, sunset, precip];
-}
-```
+Here is a response object (removed empty objects & properties) as fetched from the API.
 
 ```js
  location: {

@@ -1,8 +1,5 @@
 import React from 'react'
-import { PrimaryWeatherCard } from ".././WeatherCards/PrimaryWeatherCard";
-import { SecondaryWeatherCard } from ".././WeatherCards/SecondaryWeatherCard";
 import { Grid, Divider } from '@mui/material';
-import Card from '../../../ui/Card';
 import { TemperatureBlock } from './TemperatureBlock'
 import { StatisticsBlock } from './StatisticsBlock'
 import { LabelValueIcon as ConditionBlock } from '../../reusable/LabelValueIcon';

@@ -1,5 +1,5 @@
 import { Grid, IconButton, Typography } from "@mui/material";
-import { NextImage } from "../../ui/stateBlocks/NextImage";
+import { NextImage } from "../../ui/NextImage";
 
 
 export const LabelValueIcon = ({ label = 'Condition', value, icon: Icon, imagePath, isMini = false, sx: customSX, ...restProps }) => {

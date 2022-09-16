@@ -1,4 +1,4 @@
-import { Loader } from "../../ui/stateBlocks/Loader";
+import { Loader } from "../../ui/Loader";
 import { InfoBar } from "./Info/InfoBar";
 import { CurrentWeather } from "./Current/CurrentWeather";
 import { ForecastWeather } from "./Forecast/ForecastWeather";
