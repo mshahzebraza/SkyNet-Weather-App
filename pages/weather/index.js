@@ -1,6 +1,5 @@
 // Dependency imports
 // import Head from 'next/head'
-import Head from 'next/head';
 // Objects & Styles
 
 // Components
