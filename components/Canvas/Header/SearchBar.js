@@ -3,18 +3,30 @@ import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import { SearchBtn } from './SearchBtn';
 import { CloseBtn } from './CloseBtn';
+import { InputLabel } from '@mui/material';
 
 
-export const SearchBar = ({ query, setQuery }) => {
+export const SearchBar = ({ query, setQuery, error = false }) => {
     const containerStyles = {
         px: 2,
         // py: 1,
         display: 'flex',
         // justifyContent: "center",
-        // alignItems: 'center',
+        alignItems: 'center',
         width: '100%',
         background: '#F6F6F6',
-        boxShadow: 'none'
+        boxShadow: 'none',
+        // boxShadow: 'inset 0 0 0 2px #b52020',
+    }
+
+    const inputStyles = {
+        flex: 1,
+    }
+
+
+    if (error) {
+        inputStyles.color = '#b52020';
+        containerStyles.boxShadow = 'inset 0 0 0 2px #b52020';
     }
 
     return (
@@ -26,7 +38,7 @@ export const SearchBar = ({ query, setQuery }) => {
             <InputBase
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                sx={{ flex: 1 }}
+                sx={inputStyles}
                 placeholder="Search for Coordinates, Areas, Country ..."
                 inputProps={{ 'aria-label': 'search weather' }}
             />

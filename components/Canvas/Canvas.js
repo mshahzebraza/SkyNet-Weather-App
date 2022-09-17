@@ -37,10 +37,16 @@ const Canvas = ({
             sx={containerStyles}
             {...props}
         >
-            <Header query={query} setQuery={setQuery} />
+            <Header query={query} setQuery={setQuery} error={error} />
             <Divider sx={{ width: '100%' }} />
-            <Body data={data} loading={loading} error={error} />
-            <Footer lastUpdateEpoch={data?.current?.last_updated_epoch * 1000} />
+
+            {!error
+                ? <Body data={data} loading={loading} />
+                : <ErrorText />
+            }
+            {
+                !error && <Footer data={data} loading={loading} />
+            }
         </Grid>
     )
 }

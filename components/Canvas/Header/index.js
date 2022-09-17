@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { SearchBar } from "./SearchBar";
 
-export const Header = ({ title = 'SkyNet', query, setQuery }) => {
+export const Header = ({ title = 'SkyNet', query, setQuery, error }) => {
 
 
     return (
@@ -27,6 +27,7 @@ export const Header = ({ title = 'SkyNet', query, setQuery }) => {
                 <SearchBar
                     query={query}
                     setQuery={setQuery}
+                    error={error}
                 />
             </Grid>
         </Grid>
