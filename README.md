@@ -1,5 +1,16 @@
 # SKYNET - A Weather App
 
+<a href="https://github.com/mshahzebraza97/weather_next_app/">
+  <p align="center">
+    <img
+    style="	object-fit: cover;" 
+     width="600"
+     height="auto" 
+     src="/public/images/app_screenshot.png"
+     >
+  </p>
+</a>
+
 ## Overview
 
 This app was created as a personal portfolio project. It pulls data [WeatherAPI](http://api.weatherapi.com/v1) to display the **current weather condition for the searched location** as well as the **forecast weather for the next 3 days**.
