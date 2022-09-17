@@ -28,6 +28,8 @@ function LayoutBody({ children }) {
     const innerCtnrStyles = ({ palette: { primary, nute } }) => ({
         height: '100%',
         alignItems: 'center',
+        // mx: "auto",
+        maxWidth: "92vw",
 
     })
     return (<Grid

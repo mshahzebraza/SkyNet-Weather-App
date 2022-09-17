@@ -9,7 +9,7 @@ export const LocationBlock = ({ location }) => {
     })
 
     return (
-        <Grid item xs={12} md={3.5} container alignItems='center' sx={locationBlockStyles} >
+        <Grid item xs={12} md={3.5} container alignItems='center' sx={locationBlockStyles} wrap='nowrap' >
             <IconButton aria-label="Current Location Icon" /* sx={{ color: "inherit" }} */ size='small' >
                 <LocationOnOutlinedIcon />
             </IconButton>

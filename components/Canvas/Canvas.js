@@ -1,4 +1,5 @@
 import { Divider, Grid } from "@mui/material";
+import { ErrorText } from "../ui/ErrorText";
 import { Body } from "./Body";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -21,9 +22,11 @@ const Canvas = ({
         py: 4,
         // pt: 6.25,
         // pb: 2.5,
+        minHeight: 730,
         backgroundColor: '#FFFFFF',
         borderRadius: 2.5,
-        gap: { xs: 2, md: 2 }
+        gap: { xs: 2, md: 2 },
+
     }
 
 
@@ -31,6 +34,7 @@ const Canvas = ({
         <Grid
             container
             direction='column'
+            justifyContent={'space-between'}
             alignItems='center'
             gap={2}
             component='main'

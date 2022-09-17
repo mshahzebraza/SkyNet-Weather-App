@@ -22,12 +22,14 @@ The app makes use of
 
 Planning to add some more features
 
-- Default searching of user's location using `navigator API`
-- Creation of an About Page
-- Creation of a Footer with Social Links at the main page
-- Create a link to all the dependency packages' website
-- Add a strip at top to show loading, error etc. state
-- Create a "fetch-Mock-Data" Option for user in case the network is down or for debug purposes
+- [x] Add a minimum window size for canvas
+- [x] Show Skeleton on Page Load
+- [x] Show Error Message/Component if a query is invalid
+- [ ] Default searching of user's location using `navigator API`
+- [x] Creation of an About Page
+- [ ] Creation of a Footer with Social Links at the main page
+- [ ] Add a strip at top to show loading, error etc. state
+- [ ] Create a "fetch-Mock-Data" Option for user in case the network is down or for debug purposes
 
 ## About the Author
 
