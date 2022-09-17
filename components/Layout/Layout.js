@@ -7,7 +7,7 @@ import Container from '@mui/material/Container'
 
 function LayoutHead() {
     return (<Head>
-        <title>WheatherNet</title>
+        <title>SkyNet</title>
         <meta name="description" content="Search the state of current weather in your location with the amazingly fast web app powered by NEXT.JS" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
