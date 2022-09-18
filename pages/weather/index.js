@@ -19,6 +19,8 @@ export default function Weather() {
     const { response, loading, error } = useAxios(getURL(query));
 
     useEffect(() => {
+        console.log('env vars: ', process.env)
+        console.log('env var KEY: ', process.env.NEXT_PUBLIC_API_KEY)
         if (response && response.data) setData(response.data)
     }, [response]);
 
