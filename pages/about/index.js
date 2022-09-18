@@ -4,8 +4,8 @@ import Image from "next/image"
 // Objects & Styles
 // Components
 import Link from 'next/link';
-import { Container, Box, Grid, Typography, Button } from '@mui/material';
-import { LinkedIn, Email, HomeOutlined } from "@mui/icons-material";
+import { Container, Grid, Typography, Button } from '@mui/material';
+import { HomeOutlined } from "@mui/icons-material";
 // Function
 
 

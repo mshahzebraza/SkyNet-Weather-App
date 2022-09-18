@@ -10,8 +10,7 @@ import Canvas from "../../components/Canvas/Canvas";
 import { mockResponse } from "../../lib/mockResponse";
 
 
-
-// https://api.weatherapi.com/v1/forecast.json?key=df0dcf32a9b346308a814745212710&q=asd&days=10&aqi=yes&alerts=no
+// https://api.weatherapi.com/v1/forecast.json?key={...}&q=asd&days=10&aqi=yes&alerts=no
 export default function Weather() {
 
     const [data, setData] = useState(null);

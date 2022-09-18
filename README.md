@@ -36,8 +36,9 @@ Planning to add some more features
 - [x] Add a minimum window size for canvas
 - [x] Show Skeleton on Page Load
 - [x] Show Error Message/Component if a query is invalid
-- [ ] Default searching of user's location using `navigator API`
 - [x] Creation of an About Page
+- [ ] Use SWR hook with axios for data fetching.
+- [ ] Default searching of user's location using `navigator API`
 - [ ] Creation of a Footer with Social Links at the main page
 - [ ] Add a strip at top to show loading, error etc. state
 - [ ] Create a "fetch-Mock-Data" Option for user in case the network is down or for debug purposes

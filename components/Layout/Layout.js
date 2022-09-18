@@ -20,7 +20,8 @@ function LayoutBody({ children }) {
 
     const outerCtnrStyles = ({ palette: { primary, nute } }) => ({
         background: "#b52020",
-        // background: "url('./bg/svgPattern.svg')",
+        backgroundImage: "url('./images/app_bg.svg')",
+        backgroundSize: 'cover',
         gap: { xs: 2, md: 0 },
         height: "100vh"
     })
