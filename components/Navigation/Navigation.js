@@ -59,7 +59,7 @@ function BrandResponsive() {
                 variant="h5"
                 noWrap
                 component="a"
-                href=""
+                href="/"
                 sx={{
                     mr: 2,
                     display: { xs: 'flex', md: 'none' },
@@ -71,7 +71,7 @@ function BrandResponsive() {
                     textDecoration: 'none',
                 }}
             >
-                LOGO
+                SKYNET
             </Typography>
         </>
     );
@@ -139,7 +139,9 @@ function NavMenuResponsive({ anchorElNav, handleCloseNavMenu, handleOpenNavMenu 
             >
                 {pages.map(({ label, to }) => (
                     <MenuItem key={label} onClick={handleCloseNavMenu}>
-                        <Typography textAlign="center">{label}</Typography>
+                        <Link href={to} >
+                            <Typography textAlign="center" >{label}</Typography>
+                        </Link>
                     </MenuItem>
                 ))}
             </Menu>

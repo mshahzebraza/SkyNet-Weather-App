@@ -29,6 +29,7 @@ function LayoutBody({ children }) {
     const innerCtnrStyles = ({ palette: { primary, nute } }) => ({
         height: '100%',
         alignItems: 'center',
+        px: { xs: 2 },
         // mx: "auto",
         maxWidth: "92vw",
 

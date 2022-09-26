@@ -12,35 +12,37 @@ import { LinkedIn, Email, HomeOutlined } from "@mui/icons-material";
 const btnArr = [
     {
         label: "Go To App",
-        to: '/',
+        to: '/weather',
         icon: HomeOutlined
     },
     {
         label: "LinkedIn",
-        to: '/',
+        to: 'https://www.linkedin.com/in/mshahzebraza/',
         icon: LinkedIn,
         external: true,
     },
     {
         label: "Email",
-        to: '/',
+        to: 'mailto:m.shahzebraza.97@gmail.com',
         icon: Email,
         external: true,
     }
 ]
 
 const BtnLink = ({ label = 'default', to = '/', icon: Icon = null, external = false }) => {
+    console.log('to: ', to)
 
-    const btnJsx =
-        <Button
-            startIcon={Icon && <Icon />}
-            variant="contained"
-            color="nute"
-            sx={{ px: 5, py: 1 }}
-        >
-            {label}
-        </Button>
+    // Create the original component
+    const btnJsx = <Button
+        startIcon={Icon && <Icon />}
+        variant="contained"
+        color="nute"
+        sx={{ px: 5, py: 1 }}
+    >
+        {label}
+    </Button>
 
+    // Render the component
     if (external) {
         return <Link href={to} passHref >
             <a target='_blank'>
@@ -65,16 +67,17 @@ export default function Home(props) {
                 justifyContent='center'
                 alignItems='center'
                 gap={4}
+                wrap="nowrap"
             >
                 <Typography variant="h1" color='white' >
                     Weather <br />Application
                 </Typography>
 
-                <Typography variant="h5" color='white' sx={{ opacity: .8 }} >
+                <Typography variant="h5" color='white' sx={{ opacity: .8, textAlign: "center" }} >
                     A Weather app using React JS and Sass by <strong>M. Shahzeb Raza</strong>
                 </Typography>
 
-                <Grid item container xs='auto' gap={1} >
+                <Grid item container xs='auto' gap={1} justifyContent="center" >
                     {
                         btnArr.map(
                             (btnData, idx) => (<BtnLink key={idx} {...btnData} />)

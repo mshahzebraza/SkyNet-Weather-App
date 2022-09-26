@@ -12,7 +12,7 @@ import { HomeOutlined } from "@mui/icons-material";
 const btnArr = [
     {
         label: "Go To App",
-        to: '/',
+        to: '/weather',
         icon: HomeOutlined
     },
 ]
@@ -52,7 +52,7 @@ export default function Home(props) {
                 alignItems='center'
                 gap={2}
             >
-                <Typography variant="h2" color='white' >
+                <Typography variant="h2" color='white' textAlign='center' >
                     About the Project
                 </Typography>
 
