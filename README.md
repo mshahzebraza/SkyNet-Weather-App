@@ -47,7 +47,76 @@ Planning to add some more features
 
 M.Shahzeb Raza is a Frontend Web developer & energetic problem solver with a strong foundation of Web fundamentals:
 
-HTML | CSS | JS | REACT | NEXT | MONGODB
+<div>
+<button 
+name="button" 
+style="
+    border: 2px solid #5c3e13;
+    color:#5c3e13;
+    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    background-color:#d38920;
+    padding: 0.2rem 0.5rem ;
+   " >HTML</button>
+<button 
+name="button" 
+style="
+    border: 2px solid #154073;
+    color:#154073;
+    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    background-color:#318fff;
+    padding: 0.2rem 0.5rem ;
+   " >CSS</button>
+<button 
+name="button" 
+style="
+    border: 2px solid #625d05;
+    color:#625d05;
+    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    background-color:#fff431;
+    padding: 0.2rem 0.5rem ;
+   " >JS</button>
+<button 
+name="button" 
+style="
+    border: 2px solid #1d0ca7;
+    color:#1d0ca7;
+    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    background-color:#687de1;
+    padding: 0.2rem 0.5rem ;
+   " >REACT</button>
+<button 
+name="button" 
+style="
+    border: 2px solid #101010;
+    color:#101010;
+    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    background-color:#fbfbfb;
+    padding: 0.2rem 0.5rem ;
+   " >NEXT</button>
+<button 
+name="button" 
+style="
+    border: 2px solid #065706;
+    color:#065706;
+    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    background-color:#6ceb6c;
+    padding: 0.2rem 0.5rem ;
+   " >MongoDB</button>
+   </div>
+
+<br/>
 
 Seeking a part-time Remote Web/Frontend Developer role in a Development Team and offering Ambition with strong technical, and problem-solving skills.
 
